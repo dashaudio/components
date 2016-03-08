@@ -1,0 +1,50 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="auth.html">
+
+<dom-module id="dash-login">
+  <template>
+    <h2>dash-login</h2>
+
+    <form on-submit="login">
+      <label>Email</label><input value="{{form.email::change}}" type="text" /><br/>
+      <label>Password</label><input value="{{form.password::change}}" type="text" /><br/>
+      <button>Log In</button>
+    </form>
+
+    <form on-submit="logout">
+      <button>Log Out</button>
+    </form>
+
+    <dash-auth id="auth"></dash-auth>
+  </template>
+</dom-module>
+
+<script>
+
+Polymer({
+  is: 'dash-login',
+
+  properties: {
+    form: {
+      type: Object,
+      value: {
+        email: "",
+        password: ""
+      }
+    }
+  },
+
+  login: function(e) {
+    e.preventDefault();
+    var email = this.get('form.email');
+    var password = this.get('form.password');
+    document.querySelector("#auth").login(email, password);
+  },
+
+  logout: function(e) {
+    e.preventDefault();
+    document.querySelector("#auth").logout();
+  }
+});
+
+</script>
