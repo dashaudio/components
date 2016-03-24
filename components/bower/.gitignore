@@ -1,0 +1,4 @@
+# Keep this folder, but ignore any contents Bower has build
+
+*
+!.gitignore
