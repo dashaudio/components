@@ -18,7 +18,7 @@ deploy:
       key_id: $AMAZON_ACCESS_KEY
       key_secret: $AMAZON_ACCESS_KEY_SECRET
       bucket_url: $AMAZON_S3_BUCKET
-      source_dir: build
+      source_dir: components
   after-steps:
     - slack-notifier:
       url: $SLACK_URL
