@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "postinstall": "bower install",
-    "start": "http-server",
+    "start": "http-server components",
     "test": "exit 0"
   },
   "author": "",
