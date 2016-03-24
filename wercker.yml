@@ -1,0 +1,24 @@
+box: node:4.3.2
+no-response-timeout: 15
+
+build:
+  steps:
+    - npm-install
+    - script:
+      name: npm-run-postinstall
+      code: npm run postinstall
+    - npm-test
+  after-steps:
+    - slack-notifier:
+      url: $SLACK_URL
+
+deploy:
+  steps:
+    - s3sync:
+      key_id: $AMAZON_ACCESS_KEY
+      key_secret: $AMAZON_ACCESS_KEY_SECRET
+      bucket_url: $AMAZON_S3_BUCKET
+      source_dir: build
+  after-steps:
+    - slack-notifier:
+      url: $SLACK_URL
