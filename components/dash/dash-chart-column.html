@@ -62,6 +62,8 @@
     },
 
     refresh: function(data) {
+      console.log("Refreshing chart...", data, this.data);
+
       this.set("rows", data.buckets.map(function(datum) {
         return [(new Date(datum.key)), datum.doc_count];
       }));
