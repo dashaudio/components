@@ -62,6 +62,7 @@
     },
 
     refresh: function(data) {
+      if (!data) return;
       console.log("Refreshing chart...", data, this.data);
 
       this.set("rows", data.buckets.map(function(datum) {
