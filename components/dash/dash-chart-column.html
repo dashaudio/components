@@ -26,7 +26,9 @@
       type: String,
       cols: Array,
       rows: Array,
-      data: Array
+      data: {
+        type: Array,
+        observer: "dataChanged"
     },
 
     ready: function() {
@@ -39,19 +41,19 @@
       this.type = "column";
       this.cols = [{"label":"Date", "type":"date"}, {"label":"Hits", "type":"number"}];
 
-      var url = "http://localhost:3000/listeners/count" +
-        "?input.glob.body.query.filtered.filter.range.startTime.gte=now-1h" +
-        "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.min=now-1h" +
-        "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.max=now";
-
-      fetch(url, { method: 'get' }).then(function(response) {
-        return response.text();
-      }).then(function(json) {
-        var data = JSON.parse(json);
-        console.log(data);
-        this.data = data;
-        this.refresh(data);
-      }.bind(this));
+      // var url = "http://localhost:3000/listeners/count" +
+      //   "?input.glob.body.query.filtered.filter.range.startTime.gte=now-1h" +
+      //   "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.min=now-1h" +
+      //   "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.max=now";
+      //
+      // fetch(url, { method: 'get' }).then(function(response) {
+      //   return response.text();
+      // }).then(function(json) {
+      //   var data = JSON.parse(json);
+      //   console.log(data);
+      //   this.data = data;
+      //   this.refresh(data);
+      // }.bind(this));
 
       // window.addEventListener("resize", function(event) {
       //   this.refresh(...);
@@ -59,7 +61,12 @@
 
     },
 
-    refresh(data) {
+    dataChanged: function(oldData, newData) {
+      console.log("data changed!", newData);
+      this.refresh(newData);
+    },
+
+    refresh: function(data) {
       this.set("rows", data.buckets.map(function(datum) {
         return [(new Date(datum.key)), datum.doc_count];
       }));
