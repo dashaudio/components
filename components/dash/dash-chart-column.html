@@ -58,13 +58,10 @@
     },
 
     dataChanged: function(data) {
-      this.refresh(data);
+      if (data) this.refresh(data);
     },
 
     refresh: function(data) {
-      if (!data) return;
-      console.log("Refreshing chart...", data, this.data);
-
       this.set("rows", data.buckets.map(function(datum) {
         return [(new Date(datum.key)), datum.doc_count];
       }));
