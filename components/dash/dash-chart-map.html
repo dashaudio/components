@@ -1,0 +1,67 @@
+<script src="../bower/fetch/fetch.js"></script>
+<script src="../bower/geohash.js/geohash.js"></script>
+
+<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="../bower/google-chart/google-chart.html">
+
+<dom-module id="dash-chart-map">
+  <template>
+    dash-chart-map
+    <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'dash-chart-map',
+
+    properties: {
+      options: Object,
+      type: String,
+      cols: Array,
+      rows: Array
+    },
+
+    ready: function() {
+      this.type = "geo";
+      this.cols = [
+        {"label":"Latitude", "type":"number"},
+        {"label":"Longitude", "type":"number"},
+        {"label":"Hits", "type":"number"}
+      ];
+
+      this.options = {
+        // colorAxis: { colors: ["green", "blue"] }
+        // sizeAxis: { minValue: 1000, maxValue: 12000 },
+        // region: '150', // Western Europe
+      };
+
+      var url = 'http://localhost:3000/plays/count/location' +
+          '?override=input.glob.body.query.filtered.filter.bool.must[1].range.startTime.gte=now-1M' +
+          '&override=input.glob.body.aggs.plays.geohash_grid.precision=3' +
+          '&override=input.glob.body.query.filtered.filter.bool.must[2].term.object___publisher=http://dashaudio.co/Publisher/politiken';
+
+      fetch(url, {
+        method: 'get'
+      }).then(function(response) {
+        return response.text();
+      }).then(function(json) {
+        var data = JSON.parse(json);
+        console.log(data);
+        this.refresh(data);
+      }.bind(this));
+
+    },
+
+    refresh(data) {
+      this.set("rows", data.buckets.map(function(datum) {
+        var latlong = Geohash.decode(datum.key);
+        return [latlong[0], latlong[1], datum.doc_count];
+      }));
+    }
+
+  });
+
+</script>

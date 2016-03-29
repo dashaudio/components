@@ -1,0 +1,72 @@
+<script src="../bower/fetch/fetch.js"></script>
+
+<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="../bower/google-chart/google-chart.html">
+
+<dom-module id="dash-chart-column">
+  <template>
+    <style>
+      google-chart {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'dash-chart-column',
+
+    properties: {
+      options: Object,
+      type: String,
+      cols: Array,
+      rows: Array,
+      data: Array
+    },
+
+    ready: function() {
+
+      this.options = {
+        width: "100%",
+        height: "100%"
+      };
+
+      this.type = "column";
+      this.cols = [{"label":"Date", "type":"date"}, {"label":"Hits", "type":"number"}];
+
+      var url = "http://localhost:3000/listeners/count" +
+        "?input.glob.body.query.filtered.filter.range.startTime.gte=now-1h" +
+        "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.min=now-1h" +
+        "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.max=now";
+
+      fetch(url, {
+        method: 'get'
+      }).then(function(response) {
+        return response.text();
+      }).then(function(json) {
+        var data = JSON.parse(json);
+        console.log(data);
+        this.data = data;
+        this.refresh();
+      }.bind(this));
+
+      window.addEventListener("resize", function(event) {
+        this.refresh(this.cache);
+      }.bind(this));
+
+    },
+
+    refresh(data) {
+      this.set("rows", data.buckets.map(function(datum) {
+        return [(new Date(datum.key)), datum.doc_count];
+      }));
+    }
+
+  });
+
+</script>

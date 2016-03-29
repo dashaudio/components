@@ -4,9 +4,18 @@
   <meta charset="utf-8">
   <title>Dash Components</title>
   <script src="bower/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="dash/test.html">
+  <link rel="import" href="dash/dash-chart-column.html">
+  <link rel="import" href="dash/dash-chart-map.html">
 </head>
 <body>
-  <dash-test></dash-test>
+  <style>
+    dash-chart-column, dash-chart-map {
+      display: block;
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+  <dash-chart-column></dash-chart-column>
+  <dash-chart-map></dash-chart-map>
 </body>
 </html>
