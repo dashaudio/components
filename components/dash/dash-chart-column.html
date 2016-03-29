@@ -57,11 +57,8 @@
 
     },
 
-    dataChanged: function(oldData, newData) {
-      console.log("data changed!", oldData, newData);
-      if (newData) {
-        this.refresh(newData);
-      }
+    dataChanged: function(data) {
+      this.refresh(data);
     },
 
     refresh: function(data) {
