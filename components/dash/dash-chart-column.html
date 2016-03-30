@@ -9,6 +9,7 @@
       google-chart {
         width: 100%;
         height: 100%;
+        background: red;
       }
     </style>
     <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
@@ -37,7 +38,14 @@
       this.options = {
         width: "100%",
         height: "100%",
-        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"]
+        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
+        bar: { groupWidth: "95%" },
+        animation: { duration: 0.25 },
+        chartArea: { left: 30, top: 10, width: "100%", height: "90%" },
+        fontSize: 12,
+        hAxis: { gridlines: { color: "#eee" } },
+        vAxis: { gridlines: { color: "#eee" } },
+        legend: { position: "none" }
       };
 
       this.type = "column";
