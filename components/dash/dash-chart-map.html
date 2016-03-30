@@ -6,7 +6,12 @@
 
 <dom-module id="dash-chart-map">
   <template>
-    dash-chart-map
+    <style>
+      google-chart {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
   </template>
 </dom-module>
@@ -21,44 +26,39 @@
       options: Object,
       type: String,
       cols: Array,
-      rows: Array
+      rows: Array,
+      data: {
+        type: Array,
+        observer: "dataChanged"
+      }
     },
 
     ready: function() {
+
+      this.options = {
+        width: "100%",
+        height: "100%"
+        // region: '150' // Western Europe
+      };
+
       this.type = "geo";
+
       this.cols = [
         {"label":"Latitude", "type":"number"},
         {"label":"Longitude", "type":"number"},
         {"label":"Hits", "type":"number"}
       ];
 
-      this.options = {
-        // colorAxis: { colors: ["green", "blue"] }
-        // sizeAxis: { minValue: 1000, maxValue: 12000 },
-        // region: '150', // Western Europe
-      };
-
-      var url = 'http://localhost:3000/plays/count/location' +
-          '?override=input.glob.body.query.filtered.filter.bool.must[1].range.startTime.gte=now-1M' +
-          '&override=input.glob.body.aggs.plays.geohash_grid.precision=3' +
-          '&override=input.glob.body.query.filtered.filter.bool.must[2].term.object___publisher=http://dashaudio.co/Publisher/politiken';
-
-      fetch(url, {
-        method: 'get'
-      }).then(function(response) {
-        return response.text();
-      }).then(function(json) {
-        var data = JSON.parse(json);
-        console.log(data);
-        this.refresh(data);
-      }.bind(this));
-
     },
 
-    refresh(data) {
+    dataChanged: function(data) {
+      if (data) this.refresh(data);
+    }
+
+    refresh: function(data) {
       this.set("rows", data.buckets.map(function(datum) {
-        var latlong = Geohash.decode(datum.key);
-        return [latlong[0], latlong[1], datum.doc_count];
+        var coordinates = Geohash.decode(datum.key);
+        return [coordinates[0], coordinates[1], datum.doc_count];
       }));
     }
 

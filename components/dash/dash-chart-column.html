@@ -42,19 +42,6 @@
       this.type = "column";
       this.cols = [{"label":"Date", "type":"date"}, {"label":"Hits", "type":"number"}];
 
-      // var url = "http://localhost:3000/listeners/count" +
-      //   "?input.glob.body.query.filtered.filter.range.startTime.gte=now-1h" +
-      //   "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.min=now-1h" +
-      //   "&input.glob.body.aggs.listeners.date_histogram.extended_bounds.max=now";
-      //
-      // fetch(url, { method: 'get' }).then(function(response) {
-      //   return response.text();
-      // }).then(function(json) {
-      //   var data = JSON.parse(json);
-      //   console.log(data);
-      //   this.refresh(data);
-      // }.bind(this));
-
     },
 
     dataChanged: function(data) {
