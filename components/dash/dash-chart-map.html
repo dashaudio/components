@@ -53,7 +53,7 @@
 
     dataChanged: function(data) {
       if (data) this.refresh(data);
-    }
+    },
 
     refresh: function(data) {
       this.set("rows", data.buckets.map(function(datum) {
