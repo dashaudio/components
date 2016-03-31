@@ -6,8 +6,19 @@
 
 <dom-module id="dash-chart-map">
   <template>
-    <style>google-chart { width: 100%; height: 100%; }</style>
-    <google-chart id="chart" options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+    <style>
+      .container {
+        width: 100%; height: 100%;
+        overflow: hidden;
+      }
+      google-chart {
+        width: 100%; height: 100%;
+        transform: scale(1.05);
+      }
+    </style>
+    <div class="container">
+      <google-chart id="chart" options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+    </div>
   </template>
 </dom-module>
 
@@ -48,7 +59,7 @@
         legend: false,
         magnifyingGlass: { enable: false },
         sizeAxis: { minValue: 1,  maxSize: 15 },
-        markerOpacity: .8,
+        markerOpacity: 1,
         datalessRegionColor: "FAFAFA"
       };
 
