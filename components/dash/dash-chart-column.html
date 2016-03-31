@@ -6,12 +6,17 @@
 <dom-module id="dash-chart-column">
   <template>
     <style>
+      .container {
+        width: 100%; height: 100%;
+        overflow: hidden;
+      }
       google-chart {
-        width: 100%;
-        height: 100%;
+        width: 100%; height: 100%;
       }
     </style>
-    <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+    <div class="container">
+      <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+    </div>
   </template>
 </dom-module>
 
