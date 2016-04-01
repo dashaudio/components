@@ -1,6 +1,8 @@
 <link rel="import" href="../bower/polymer/polymer.html">
 <link rel="import" href="../bower/google-chart/google-chart.html">
 
+<script src="../bower/moment/min/moment.min.js"></script>
+
 <dom-module id="dash-chart-cohort">
   <template>
     <style>
@@ -13,7 +15,7 @@
       }
     </style>
     <div class="container">
-      <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+      <google-chart options="{{options}}" type="{{type}}" data="{{googleChartData}}"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -32,7 +34,8 @@
       data: {
         type: Array,
         observer: "dataChanged"
-      }
+      },
+      googleChartData: Array
     },
 
     ready: function() {
@@ -40,21 +43,11 @@
       this.options = {
         width: "100%",
         height: "100%",
-        pointSize: 5,
-        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"]
-        // bar: { groupWidth: "80%" },
-        // chartArea:{
-        //   left: 50,
-        //   right: 0,
-        //   bottom: 10,
-        //   top: 10,
-        //   width: "100%",
-        //   height: "100%"
-        // },
-        // fontSize: 12,
-        // hAxis: { gridlines: { color: "#eee" } },
-        // vAxis: { gridlines: { color: "#eee" } },
-        // legend: { position: "none" }
+        pointSize: 10,
+        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
+        fontSize: 10,
+        hAxis: { gridlines: { color: "transparent" } },
+        vAxis: { gridlines: { color: "#eee" } }
       };
 
       this.type = "line";
@@ -66,34 +59,27 @@
     },
 
     refresh: function(data) {
+      this.set("googleChartData", this.googleChartDataForData(data));
+    },
 
-      // TODO: Code is horrible, but we'll clean this up, maybe there's a better API for this setup.
+    googleChartDataForData: function(data) {
 
-      var firstCol = [{ label: "Month", type: "string" }];
+      // TODO: Write this properly :)
 
-      var cols = firstCol.concat(data.monthsList.map(function(month, index) {
-        return { label: "Cohort " + (index + 1), type: "number" };
-      }));
+      var months = data.monthsList.map(function(date) { return moment(date, "YYYY-MM-DD").format("MMM"); });
+      var size = months.length + 1;
 
-      var rows = data.monthsList.map(function(month, index) {
-        return ["Month " + (index + 1)];
+      var array = new Array(size).fill(0);
+      array.forEach(function(item, index) {
+        array[index] = new Array(size).fill(null);
       });
 
-      var monthsCount = data.monthsList.length;
-      var cohortCount = Array.from(new Set(data.buckets.map(function(b) { return b.cohort; }))).length;
+      array[0] = (["Month"]).concat(months.map(function(month, index) { return (index + 1).toString(); }));
 
-      for (var m = 0; m < monthsCount; m++) {
-        for (var c = 1; c <= cohortCount; c++) {
-          rows[m][c] = null;
-        }
-      }
+      months.forEach(function(month, index) { array[index + 1][0] = month; });
+      data.buckets.forEach(function(bucket) { array[bucket.month][bucket.cohort] = bucket.value; });
 
-      data.buckets.forEach(function(bucket) {
-        rows[bucket.month - 1][bucket.cohort] = bucket.value;
-      });
-
-      this.set("rows", rows);
-      this.set("cols", cols);
+      return array;
 
     }
 
