@@ -46,11 +46,10 @@
     },
 
     refresh: function(data) {
-      this.set("googleChartOptions", this.googleChartOptionsForData(data));
-      window.setTimeout(function() {
-        this.set("googleChartData", this.googleChartDataForData(data));
-      }.bind(this), 10);
-
+      this.googleChartOptions = this.googleChartOptionsForData(data);
+      this.googleChartData = this.googleChartDataForData(data);
+      this.notifyPath("googleChartOptions", this.googleChartOptions);
+      this.notifyPath("googleChartData", this.googleChartData);
     },
 
     googleChartOptionsForData: function(data) {
@@ -75,7 +74,6 @@
         hAxis: {
           format: this.dateFormatStringForPeriod(period),
           viewWindow: this.viewWindowForDates(start, end),
-          viewWindowMode: "maximized",
           gridlines: {
             count: this.gridlineCountForPeriod(period),
             color: "#F0F0F0"
