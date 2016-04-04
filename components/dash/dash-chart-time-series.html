@@ -47,7 +47,10 @@
 
     refresh: function(data) {
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
-      this.set("googleChartData", this.googleChartDataForData(data));
+      window.setTimeout(function() {
+        this.set("googleChartData", this.googleChartDataForData(data));
+      }, 10);
+
     },
 
     googleChartOptionsForData: function(data) {
@@ -72,6 +75,7 @@
         hAxis: {
           format: this.dateFormatStringForPeriod(period),
           viewWindow: this.viewWindowForDates(start, end),
+          viewWindowMode: "maximized",
           gridlines: {
             count: this.gridlineCountForPeriod(period),
             color: "#F0F0F0"
