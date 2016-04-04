@@ -11,6 +11,9 @@
       google-chart {
         width: 100%; height: 100%;
       }
+      ::content rect[height="1"] {
+        fill: #F0F0F0;
+      }
     </style>
     <div class="container">
       <google-chart options="{{googleChartOptions}}" cols="{{googleChartCols}}" rows="{{googleChartRows}}" type="column"></google-chart>
