@@ -60,7 +60,7 @@
       var period = this.periodBetweenDates(start, end);
 
       if (period === 0) {
-        data.buckets[0].key = moment(data.buckets[0].key, "x").hours(0).toDate().getTime();
+        data.series[0].values[0].time = moment(data.series[0].values[0].time, "x").hours(0).toDate().getTime();
       }
 
       return {
@@ -69,7 +69,8 @@
         colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
         fontSize: 10,
         vAxis: { gridlines: { color: "#F0F0F0" } },
-        legend: { position: "none" },
+        // legend: { position: "none" },
+        isStacked: true,
         hAxis: {
           format: this.dateFormatStringForPeriod(period),
           viewWindow: this.viewWindowForDates(start, end),
@@ -93,13 +94,17 @@
       var rows = Array(uniqueKeys.length);
 
       for (var index = 0; index < uniqueKeys.length; index++) {
+        // console.log("row index", index);
         rows[index] = [new Date(uniqueKeys[index])];
 
         for (var seriesIndex = 0; seriesIndex < data.series.length; seriesIndex++) {
+          // console.log("-- series iter", seriesIndex);
           var value = data.series[seriesIndex].values[index];
           rows[index][seriesIndex+1] = value ? value.value : null;
         }
       }
+
+
 
       return rows;
 
