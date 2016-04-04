@@ -49,7 +49,7 @@
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
       window.setTimeout(function() {
         this.set("googleChartData", this.googleChartDataForData(data));
-      }, 10);
+      }.bind(this), 10);
 
     },
 
