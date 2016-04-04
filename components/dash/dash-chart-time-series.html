@@ -20,7 +20,7 @@
       }
     </style>
     <div class="container">
-      <google-chart options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
+      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -37,6 +37,10 @@
       googleChartData: Array
     },
 
+    listeners: {
+      "chart.google-chart-render": "rendered"
+    },
+
     ready: function() {
       // ...
     },
@@ -46,13 +50,18 @@
     },
 
     refresh: function(data) {
-      this.googleChartOptions = this.googleChartOptionsForData(data);
-      this.googleChartData = this.googleChartDataForData(data);
-      this.notifyPath("googleChartOptions", this.googleChartOptions);
 
-      window.setTimeout(function() {
-        this.notifyPath("googleChartData", this.googleChartData);
-      }.bind(this), 3000);
+      this.$.chart.style.display = "none";
+
+      this.set("googleChartOptions", this.googleChartOptionsForData(data));
+      this.set("googleChartData", this.googleChartDataForData(data));
+
+      this.$.chart.drawChart();
+
+    },
+
+    rendered: function() {
+      this.$.chart.style.display = "block";
     },
 
     googleChartOptionsForData: function(data) {
