@@ -20,7 +20,7 @@
       }
     </style>
     <div class="container">
-      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
+      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="{{type}}"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -32,6 +32,7 @@
     is: 'dash-chart-time-series',
 
     properties: {
+      type: String,
       data: { type: Array, observer: "dataChanged" },
       googleChartOptions: Object,
       googleChartData: Array
@@ -51,17 +52,18 @@
 
     refresh: function(data) {
 
-      this.$.chart.style.display = "none";
+      // this.$.chart.style.display = "none";
 
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
       this.set("googleChartData", this.googleChartDataForData(data));
 
-      this.$.chart.drawChart();
+      this.type = "pie";
+      this.type = "column";
 
     },
 
     rendered: function() {
-      this.$.chart.style.display = "block";
+      // this.$.chart.style.display = "block";
     },
 
     googleChartOptionsForData: function(data) {
