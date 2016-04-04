@@ -46,8 +46,8 @@
     },
 
     refresh: function(data) {
-      this.set("googleChartOptions", this.googleChartOptionsForData(data));
       this.set("googleChartData", this.googleChartDataForData(data));
+      this.set("googleChartOptions", this.googleChartOptionsForData(data));
     },
 
     googleChartOptionsForData: function(data) {
@@ -105,7 +105,7 @@
       var rows = Array(uniqueKeys.length);
 
       for (var index = 0; index < uniqueKeys.length; index++) {
-        rows[index] = [new Date(uniqueKeys[index])];
+        rows[index] = [this.dateForDateKey(uniqueKeys[index])];
 
         for (var seriesIndex = 0; seriesIndex < data.series.length; seriesIndex++) {
           var value = data.series[seriesIndex].values[index];
@@ -115,6 +115,10 @@
 
       return rows;
 
+    },
+
+    dateForDateKey: function(key) {
+      return moment(key, "x").hours(0).minutes(0).toDate();
     },
 
     startDateForData: function(data) {
