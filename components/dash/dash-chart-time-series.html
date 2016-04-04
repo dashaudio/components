@@ -49,7 +49,10 @@
       this.googleChartOptions = this.googleChartOptionsForData(data);
       this.googleChartData = this.googleChartDataForData(data);
       this.notifyPath("googleChartOptions", this.googleChartOptions);
-      this.notifyPath("googleChartData", this.googleChartData);
+
+      window.setTimeout(function() {
+        this.notifyPath("googleChartData", this.googleChartData);
+      }.bind(this), 3000);
     },
 
     googleChartOptionsForData: function(data) {
