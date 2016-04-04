@@ -1,7 +1,7 @@
 <link rel="import" href="../bower/polymer/polymer.html">
 <link rel="import" href="../bower/google-chart/google-chart.html">
 
-<dom-module id="dash-chart-column">
+<dom-module id="dash-chart-time-series">
   <template>
     <style>
       .container {
@@ -29,7 +29,7 @@
 
   Polymer({
 
-    is: 'dash-chart-column',
+    is: 'dash-chart-time-series',
 
     properties: {
       data: { type: Array, observer: "dataChanged" },
@@ -83,21 +83,46 @@
     },
 
     googleChartRowsForData: function(data) {
-      return data.buckets.map(function(datum) {
-        return [(new Date(datum.key)), datum.doc_count];
-      });
+
+      var allKeys = data.series.reduce(function(prev, curr, array) {
+        return prev.concat(curr.values.map(function(value) { return value.time; }));
+      }, []);
+
+      var uniqueKeys = Array.from(new Set(allKeys));
+
+      var rows = Array(uniqueKeys.length);
+
+      for (var index = 0; index < uniqueKeys.length; index++) {
+        rows[index] = [new Date(uniqueKeys[index])];
+
+        for (var seriesIndex = 0; seriesIndex < data.series.length; seriesIndex++) {
+          var value = data.series[seriesIndex].values[index];
+          rows[index][seriesIndex+1] = value ? value.value : null;
+        }
+      }
+
+      return rows;
+
     },
 
     googleChartColsForData: function(data) {
-      return [{"label":"Date", "type":"date"}, {"label":"Value", "type":"number"}];
+
+      var cols = [{"label":"Date", "type":"date"}];
+
+      for (var series of data.series) {
+        cols.push({"label":series.id || "Series", type: "number"});
+      }
+
+      return cols
+
     },
 
     startDateForData: function(data) {
-      return moment(data.buckets[0].key, "x");
+      return moment(data.series[0].values[0].time, "x");
     },
 
     endDateForData: function(data) {
-      return moment(data.buckets[data.buckets.length-1].key, "x");
+      return moment(data.series[0].values[data.series[0].values.length-1].time, "x");
     },
 
     periodBetweenDates: function(start, end) {
