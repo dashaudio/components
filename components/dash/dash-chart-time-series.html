@@ -46,8 +46,8 @@
     },
 
     refresh: function(data) {
-      this.set("googleChartData", this.googleChartDataForData(data));
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
+      this.set("googleChartData", this.googleChartDataForData(data));
     },
 
     googleChartOptionsForData: function(data) {
