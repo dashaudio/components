@@ -15,7 +15,7 @@
       }
     </style>
     <div class="container">
-      <google-chart options="{{options}}" type="{{type}}" data="{{googleChartData}}"></google-chart>
+      <google-chart options="{{googleChartOptions}}" type="line" data="{{googleChartData}}"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -27,31 +27,13 @@
     is: 'dash-chart-cohort',
 
     properties: {
-      options: Object,
-      type: String,
-      cols: Array,
-      rows: Array,
-      data: {
-        type: Array,
-        observer: "dataChanged"
-      },
+      data: { type: Array, observer: "dataChanged" },
+      googleChartOptions: Object,
       googleChartData: Array
     },
 
     ready: function() {
-
-      this.options = {
-        width: "100%",
-        height: "100%",
-        pointSize: 10,
-        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
-        fontSize: 10,
-        hAxis: { gridlines: { color: "transparent" } },
-        vAxis: { gridlines: { color: "#eee" } }
-      };
-
-      this.type = "line";
-
+      // ...
     },
 
     dataChanged: function(data) {
@@ -59,6 +41,7 @@
     },
 
     refresh: function(data) {
+      this.set("googleChartOptions", this.googleChartOptionsForData(data));
       this.set("googleChartData", this.googleChartDataForData(data));
     },
 
@@ -80,6 +63,20 @@
       data.buckets.forEach(function(bucket) { array[bucket.month][bucket.cohort] = bucket.value; });
 
       return array;
+
+    },
+
+    googleChartOptionsForData: function(data) {
+
+      return {
+        width: "100%",
+        height: "100%",
+        pointSize: 10,
+        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
+        fontSize: 10,
+        hAxis: { gridlines: { color: "transparent" } },
+        vAxis: { gridlines: { color: "#eee" } }
+      };
 
     }
 

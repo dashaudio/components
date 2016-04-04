@@ -13,7 +13,7 @@
       }
     </style>
     <div class="container">
-      <google-chart options="{{options}}" type="{{type}}" cols="{{cols}}" rows="{{rows}}"></google-chart>
+      <google-chart options="{{googleChartOptions}}" cols="{{googleChartCols}}" rows="{{googleChartRows}}" type="column"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -25,42 +25,14 @@
     is: 'dash-chart-column',
 
     properties: {
-      options: Object,
-      type: String,
-      cols: Array,
-      rows: Array,
-      data: {
-        type: Array,
-        observer: "dataChanged"
-      }
+      data: { type: Array, observer: "dataChanged" },
+      googleChartOptions: Object,
+      googleChartCols: Array,
+      googleChartRows: Array
     },
 
     ready: function() {
-
-      this.options = {
-        width: "100%",
-        height: "100%",
-        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
-        // bar: { groupWidth: "80%" },
-        // chartArea:{
-        //   left: 50,
-        //   right: 0,
-        //   bottom: 10,
-        //   top: 10,
-        //   width: "100%",
-        //   height: "100%"
-        // },
-        fontSize: 10,
-        hAxis: {
-          gridlines: { color: "transparent" }
-        },
-        vAxis: { gridlines: { color: "#eee" } },
-        legend: { position: "none" }
-      };
-
-      this.type = "column";
-      this.cols = [{"label":"Date", "type":"date"}, {"label":"Value", "type":"number"}];
-
+      // ...
     },
 
     dataChanged: function(data) {
@@ -68,9 +40,92 @@
     },
 
     refresh: function(data) {
-      this.set("rows", data.buckets.map(function(datum) {
+      this.set("googleChartOptions", this.googleChartOptionsForData(data));
+      this.set("googleChartCols", this.googleChartColsForData(data));
+      this.set("googleChartRows", this.googleChartRowsForData(data));
+    },
+
+    googleChartOptionsForData: function(data) {
+      if (!data) return null;
+
+      var start = this.startDateForData(data);
+      var end = this.endDateForData(data);
+      var period = this.periodBetweenDates(start, end);
+
+      if (period === 0) {
+        data.buckets[0].key = moment(data.buckets[0].key, "x").hours(0).toDate().getTime();
+      }
+
+      return {
+        width: "100%",
+        height: "100%",
+        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
+        fontSize: 10,
+        vAxis: { gridlines: { color: "#F0F0F0" } },
+        legend: { position: "none" },
+        hAxis: {
+          format: this.dateFormatStringForPeriod(period),
+          viewWindow: this.viewWindowForDates(start, end),
+          gridlines: {
+            count: this.gridlineCountForPeriod(period),
+            color: "#F0F0F0"
+          }
+        }
+      };
+
+    },
+
+    googleChartRowsForData: function(data) {
+      return data.buckets.map(function(datum) {
         return [(new Date(datum.key)), datum.doc_count];
-      }));
+      });
+    },
+
+    googleChartColsForData: function(data) {
+      return [{"label":"Date", "type":"date"}, {"label":"Value", "type":"number"}];
+    },
+
+    startDateForData: function(data) {
+      return moment(data.buckets[0].key, "x");
+    },
+
+    endDateForData: function(data) {
+      return moment(data.buckets[data.buckets.length-1].key, "x");
+    },
+
+    periodBetweenDates: function(start, end) {
+      return moment.duration(end.diff(start)).asDays();
+    },
+
+    viewWindowForDates: function(start, end) {
+      return {
+        min: start.subtract(12, "hours").toDate(),
+        max: end.add(12, "hours").toDate()
+      };
+    },
+
+    dateFormatStringForPeriod(period) {
+      if (period < 1) {
+        return "'Today'";
+      } else if (period < 7) {
+        return "EE";
+      } else if (period < 31) {
+        return "MMMM";
+      } else {
+        return "yyyy";
+      }
+    },
+
+    gridlineCountForPeriod: function(period) {
+      if (period < 1) {
+        return 1;
+      } else if (period < 7) {
+        return 7;
+      } else if (period < 31) {
+        return 1;
+      } else {
+        return 1;
+      }
     }
 
   });
