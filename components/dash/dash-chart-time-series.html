@@ -15,6 +15,12 @@
         transition: opacity 0.5s;
         opacity: 0;
       }
+      #empty {
+        width: 100%; height: 100%;
+        font-family: sans-serif;
+        font-size: 10px;
+        text-align: center;
+      }
       ::content rect[height="1"] {
         fill: #F0F0F0;
       }
@@ -25,6 +31,7 @@
     </style>
 
     <div class="container">
+      <div id="empty" hidden$="{{data}}">No Data</div>
       <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
     </div>
   </template>
@@ -37,9 +44,14 @@
     properties: {
       type: String,
       data: { type: Array, observer: "dataChanged" },
+      resizeTimerHandle: Number,
       googleChartOptions: Object,
-      googleChartData: Array,
-      resizeTimerHandle: Number
+      googleChartData: {
+        type: Array,
+        value: function() {
+          return { series: [] };
+        }
+      }
     },
 
     listeners: {
