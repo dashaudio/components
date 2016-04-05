@@ -3,6 +3,8 @@
 
 <script src="../bower/moment/min/moment.min.js"></script>
 
+<!-- This code is fairly junky. Intended to get us started and be rewritten. -->
+
 <dom-module id="dash-chart-cohort">
   <template>
     <style>
@@ -14,6 +16,7 @@
         width: 100%; height: 100%;
       }
     </style>
+
     <div class="container">
       <google-chart id="chart" options="{{googleChartOptions}}" type="line" data="{{googleChartData}}"></google-chart>
     </div>
@@ -21,9 +24,7 @@
 </dom-module>
 
 <script>
-
   Polymer({
-
     is: 'dash-chart-cohort',
 
     properties: {
@@ -60,28 +61,28 @@
     },
 
     googleChartDataForData: function(data) {
+      var months = data.monthsList.map(function(date) {
+        return moment(date, "YYYY-MM-DD").format("MMM");
+      });
 
-      // TODO: Write this properly :)
-
-      var months = data.monthsList.map(function(date) { return moment(date, "YYYY-MM-DD").format("MMM"); });
       var size = months.length + 1;
-
       var array = new Array(size).fill(0);
+
       array.forEach(function(item, index) {
         array[index] = new Array(size).fill(null);
       });
 
-      array[0] = (["Month"]).concat(months.map(function(month, index) { return (index + 1).toString(); }));
+      array[0] = (["Month"]).concat(months.map(function(month, index) {
+        return (index + 1).toString();
+      }));
 
       months.forEach(function(month, index) { array[index + 1][0] = month; });
       data.buckets.forEach(function(bucket) { array[bucket.month][bucket.cohort] = bucket.value; });
 
       return array;
-
     },
 
     googleChartOptionsForData: function(data) {
-
       return {
         width: "100%",
         height: "100%",
@@ -91,9 +92,6 @@
         hAxis: { gridlines: { color: "transparent" } },
         vAxis: { gridlines: { color: "#eee" } }
       };
-
     }
-
   });
-
 </script>
