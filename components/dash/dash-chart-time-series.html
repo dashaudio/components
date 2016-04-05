@@ -32,7 +32,7 @@
 
     <div class="container">
       <div id="empty" hidden$="{{data}}">No Data</div>
-      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
+      <google-chart id="chart" hidden$="{{!data}}" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -48,9 +48,7 @@
       googleChartOptions: Object,
       googleChartData: {
         type: Array,
-        value: function() {
-          return { series: [] };
-        }
+        value: function() { return { series: [] }; }
       }
     },
 
@@ -82,12 +80,11 @@
     },
 
     resizeChart: function() {
-      this.$.chart.drawChart();
+      if (this.data) this.$.chart.drawChart();
     },
 
     googleChartOptionsForData: function(data) {
-      if (!data) return null;
-      if (!data.series || !data.series.length) return null;
+      if (!data || !data.series || !data.series.length) return null;
 
       var start = this.startDateForData(data);
       var end = this.endDateForData(data);
@@ -117,9 +114,7 @@
     },
 
     googleChartDataForData: function(data) {
-      if (!data) return null;
-      if (!data.series || !data.series.length) return null;
-
+      if (!data || !data.series || !data.series.length) return null;
       return this.googleChartColsForData(data).concat(this.googleChartRowsForData(data));
     },
 
