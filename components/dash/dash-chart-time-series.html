@@ -75,6 +75,7 @@
 
     googleChartOptionsForData: function(data) {
       if (!data) return null;
+      if (!data.series || !data.series.length) return null;
 
       var start = this.startDateForData(data);
       var end = this.endDateForData(data);
@@ -104,6 +105,9 @@
     },
 
     googleChartDataForData: function(data) {
+      if (!data) return null;
+      if (!data.series || !data.series.length) return null;
+
       return this.googleChartColsForData(data).concat(this.googleChartRowsForData(data));
     },
 
@@ -118,8 +122,8 @@
     },
 
     googleChartRowsForData: function(data) {
-      var allKeys = data.series.reduce(function(prev, curr, array) {
-        return prev.concat(curr.values.map(function(value) { return value.time; }));
+      var allKeys = data.series.reduce(function(previous, current) {
+        return previous.concat(current.values.map(function(value) { return value.time; }));
       }, []);
 
       var uniqueKeys = Array.from(new Set(allKeys));

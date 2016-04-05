@@ -68,6 +68,10 @@
     },
 
     googleChartDataForData: function(data) {
+      if (!data) return null;
+      if (!data.buckets || !data.buckets.length) return null;
+      if (!data.monthsList || !data.monthsList.length) return null;
+
       var months = data.monthsList.map(function(date) {
         return moment(date, "YYYY-MM-DD").format("MMM");
       });
@@ -90,6 +94,10 @@
     },
 
     googleChartOptionsForData: function(data) {
+      if (!data) return null;
+      if (!data.buckets || !data.buckets.length) return null;
+      if (!data.monthsList || !data.monthsList.length) return null;
+
       return {
         width: "100%",
         height: "100%",
