@@ -15,7 +15,7 @@
       }
     </style>
     <div class="container">
-      <google-chart options="{{googleChartOptions}}" type="line" data="{{googleChartData}}"></google-chart>
+      <google-chart id="chart" options="{{googleChartOptions}}" type="line" data="{{googleChartData}}"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -29,11 +29,16 @@
     properties: {
       data: { type: Array, observer: "dataChanged" },
       googleChartOptions: Object,
-      googleChartData: Array
+      googleChartData: Array,
+      resizeTimerHandle: Number
     },
 
-    ready: function() {
-      // ...
+    attached: function() {
+      window.addEventListener("resize", this.windowWasResized.bind(this));
+    },
+
+    detached: function() {
+      window.removeEventListener(this);
     },
 
     dataChanged: function(data) {
@@ -43,6 +48,15 @@
     refresh: function(data) {
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
       this.set("googleChartData", this.googleChartDataForData(data));
+    },
+
+    windowWasResized: function() {
+      window.clearTimeout(this.resizeTimerHandle);
+      this.resizeTimerHandle = window.setTimeout(this.resizeChart.bind(this), 300);
+    },
+
+    resizeChart: function() {
+      this.$.chart.drawChart();
     },
 
     googleChartDataForData: function(data) {

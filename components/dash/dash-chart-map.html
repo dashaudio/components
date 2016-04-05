@@ -39,7 +39,8 @@
       data: {
         type: Array,
         observer: "dataChanged"
-      }
+      },
+      resizeTimerHandle: Number
     },
 
     listeners: {
@@ -78,6 +79,14 @@
 
     },
 
+    attached: function() {
+      window.addEventListener("resize", this.windowWasResized.bind(this));
+    },
+
+    detached: function() {
+      window.removeEventListener(this);
+    },
+
     dataChanged: function(data) {
       if (data) this.refresh(data);
     },
@@ -87,6 +96,15 @@
         var coordinates = Geohash.decode(datum.key);
         return [coordinates[0], coordinates[1], datum.doc_count];
       }));
+    },
+
+    windowWasResized: function() {
+      window.clearTimeout(this.resizeTimerHandle);
+      this.resizeTimerHandle = window.setTimeout(this.resizeChart.bind(this), 300);
+    },
+
+    resizeChart: function() {
+      this.$.chart.drawChart();
     }
 
   });

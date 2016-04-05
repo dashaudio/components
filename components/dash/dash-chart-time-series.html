@@ -1,6 +1,8 @@
 <link rel="import" href="../bower/polymer/polymer.html">
 <link rel="import" href="../bower/google-chart/google-chart.html">
 
+<!-- This code is fairly junky. Intended to get us started and be rewritten. -->
+
 <dom-module id="dash-chart-time-series">
   <template>
     <style>
@@ -19,31 +21,31 @@
         rx: 2px;
       }
     </style>
+
     <div class="container">
-      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="{{type}}"></google-chart>
+      <google-chart id="chart" options="{{googleChartOptions}}" data="{{googleChartData}}" type="column"></google-chart>
     </div>
   </template>
 </dom-module>
 
 <script>
-
   Polymer({
-
     is: 'dash-chart-time-series',
 
     properties: {
       type: String,
       data: { type: Array, observer: "dataChanged" },
       googleChartOptions: Object,
-      googleChartData: Array
+      googleChartData: Array,
+      resizeTimerHandle: Number
     },
 
-    listeners: {
-      "chart.google-chart-render": "rendered"
+    attached: function() {
+      window.addEventListener("resize", this.windowWasResized.bind(this));
     },
 
-    ready: function() {
-      // ...
+    detached: function() {
+      window.removeEventListener(this);
     },
 
     dataChanged: function(data) {
@@ -51,18 +53,17 @@
     },
 
     refresh: function(data) {
-
-      // this.$.chart.style.display = "none";
-
       this.set("googleChartOptions", this.googleChartOptionsForData(data));
       this.set("googleChartData", this.googleChartDataForData(data));
-
-      this.set("type", "column");
-
     },
 
-    rendered: function() {
-      // this.$.chart.style.display = "block";
+    windowWasResized: function() {
+      window.clearTimeout(this.resizeTimerHandle);
+      this.resizeTimerHandle = window.setTimeout(this.resizeChart.bind(this), 300);
+    },
+
+    resizeChart: function() {
+      this.$.chart.drawChart();
     },
 
     googleChartOptionsForData: function(data) {
@@ -103,14 +104,13 @@
       var cols = [{"label":"Date", "type":"date"}];
 
       for (var series of data.series) {
-        cols.push({"label":series.id || "Series", type: "number"});
+        cols.push({ "label": series.id || "Series", type: "number" });
       }
 
       return [cols];
     },
 
     googleChartRowsForData: function(data) {
-
       var allKeys = data.series.reduce(function(prev, curr, array) {
         return prev.concat(curr.values.map(function(value) { return value.time; }));
       }, []);
@@ -129,7 +129,6 @@
       }
 
       return rows;
-
     },
 
     dateForDateKey: function(key) {
@@ -178,7 +177,5 @@
         return 1;
       }
     }
-
   });
-
 </script>

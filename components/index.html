@@ -4,23 +4,12 @@
   <meta charset="utf-8">
   <title>Dash Components</title>
   <script src="bower/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="dash/dash-chart-column.html">
   <link rel="import" href="dash/dash-chart-time-series.html">
   <link rel="import" href="dash/dash-chart-map.html">
   <link rel="import" href="dash/dash-chart-cohort.html">
 </head>
 <body>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    dash-chart-column, dash-chart-map, dash-chart-cohort {
-      display: block;
-      width: 600px;
-      height: 300px;
-    }
-  </style>
+  <style>body { margin: 0; padding: 0; }</style>
 
   <div>Multi-series</div>
   <dash-chart-time-series data='{"series":[{"id":"webplayer","values":[{"time":1459728000000,"value":44}]},{"id":"iPhone","values":[{"time":1459728000000,"value":37}]},{"id":"iPad","values":[{"time":1459728000000,"value":4}]}]}'></dash-chart-time-series>
