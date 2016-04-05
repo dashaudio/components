@@ -40,12 +40,8 @@
       "chart.google-chart-render": "render",
     },
 
-    attached: function() {
+    ready: function() {
       window.addEventListener("resize", this.windowWasResized.bind(this));
-    },
-
-    detached: function() {
-      window.removeEventListener(this);
     },
 
     render: function(event) {

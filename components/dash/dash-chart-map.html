@@ -54,16 +54,12 @@
       // ...
     },
 
-    render: function(event) {
-      this.$.chart.style.opacity = 1;
-    },
-
-    attached: function() {
+    ready: function() {
       window.addEventListener("resize", this.windowWasResized.bind(this));
     },
 
-    detached: function() {
-      window.removeEventListener(this);
+    render: function(event) {
+      this.$.chart.style.opacity = 1;
     },
 
     dataChanged: function(data) {
