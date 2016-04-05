@@ -8,6 +8,12 @@
 <dom-module id="dash-chart-map">
   <template>
     <style>
+      ::host {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+      }
       .container {
         width: 100%; height: 100%;
         overflow: hidden;
@@ -24,7 +30,8 @@
     </style>
 
     <div class="container">
-      <google-chart id="chart" options="{{googleChartOptions}}" type="geo" data="{{googleChartData}}"></google-chart>
+      <div id="empty" hidden$="{{!empty}}">No Data</div>
+      <google-chart id="chart" hidden$="{{empty}}" options="{{googleChartOptions}}" type="geo" data="{{googleChartData}}"></google-chart>
     </div>
   </template>
 </dom-module>
@@ -34,14 +41,10 @@
     is: 'dash-chart-map',
 
     properties: {
-      options: Object,
-      type: String,
-      cols: Array,
-      rows: Array,
-      data: {
-        type: Array,
-        observer: "dataChanged"
-      },
+      data: { type: Array, observer: "dataChanged" },
+      empty: Boolean,
+      googleChartOptions: Object,
+      googleChartData: Array,
       resizeTimerHandle: Number
     },
 
@@ -63,6 +66,7 @@
     },
 
     dataChanged: function(data) {
+      this.set("empty", (!data || !data.buckets || !data.buckets.length));
       if (data) this.refresh(data);
     },
 
