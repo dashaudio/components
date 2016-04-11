@@ -3,12 +3,10 @@
 
 <script src="../bower/moment/min/moment.min.js"></script>
 
-<!-- This code is fairly junky. Intended to get us started and be rewritten. -->
-
 <dom-module id="dash-chart-cohort">
   <template>
     <style>
-      .container {
+      #container {
         width: 100%; height: 100%;
         overflow: hidden;
         display: flex;
@@ -16,109 +14,113 @@
         align-items: center;
         justify-content: center;
       }
-      google-chart {
-        width: 100%; height: 100%;
-        transition: opacity 0.5s;
-        opacity: 0;
-      }
+
       #empty {
         font-family: sans-serif;
         font-size: 11px;
         text-align: center;
       }
+
+      #chart {
+        width: 100%; height: 100%;
+        transition: opacity 0.5s;
+        opacity: 0;
+      }
+
+      :host { display: block; }
     </style>
 
-    <div class="container">
+    <div id="container">
       <div id="empty" hidden$="{{!empty}}">No Data</div>
-      <google-chart id="chart" hidden$="{{empty}}" options="{{googleChartOptions}}" type="line" data="{{googleChartData}}"></google-chart>
+      <google-chart id="chart" hidden$="{{empty}}" options="{{googleChartOptions}}" data="{{googleChartData}}" type="line"></google-chart>
     </div>
   </template>
+
+  <script>
+    Polymer({
+      is: 'dash-chart-cohort',
+
+      properties: {
+        data: { type: Array, observer: "dataChanged" },
+        empty: Boolean,
+        googleChartOptions: Object,
+        googleChartData: Array,
+        resizeTimerHandle: Number
+      },
+
+      listeners: {
+        "chart.google-chart-render": "render",
+      },
+
+      ready: function() {
+        window.addEventListener("resize", this.windowWasResized.bind(this));
+      },
+
+      render: function(event) {
+        this.$.chart.style.opacity = 1;
+      },
+
+      dataChanged: function(data) {
+        this.set("empty", (!data || !data.buckets || !data.buckets.length));
+        if (data) this.refresh(data);
+      },
+
+      refresh: function(data) {
+        this.set("googleChartOptions", this.googleChartOptionsForData(data));
+        this.set("googleChartData", this.googleChartDataForData(data));
+      },
+
+      windowWasResized: function() {
+        this.$.chart.style.opacity = 0;
+        window.clearTimeout(this.resizeTimerHandle);
+        this.resizeTimerHandle = window.setTimeout(this.resizeChart.bind(this), 300);
+      },
+
+      resizeChart: function() {
+        if (this.data) this.$.chart.drawChart();
+      },
+
+      googleChartOptionsForData: function(data) {
+        if (!data) return null;
+        if (!data.buckets || !data.buckets.length) return null;
+        if (!data.monthsList || !data.monthsList.length) return null;
+
+        return {
+          width: "100%",
+          height: "100%",
+          pointSize: 10,
+          colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
+          fontSize: 10,
+          hAxis: { gridlines: { color: "transparent" } },
+          vAxis: { gridlines: { color: "#eee" } }
+        };
+      },
+
+      googleChartDataForData: function(data) {
+        if (!data) return null;
+        if (!data.buckets || !data.buckets.length) return null;
+        if (!data.monthsList || !data.monthsList.length) return null;
+
+        var months = data.monthsList.map(function(date) {
+          return moment(date, "YYYY-MM-DD").format("MMM");
+        });
+
+        var size = months.length + 1;
+        var array = new Array(size).fill(0);
+
+        array.forEach(function(item, index) {
+          array[index] = new Array(size).fill(null);
+        });
+
+        array[0] = (["Month"]).concat(months.map(function(month, index) {
+          return (index + 1).toString();
+        }));
+
+        months.forEach(function(month, index) { array[index + 1][0] = month; });
+        data.buckets.forEach(function(bucket) { array[bucket.month][bucket.cohort] = bucket.value; });
+
+        return array;
+      }
+    });
+  </script>
 </dom-module>
-
-<script>
-  Polymer({
-    is: 'dash-chart-cohort',
-
-    properties: {
-      data: { type: Array, observer: "dataChanged" },
-      empty: Boolean,
-      googleChartOptions: Object,
-      googleChartData: Array,
-      resizeTimerHandle: Number
-    },
-
-    listeners: {
-      "chart.google-chart-render": "render",
-    },
-
-    ready: function() {
-      window.addEventListener("resize", this.windowWasResized.bind(this));
-    },
-
-    render: function(event) {
-      this.$.chart.style.opacity = 1;
-    },
-
-    dataChanged: function(data) {
-      this.set("empty", (!data || !data.buckets || !data.buckets.length));
-      if (data) this.refresh(data);
-    },
-
-    refresh: function(data) {
-      this.set("googleChartOptions", this.googleChartOptionsForData(data));
-      this.set("googleChartData", this.googleChartDataForData(data));
-    },
-
-    windowWasResized: function() {
-      this.$.chart.style.opacity = 0.05;
-      window.clearTimeout(this.resizeTimerHandle);
-      this.resizeTimerHandle = window.setTimeout(this.resizeChart.bind(this), 300);
-    },
-
-    resizeChart: function() {
-      this.$.chart.drawChart();
-    },
-
-    googleChartDataForData: function(data) {
-      if (!data) return null;
-      if (!data.buckets || !data.buckets.length) return null;
-      if (!data.monthsList || !data.monthsList.length) return null;
-
-      var months = data.monthsList.map(function(date) {
-        return moment(date, "YYYY-MM-DD").format("MMM");
-      });
-
-      var size = months.length + 1;
-      var array = new Array(size).fill(0);
-
-      array.forEach(function(item, index) {
-        array[index] = new Array(size).fill(null);
-      });
-
-      array[0] = (["Month"]).concat(months.map(function(month, index) {
-        return (index + 1).toString();
-      }));
-
-      months.forEach(function(month, index) { array[index + 1][0] = month; });
-      data.buckets.forEach(function(bucket) { array[bucket.month][bucket.cohort] = bucket.value; });
-
-      return array;
-    },
-
-    googleChartOptionsForData: function(data) {
-      if (!data) return null;
-      if (!data.buckets || !data.buckets.length) return null;
-      if (!data.monthsList || !data.monthsList.length) return null;
-
-      return {
-        width: "100%",
-        height: "100%",
-        pointSize: 10,
-        colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
-        fontSize: 10,
-        hAxis: { gridlines: { color: "transparent" } },
-        vAxis: { gridlines: { color: "#eee" } }
-      };
-    }
-  });
-</script>
