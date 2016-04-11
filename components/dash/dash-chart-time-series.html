@@ -87,10 +87,6 @@
         var end = this.endDateForData(data);
         var period = this.periodBetweenDates(start, end);
 
-        if (period === 0) {
-          data.series[0].values[0].time = moment(data.series[0].values[0].time, "x").hours(0).toDate().getTime();
-        }
-
         return {
           width: "100%",
           height: "100%",
@@ -101,7 +97,7 @@
           isStacked: true,
           hAxis: {
             format: this.dateFormatStringForPeriod(period),
-            viewWindow: this.viewWindowForDates(start, end),
+            viewWindow: this.viewWindowForDates(start, end, period),
             gridlines: {
               count: this.gridlineCountForPeriod(period),
               color: "#F0F0F0"
@@ -162,16 +158,16 @@
         return moment.duration(end.diff(start)).asDays();
       },
 
-      viewWindowForDates: function(start, end) {
+      viewWindowForDates: function(start, end, period) {
         return {
-          min: start.subtract(12, "hours").toDate(),
-          max: end.add(12, "hours").toDate()
-        };
+          min: start.startOf("day").subtract(12, "hours").toDate(),
+          max: end.endOf("day").subtract(12, "hours").toDate()
+        }
       },
 
       dateFormatStringForPeriod(period) {
         if (period < 1) {
-          return "'Today'";
+          return "EEEE";
         } else if (period < 7) {
           return "EE";
         } else if (period < 31) {
