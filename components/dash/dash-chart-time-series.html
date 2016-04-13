@@ -60,7 +60,16 @@
       },
 
       ready: function() {
+
+      },
+
+      attached: function() {
+        console.log("attached");
         window.addEventListener("resize", this.windowWasResized.bind(this));
+      },
+
+      detached: function() {
+        console.log("detached");
       },
 
       render: function(event) {
