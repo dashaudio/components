@@ -59,8 +59,9 @@
         "chart.google-chart-render": "render",
       },
 
-      ready: function() {
+      attached: function() {
         window.addEventListener("resize", this.windowWasResized.bind(this));
+        this.resizeChart();
       },
 
       render: function(event) {
