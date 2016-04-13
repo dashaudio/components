@@ -25,6 +25,13 @@
         opacity: 0;
       }
 
+      ::content text {
+        font-family: "proxima-nova", sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        fill: #333;
+      }
+
       :host { display: block; }
       ::content rect[height="1"] { fill: #F0F0F0; }
       ::content rect { stroke: none !important; rx: 2px; }
@@ -92,11 +99,8 @@
           height: "100%",
           chartArea: { top: "10%", left: "10%", right: "10%", bottom: "10%", width: "80%", height: "80%" },
           colors: ["#00BFFF", "96E129", "#FB7D34", "#00ACF3", "#FA1C68"],
-          fontSize: 11,
-          fontName: "proxima-nova, sans-serif",
           vAxis: {
             gridlines: { color: "#F0F0F0" },
-            textStyle: { color: "#AAA" },
             format: "short"
           },
           legend: { position: "none" },
@@ -108,7 +112,6 @@
               count: this.gridlineCountForPeriod(period),
               color: "#F0F0F0"
             },
-            textStyle: { color: "#AAA" }
           }
         };
       },

@@ -27,6 +27,13 @@
         opacity: 0;
       }
 
+      ::content text {
+        font-family: "proxima-nova", sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        fill: #333;
+      }
+
       :host { display: block; }
     </style>
 
@@ -91,15 +98,11 @@
           pointSize: 10,
           colors: ["#00BFFF", "#FA1C68", "#FB7D34", "#00ACF3"],
           chartArea: { top: "10%", left: "10%", right: "10%", bottom: "10%", width: "80%", height: "80%" },
-          fontSize: 11,
-          fontName: "proxima-nova, sans-serif",
           hAxis: {
             gridlines: { color: "transparent" },
-            textStyle: { color: "#AAA" }
           },
           vAxis: {
             gridlines: { color: "#eee" },
-            textStyle: { color: "#AAA" },
             format: "short"
           }
         };
