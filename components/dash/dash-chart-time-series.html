@@ -105,8 +105,7 @@
             format: "short"
           },
           legend: {
-            // position: "none"
-            position: "top",
+            position: "none",
             alignment: "center"
           },
           isStacked: true,
@@ -130,8 +129,7 @@
         var cols = [{"label":"Date", "type":"date"}];
 
         for (var series of data.series) {
-          var label = series.id || "series";
-          cols.push({ "label": label.toUpperCase(), type: "number" });
+          cols.push({ "label": series.id || "series", type: "number" });
         }
 
         return [cols];
