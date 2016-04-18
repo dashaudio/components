@@ -104,7 +104,11 @@
             gridlines: { color: "#F0F0F0" },
             format: "short"
           },
-          legend: { position: "none" },
+          legend: {
+            // position: "none"
+            position: "top",
+            alignment: "center"
+          },
           isStacked: true,
           hAxis: {
             format: this.dateFormatStringForPeriod(period),
@@ -126,7 +130,8 @@
         var cols = [{"label":"Date", "type":"date"}];
 
         for (var series of data.series) {
-          cols.push({ "label": series.id || "Series", type: "number" });
+          var label = series.id || "series";
+          cols.push({ "label": label.toUpperCase(), type: "number" });
         }
 
         return [cols];
