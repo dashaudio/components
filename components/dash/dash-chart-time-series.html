@@ -25,7 +25,7 @@
         opacity: 0;
       }
 
-      ::content text {
+      :host ::content text {
         font-family: "proxima-nova", sans-serif;
         font-size: 10px;
         font-weight: 500;
@@ -33,8 +33,8 @@
       }
 
       :host { display: block; }
-      ::content rect[height="1"] { fill: #F0F0F0; }
-      ::content rect { stroke: none !important; rx: 2px; }
+      :host ::content rect[height="1"] { fill: #F0F0F0; }
+      :host ::content rect { stroke: none !important; rx: 2px; }
     </style>
 
     <div id="container">
@@ -99,7 +99,7 @@
           width: "100%",
           height: "100%",
           chartArea: { top: "12%", left: "12%", right: "12%", bottom: "12%", width: "76%", height: "76%" },
-          colors: ["#12C2F5", "#6666E2", "#4DC7D0", "#BB67E1"],
+          colors: ["#00BEF6", "#645DE8", "#BE5FE9", "#FFA500", "#FF72BE", "#FADE09", "#ACEC4B", "#3CC8D1"],
           vAxis: {
             gridlines: { color: "#F0F0F0" },
             format: "short"
@@ -126,10 +126,10 @@
       },
 
       googleChartColsForData: function(data) {
-        var cols = [{"label":"Date", "type":"date"}];
+        var cols = [{ label: "Date", type: "date" }];
 
         for (var series of data.series) {
-          cols.push({ "label": series.id || "series", type: "number" });
+          cols.push({ label: series.id || "series", type: "number" });
         }
 
         return [cols];
@@ -179,7 +179,7 @@
         }
       },
 
-      dateFormatStringForPeriod(period) {
+      dateFormatStringForPeriod: function(period) {
         if (period < 1) {
           return "EEEE";
         } else if (period < 7) {
