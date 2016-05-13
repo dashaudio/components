@@ -1,13 +1,14 @@
-var button = Object.create(HTMLElement.prototype);
+class DashButton extends HTMLElement {
 
-button.createdCallback = function() {
-  // Adding a Shadow DOM
-  var root = this.createShadowRoot();
-  // Adding a template
-  // var template = document.querySelector('#template');
-  // var clone = document.importNode(template.content, true);
-  // root.appendChild(clone);
-  root.innerHTML = templates['dash-button'];
+  createdCallback() {
+    console.log('created!');
+    var shadow = this.createShadowRoot();
+    // shadow.innerHTML = '<a href="#">Link</a>';
+    shadow.innerHTML = 'the button <content select="dash-icon"></content>';
+  }
+
+  bar() {
+    console.log('bar() called on dash-button');
+  }
+
 }
-
-document.registerElement('dash-button', { prototype: button });
