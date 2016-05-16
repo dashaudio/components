@@ -15,10 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'build/*.js',
-      // 'dash/**/*.test.js',
-      'dash/button/test.html'
-
+      'build/polyfills.js',
+      'build/**/*.js',
+      { pattern: 'components/**/*.spec.js', included: false }
     ],
 
 
@@ -36,7 +35,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
 
 
     // web server port
@@ -58,7 +57,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Electron'],
 
 
     // Continuous Integration mode

@@ -1,0 +1,25 @@
+@import "../styles/text";
+
+:host {
+  display: block;
+}
+
+.dash-button {
+  @extend .dash-text-body;
+
+  a {
+    color: red;
+  }
+
+}
+
+
+.dash-toolbar .dash-button, :host-context(.dash-toolbar) {
+  color: green;
+}
+
+
+
+// :host-context(.dash-toolbar) {
+//   color: pink;
+// }
