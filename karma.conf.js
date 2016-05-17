@@ -16,8 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'build/polyfills.js',
-      'build/**/*.js',
-      { pattern: 'components/**/*.spec.js', included: false }
+      'build/components.js',
+      'components/**/*.spec.js'
     ],
 
 
@@ -35,7 +35,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: ['progress'],
 
 
     // web server port
