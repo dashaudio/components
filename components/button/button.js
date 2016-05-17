@@ -1,12 +1,16 @@
-class DashButton extends HTMLElement {
+import template from './button.html';
+import styles from './button.scss';
+
+export class DashButton extends HTMLElement {
 
   get template() {
-    return `<style>@include("button.css")</style>@include("button.html")`;
+    return `<style>${styles}</style>${template}`;
   }
 
   createdCallback() {
     var shadow = this.createShadowRoot();
     shadow.innerHTML = this.template;
+    console.log('button created');
   }
 
   foo() {
@@ -14,5 +18,3 @@ class DashButton extends HTMLElement {
   }
 
 }
-
-document.registerElement('dash-button', { prototype: DashButton.prototype });

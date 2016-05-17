@@ -2,38 +2,28 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
-var include = require('gulp-file-include');
-var sass = require('gulp-sass');
 var karma = require('karma');
-
-var POLYFILLS = [
-  './node_modules/webcomponents.js/webcomponents.js',
-  './node_modules/babel-polyfill/dist/polyfill.js'
-];
+var sourcemaps = require('gulp-sourcemaps');
+var rollup = require('gulp-rollup');
+var string = require('rollup-plugin-string');
+var sass = require('rollup-plugin-sass');
 
 gulp.task('polyfills', () => {
-  gulp.src(POLYFILLS)
+  gulp.src('./node_modules/webcomponents.js/webcomponents.js')
     .pipe(concat('polyfills.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('templates', () => {
-  return gulp.src('components/**/*.html')
-    .pipe(gulp.dest('build/'));
-});
-
-gulp.task('styles', () => {
-  return gulp.src('components/**/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('build/'));
-});
-
-gulp.task('scripts', () => {
-  return gulp.src('components/**/*.js')
-    .pipe(gulp.dest('build/'))
-    .pipe(include({ prefix: '@' }))
+gulp.task('components', () => {
+  return gulp.src(['components/components.js'])
+    .pipe(rollup({
+      plugins: [string({ extensions: ['.html'] }), sass()],
+      sourceMap: true
+    }))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify({ wrap: true }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'));
 });
 
@@ -47,6 +37,6 @@ gulp.task('test', () => {
     }).start();
 });
 
-gulp.task('build', ['polyfills', 'templates', 'styles', 'scripts']);
+gulp.task('build', ['polyfills', 'components']);
 gulp.task('serve', ['build', 'watch']);
 gulp.task('default', ['build']);
