@@ -1,0 +1,22 @@
+@import "../layout/width";
+
+%dash-text-caption {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+
+  @include dash-width(medium) {
+    font-size: 1.4rem;
+  }
+}
+
+%dash-text-caption-small {
+  @extend %dash-text-caption;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+
+  @include dash-width(medium) {
+    font-size: 1rem;
+  }
+
+}

@@ -18,7 +18,10 @@ gulp.task('polyfills', () => {
 gulp.task('components', () => {
   return gulp.src(['components/components.js'])
     .pipe(rollup({
-      plugins: [string({ extensions: ['.html'] }), sass()],
+      plugins: [
+        string({ extensions: ['.html'] }),
+        sass()
+      ],
       sourceMap: true
     }))
     .pipe(babel({ presets: ['es2015'] }))
@@ -27,16 +30,22 @@ gulp.task('components', () => {
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('watch', () => {
-  gulp.watch(['./components/**/*'], ['build']);
+gulp.task('guide', () => {
+  return gulp.src('guide/**/*.html')
+    .pipe(gulp.dest('build/guide/'));
 });
 
-gulp.task('test', () => {
+gulp.task('watch', () => {
+  gulp.watch(['./components/**/*'], ['components', 'test']);
+  gulp.watch(['./guide/**/*'], ['guide']);
+});
+
+gulp.task('test', (done) => {
     return new karma.Server({
       configFile: __dirname + '/karma.conf.js'
-    }).start();
+    }, done).start();
 });
 
-gulp.task('build', ['polyfills', 'components']);
+gulp.task('build', ['polyfills', 'components', 'guide', 'test']);
 gulp.task('serve', ['build', 'watch']);
 gulp.task('default', ['build']);

@@ -1,0 +1,93 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+  <head>
+    <title>Dash Component Guide</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <meta name="description" content="Dash web component guide." />
+  </head>
+
+  <body>
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="box">Box</div><br/>
+
+
+      <dash-box>
+        <dash-header>
+          <dash-primary>
+            <dash-title>Title</dash-title>
+          </dash-primary>
+          <dash-secondary>
+            <dash-button>Some Button</dash-button>
+          </dash-secondary>
+        </dash-header>
+
+        <dash-box-footer>
+          Footer...
+        </dash-box-footer>
+
+        Box user content!
+      </dash-box>
+
+
+
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box Title</div>
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button">Action</div>
+          </div>
+        </div>
+        <div class="dash-pad">Content</div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box dash-loading">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box (Loading)</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box dash-error">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box (Error)</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box Image</div>
+          </div>
+        </div>
+        <div class="dash-box-image">
+          <img src="http://placehold.it/1000x100" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="../polyfills.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

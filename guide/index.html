@@ -1,0 +1,654 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+  <head>
+    <title>Dash Component Guide</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <meta name="description" content="Dash web component guide." />
+  </head>
+
+  <body>
+
+
+
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="buttons">Buttons</div><br/>
+
+      <div class="dash-button">Button</div>
+      <div class="dash-button dash-colour-primary">Primary</div>
+      <div class="dash-button dash-colour-secondary">Secondary</div>
+      <div class="dash-button dash-colour-tertiary">Tertiary</div>
+      <div class="dash-button dash-colour-quaternary">Quaternary</div>
+      <div class="dash-button dash-colour-dark">Dark</div>
+
+      <br/><br/>
+
+      <div class="dash-button dash-border" disabled>Disabled</div>
+      <div class="dash-button dash-colour-primary" disabled>Disabled</div>
+      <div class="dash-button dash-colour-secondary" disabled>Disabled</div>
+      <div class="dash-button dash-colour-tertiary" disabled>Disabled</div>
+      <div class="dash-button dash-colour-quaternary" disabled>Disabled</div>
+      <div class="dash-button dash-colour-dark" disabled>Disabled</div>
+
+      <br/><br/>
+
+      <div class="dash-button dash-border">Bordered Button</div>
+      <div class="dash-button dash-icon-globe">Icon Button</div>
+      <div class="dash-button dash-icon-rss dash-colour-primary">Icon Button</div>
+
+      <div class="dash-button dash-icon-menu">
+        Link Button
+        <div class="dash-button-links">
+          <div class="dash-button dash-colour-primary">Action Link</div>
+          <div class="dash-button dash-colour-primary">Another Link</div>
+          <div class="dash-button dash-colour-primary">Third Link</div>
+        </div>
+      </div>
+
+      <div class="dash-button dash-icon-help">
+        <span class="dash-accessibility">Help Button</span>
+      </div>
+
+      <br/><br/>
+
+      <span class="dash-button dash-border dash-loading" disabled>Loading</span>
+      <span class="dash-button dash-colour-primary dash-loading" disabled>Loading</span>
+
+      <br/><br/>
+
+      <div class="dash-button-group">
+        <div class="dash-button">Button</div>
+        <div class="dash-button">Group</div>
+        <div class="dash-button">With</div>
+        <div class="dash-button dash-selected">Selection</div>
+      </div>
+
+      <br/><br/>
+
+      <div class="dash-label">Label 1</div>
+      <div class="dash-label">Label 2</div>
+      <div class="dash-label">Label 3</div>
+
+      <br/><br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">
+              Buttons Inside Box Title
+            </div>
+            <div class="dash-button">Button</div>
+            <div class="dash-button dash-icon-menu">
+              Link Button
+              <div class="dash-button-links dash-align-right">
+                <div class="dash-button">Action Link</div>
+                <div class="dash-button">Another Link</div>
+                <div class="dash-button">Third Link</div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button" disabled>Disabled</div>
+            <div class="dash-button">Button</div>
+            <div class="dash-button dash-icon-menu">
+              Link Button
+              <div class="dash-button-links dash-align-right">
+                <div class="dash-button">Action Link</div>
+                <div class="dash-button">Another Link</div>
+                <div class="dash-button">Third Link</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-button">Button</div>
+            <div class="dash-button dash-icon-menu">
+              Link Button
+              <div class="dash-button-links dash-align-right">
+                <div class="dash-button">Action Link</div>
+                <div class="dash-button">Another Link</div>
+                <div class="dash-button">Third Link</div>
+              </div>
+            </div>
+            <div class="dash-button" disabled>Disabled</div>
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button">Button</div>
+            <div class="dash-button dash-icon-menu">
+              Link Button
+              <div class="dash-button-links dash-align-right">
+                <div class="dash-button">Action Link</div>
+                <div class="dash-button">Another Link</div>
+                <div class="dash-button">Third Link</div>
+              </div>
+            </div>
+            <div class="dash-button dash-icon-help">
+              <span class="dash-accessibility">Help Button</span>
+              <div class="dash-tip dash-align-left">
+                <div class="dash-tip-title">Help</div>
+                <div class="dash-tip-description">
+                  This is a help button with a tooltip.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-button">Button</div>
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button">Button</div>
+            <div class="dash-label dash-colour-chart-primary">Label 1</div>
+            <div class="dash-label dash-colour-chart-secondary">Label 2</div>
+            <div class="dash-label dash-colour-chart-tertiary">Label 3</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-accordion">
+        <div class="dash-accordion-title dash-icon-default-light">
+          Buttons Inside Accordion Title
+          <div class="dash-accordion-title-actions">
+            <div class="dash-button dash-border" disabled>Disabled</div>
+            <div class="dash-button">Cancel</div>
+            <div class="dash-button dash-icon-menu-light dash-colour-primary">
+              Action
+              <div class="dash-button-links dash-align-right">
+                <div class="dash-button dash-colour-primary">Action Link</div>
+                <div class="dash-button dash-colour-primary">Another Link</div>
+                <div class="dash-button dash-colour-primary">Third Link</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-toolbar">
+        <div class="dash-toolbar-primary">
+          <div class="dash-toolbar-title">Buttons Inside Toolbar</div>
+          <div class="dash-button-group">
+            <div class="dash-button">Option 1</div>
+            <div class="dash-button dash-selected">Option 2</div>
+            <div class="dash-button">Option 3</div>
+          </div>
+        </div>
+
+        <div class="dash-toolbar-secondary">
+          <div class="dash-button dash-border">Cancel</div>
+          <div class="dash-button dash-colour-primary">Action</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="toolbar">Toolbar</div><br/>
+
+      <div class="dash-toolbar">
+        <div class="dash-toolbar-primary">
+          <div class="dash-toolbar-title">Toolbar title</div>
+        </div>
+
+        <div class="dash-toolbar-secondary">
+          <div class="dash-button">Toolbar</div>
+          <div class="dash-button">Actions</div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-toolbar dash-loading">
+        <div class="dash-toolbar-primary">
+          <div class="dash-toolbar-title">Toolbar (loading)</div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-toolbar dash-error">
+        <div class="dash-toolbar-primary">
+          <div class="dash-toolbar-title">Toolbar (error)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="box">Box</div><br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box Title</div>
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button">Action</div>
+          </div>
+        </div>
+        <div class="dash-pad">Content</div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box dash-loading">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box (Loading)</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box dash-error">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box (Error)</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Box Image</div>
+          </div>
+        </div>
+        <div class="dash-box-image">
+          <img src="http://placehold.it/1000x100" />
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="list">List</div><br/>
+
+      <div class="dash-list dash-selectable">
+        <div class="dash-list-item">List item 1</div>
+        <div class="dash-list-item">
+          List item 2
+          <div class="dash-button dash-colour-primary">Action</div>
+        </div>
+        <div class="dash-list-item">
+          <div class="dash-list-item-primary">List item 3</div>
+          <div class="dash-list-item-secondary">
+            <div class="dash-button">Cancel</div>
+            <div class="dash-button dash-colour-secondary">Action</div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">List Inside Box</div>
+          </div>
+        </div>
+        <div class="dash-list">
+          <div class="dash-list-item">List item 1</div>
+          <div class="dash-list-item">
+            <div class="dash-list-item-primary">List item 2</div>
+            <div class="dash-list-item-secondary">
+              <div class="dash-button dash-border dash-icon-menu">
+                Link Button
+                <div class="dash-button-links">
+                  <div class="dash-button dash-colour-primary">Action Link</div>
+                  <div class="dash-button dash-colour-primary">Another Link</div>
+                  <div class="dash-button dash-colour-primary">Third Link</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-list-item">List item 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="accordion">Accordion</div><br/>
+
+      <details class="dash-accordion" open>
+        <summary class="dash-accordion-title dash-icon-default-light">
+          Accordion Title
+          <div class="dash-accordion-title-actions">
+            <div class="dash-button">Cancel</div>
+            <div class="dash-button dash-colour-primary">Action</div>
+          </div>
+        </summary>
+        <div class="dash-pad">Content</div>
+      </div>
+    </details>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="fields">Fields</div><br/>
+
+      <div class="dash-field" dash-field-expanded="true">
+        <label class="dash-field-label">
+          Text
+          <span class="dash-text-light">(Help Text)</span>
+        </label>
+        <input class="dash-field-text" type="text" value="Text field value" />
+      </div>
+
+      <br/>
+
+      <div class="dash-field" dash-field-expanded="true">
+        <label class="dash-field-label">Textarea</label>
+        <textarea class="dash-field-textarea" rows="2">Textarea field value.&#13;&#10;Multiple lines available.</textarea>
+      </div>
+
+      <br/>
+
+      <div class="dash-field" dash-field-value="123" dash-field-expanded="true">
+        <label class="dash-field-label">Select</label>
+        <select class="dash-field-select" value="">
+          <option>Select Option 1</option>
+          <option>Select Option 2</option>
+        </select>
+      </div>
+
+      <br/>
+
+      <div class="dash-field" dash-field-value>
+        <label class="dash-field-label">Select (Empty Selection)</label>
+        <select class="dash-field-select">
+          <option disabled selected hidden>Select Prompt...</option>
+          <option value="1">Select Option 1</option>
+          <option value="2">Select Option 2</option>
+        </select>
+      </div>
+
+      <br/>
+
+      <div class="dash-field" dash-field-expanded="false">
+        <label class="dash-field-label">Checkbox</label>
+        <input class="dash-field-checkbox" type="checkbox" value="Text field value" />
+        <div class="dash-field-checkbox-firefox"></div>
+      </div>
+
+      <br/>
+
+      <div class="dash-field">
+        <label class="dash-field-label">Field With Status Messages</label>
+        <input class="dash-field-text" type="text" />
+        <div class="dash-field-status">Field status text</div>
+        <div class="dash-field-status dash-loading">Loading status text</div>
+        <div class="dash-field-status dash-error">Error status text</div>
+        <div class="dash-field-status">
+          Long field status text. Long field status text. Long field status text. Long field status text.
+          Long field status text. Long field status text. Long field status text. Long field status text.
+          Long field status text. Long field status text. Long field status text. Long field status text.
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-field">
+        <label class="dash-field-label dash-icon-image">Field With Label Icon</label>
+        <input class="dash-field-text" type="text" />
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Fields Inside Box</div>
+          </div>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="true">
+          <label class="dash-field-label">
+            Text Field
+            <span class="dash-text-light">(Help Text)</span>
+          </label>
+          <input class="dash-field-text" type="text" value="Text field value" />
+        </div>
+
+        <div class="dash-field" dash-field-value="123" dash-field-expanded="true">
+          <label class="dash-field-label">Select Field</label>
+          <select class="dash-field-select" value="">
+            <option>Select Option 1</option>
+            <option>Select Option 2</option>
+          </select>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="false">
+          <label class="dash-field-label">Checkbox</label>
+          <input class="dash-field-checkbox" type="checkbox" value="Text field value" />
+          <div class="dash-field-checkbox-firefox"></div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-accordion">
+        <div class="dash-accordion-title dash-icon-default-light">
+          Fields Inside Accordion
+          <div class="dash-accordion-title-actions">
+            <div class="dash-button">Action</div>
+          </div>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="true">
+          <label class="dash-field-label">
+            Text Field
+            <span class="dash-text-light">(Help Text)</span>
+          </label>
+          <input class="dash-field-text" type="text" value="Text field value" />
+        </div>
+
+        <div class="dash-field" dash-field-value="123" dash-field-expanded="true">
+          <label class="dash-field-label">Select Field</label>
+          <select class="dash-field-select" value="">
+            <option>Select Option 1</option>
+            <option>Select Option 2</option>
+          </select>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="false">
+          <label class="dash-field-label">Checkbox</label>
+          <input class="dash-field-checkbox" type="checkbox" value="Text field value" />
+          <div class="dash-field-checkbox-firefox"></div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-accordion dash-indent">
+        <div class="dash-accordion-title dash-icon-default-light">
+          Fields Inside Accordion (Indented)
+          <div class="dash-accordion-title-actions">
+            <div class="dash-button">Action</div>
+          </div>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="true">
+          <label class="dash-field-label">
+            Text Field
+            <span class="dash-text-light">(Help Text)</span>
+          </label>
+          <input class="dash-field-text" type="text" value="Text field value" />
+        </div>
+
+        <div class="dash-field" dash-field-value="123" dash-field-expanded="true">
+          <label class="dash-field-label">Select Field</label>
+          <select class="dash-field-select" value="">
+            <option>Select Option 1</option>
+            <option>Select Option 2</option>
+          </select>
+        </div>
+
+        <div class="dash-field" dash-field-expanded="false">
+          <label class="dash-field-label">Checkbox</label>
+          <input class="dash-field-checkbox" type="checkbox" value="Text field value" />
+          <div class="dash-field-checkbox-firefox"></div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-box-header-title">Fields Inside Box...</div>
+          </div>
+        </div>
+
+        <div class="dash-accordion">
+          <div class="dash-accordion-title dash-icon-default-light">
+            ...And Inside Accordion
+            <div class="dash-accordion-title-actions">
+              <div class="dash-button">Action</div>
+            </div>
+          </div>
+
+          <div class="dash-field" dash-field-expanded="true">
+            <label class="dash-field-label">
+              Text Field
+              <span class="dash-text-light">(Help Text)</span>
+            </label>
+            <input class="dash-field-text" type="text" value="Text field value" />
+          </div>
+
+          <div class="dash-field" dash-field-value="123" dash-field-expanded="true">
+            <label class="dash-field-label">Select Field</label>
+            <select class="dash-field-select" value="">
+              <option>Select Option 1</option>
+              <option>Select Option 2</option>
+            </select>
+          </div>
+
+          <div class="dash-field" dash-field-expanded="false">
+            <label class="dash-field-label">Checkbox</label>
+            <input class="dash-field-checkbox" type="checkbox" value="Text field value" />
+            <div class="dash-field-checkbox-firefox"></div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="dash-toolbar">
+        <div class="dash-toolbar-primary">
+          <div class="dash-toolbar-title">Fields Inside Toolbar</div>
+          <div class="dash-field" dash-field-expanded="true">
+            <label class="dash-field-label">
+              Text Field
+              <span class="dash-text-light">(Help Text)</span>
+            </label>
+            <input class="dash-field-text" type="text" value="Text field value" />
+          </div>
+        </div>
+
+        <div class="dash-toolbar-secondary">
+          <div class="dash-field" dash-field-expanded="true">
+            <label class="dash-field-label">
+              Text Field
+              <span class="dash-text-light">(Help Text)</span>
+            </label>
+            <input class="dash-field-text" type="text" value="Text field value" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-wrapper dash-pad">
+      <div class="dash-note" id="tip">Tip</div><br/>
+
+      <div class="dash-tip">
+        <div class="dash-tip-title">Tip Title</div>
+        <div class="dash-tip-description">Tip body. Tip body. Tip body. Tip body. Tip body. Tip body. Tip body.</div>
+      </div>
+
+      <br/>
+
+      <div class="dash-button dash-icon-help">
+        <div class="dash-tip">
+          <div class="dash-tip-title">Tip Title</div>
+          <div class="dash-tip-description">Tip body. Tip body. Tip body. Tip body. Tip body. Tip body. Tip body.</div>
+        </div>
+      </div>
+
+      <div class="dash-button dash-border">
+        Button With Tip
+        <div class="dash-tip">
+          <div class="dash-tip-title">Tip Title</div>
+          <div class="dash-tip-description">Tip body. Tip body. Tip body. Tip body. Tip body. Tip body. Tip body.</div>
+        </div>
+      </div>
+
+      <div class="dash-button dash-border">
+        Left-Aligned Tip
+        <div class="dash-tip dash-align-left">
+          <div class="dash-tip-title">Tip Title</div>
+          <div class="dash-tip-description">Tip body. Tip body. Tip body. Tip body. Tip body. Tip body. Tip body.</div>
+        </div>
+      </div>
+
+      <br/><br/>
+
+      <div class="dash-box">
+        <div class="dash-box-header">
+          <div class="dash-box-header-primary">
+            <div class="dash-button dash-icon-help">
+              <span class="dash-accessibility">Help Button</span>
+              <div class="dash-tip">
+                <div class="dash-tip-title">Help</div>
+                <div class="dash-tip-description">
+                  This is a help button with a tooltip.
+                </div>
+              </div>
+            </div>
+            Tips inside help buttons inside box header
+          </div>
+          <div class="dash-box-header-secondary">
+            <div class="dash-button dash-icon-help">
+              <span class="dash-accessibility">Help Button</span>
+              <div class="dash-tip dash-align-left">
+                <div class="dash-tip-title">Help</div>
+                <div class="dash-tip-description">
+                  This is a help button with a tooltip.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="../polyfills.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>
