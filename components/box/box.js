@@ -1,5 +1,5 @@
 import template from './box.html';
-import styles from './box.scss';
+import styles from './host.scss';
 
 export class DashBox extends HTMLElement {
 

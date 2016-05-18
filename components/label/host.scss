@@ -1,0 +1,5 @@
+@import "label";
+
+:host {
+  @extend .dash-label;
+}

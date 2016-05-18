@@ -1,0 +1,13 @@
+@import "header";
+
+:host {
+  @extend .dash-header;
+}
+
+::content > * {
+  @extend .dash-item;
+}
+
+:host-context(dash-box) {
+  @extend .dash-nested;
+}

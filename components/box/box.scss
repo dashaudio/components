@@ -1,4 +1,73 @@
+@import "../common/colour";
+@import "../common/border";
+@import "../common/units";
+@import "../common/icon";
+
+@keyframes dashRotate { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+
+.dash-rotate {
+    animation: 0.75s linear 0s infinite dashRotate;
+}
+
 .dash-box {
   display: block;
-  border: 1px solid grey;
+  border: 1px solid $dash-colour-outline;
+  border-radius: $dash-border-radius;
+  background: $dash-colour-white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.dash-loading {
+    .dash-box-header-icons-loading {
+      // display: block;
+      margin-left: 0;
+      opacity: 1;
+    }
+    .dash-box-header-icons {
+      width: units(3);
+    }
+  }
+
+  &.dash-error {
+    .dash-box-header-icons-error {
+      display: block;
+    }
+  }
+}
+
+.dash-box-header {
+  border-bottom: 1px solid $dash-colour-outline;
+  padding: units(0.5);
+  display: flex;
+}
+
+.dash-box-header-icons {
+  flex-grow: 0;
+  width: units(0);
+  height: units(3);
+  transition: 0.5s width;
+}
+
+.dash-box-header-icons-loading {
+  @extend .dash-rotate;
+  @extend %dash-icon-loading;
+  // display: none;
+  margin-left: -100%;
+  opacity: 0;
+  transition: 0.5s margin-left, 0.5s opacity;
+}
+
+.dash-box-header-icons-error {
+  @extend .dash-rotate;
+  display: none;
+}
+
+.dash-box-header-content {
+  flex-grow: 1;
+}
+
+.dash-box-content {
+  padding: units(3);
+  flex-grow: 1;
 }

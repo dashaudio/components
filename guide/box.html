@@ -14,29 +14,46 @@
     <meta name="description" content="Dash web component guide." />
   </head>
 
-  <body>
+  <body style="background-color: #fafafa;">
     <div class="dash-wrapper dash-pad">
       <div class="dash-note" id="box">Box</div><br/>
 
+      <dash-header>
+        <dash-label>Box Title</dash-label>
+        <dash-button>Button</dash-button>
+        <dash-spacer></dash-spacer>
+        <dash-button>Button</dash-button>
+        <dash-button>Button 2</dash-button>
+      </dash-header>
 
-      <dash-box>
+      <br/>
+
+      <script>
+      window.onload = function() {
+        document.querySelector('dash-box').addEventListener('mouseover', function(e) {
+          e.target.setAttribute('loading', '');
+        });
+
+        document.querySelector('dash-box').addEventListener('mouseout', function(e) {
+          e.target.removeAttribute('loading');
+        });
+      }
+      </script>
+
+      <dash-box loading compact style="height: 300px">
         <dash-header>
-          <dash-primary>
-            <dash-title>Title</dash-title>
-          </dash-primary>
-          <dash-secondary>
-            <dash-button>Some Button</dash-button>
-          </dash-secondary>
+          <dash-label>Box Title</dash-label>
+          <dash-button>Button</dash-button>
+          <dash-spacer></dash-spacer>
+          <dash-button>Button</dash-button>
+          <dash-button>Button</dash-button>
+          <dash-spacer></dash-spacer>
+          <dash-button>Button 2</dash-button>
         </dash-header>
-
-        <dash-box-footer>
-          Footer...
-        </dash-box-footer>
-
         Box user content!
       </dash-box>
 
-
+<br/><br/><br/><br/><br/>
 
 
       <div class="dash-box">

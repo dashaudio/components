@@ -1,0 +1,29 @@
+@import "../common/units";
+@import "../common/colour";
+@import "../common/border";
+
+// TODO: Rename to toolbar??
+
+.dash-header {
+  display: flex;
+  justify-content: flex-start;
+  background: $dash-colour-white;
+  border: 1px solid $dash-colour-outline;
+  padding: units(0.5);
+  border-radius: $dash-border-radius;
+
+  &.dash-nested {
+    background-color: initial;
+    padding: initial;
+    border: initial;
+    border-radius: initial;
+  }
+
+  .dash-item {
+    margin-right: units(0.5);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

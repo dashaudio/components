@@ -1,0 +1,10 @@
+@import "../common/units";
+
+.dash-icon {
+  display: inline-block;
+  width: units(3);
+  height: units(3);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

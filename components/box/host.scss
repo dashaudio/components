@@ -1,0 +1,13 @@
+@import "box";
+
+:host {
+  @extend .dash-box;
+}
+
+:host([loading]) {
+  @extend .dash-loading;
+}
+//
+// :host(:hover) {
+//   @extend .dash-box-hover;
+// }
