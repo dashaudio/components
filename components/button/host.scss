@@ -3,3 +3,11 @@
 :host {
   @extend .dash-button;
 }
+
+:host(:hover) {
+  @extend .dash-button--hover;
+}
+
+:host(:active) {
+  @extend .dash-button--active;
+}

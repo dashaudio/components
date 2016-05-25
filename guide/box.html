@@ -14,44 +14,50 @@
     <meta name="description" content="Dash web component guide." />
   </head>
 
-  <body style="background-color: #fafafa;">
-    <div class="dash-wrapper dash-pad">
-      <div class="dash-note" id="box">Box</div><br/>
+  <body style="background-color: #fafafa; padding: 0; margin: 0;">
+    <dash-wrapper>
+      <dash-note>Box</dash-note>
 
-      <dash-header>
-        <dash-label>Box Title</dash-label>
-        <dash-button>Button</dash-button>
-        <dash-spacer></dash-spacer>
-        <dash-button>Button</dash-button>
-        <dash-button>Button 2</dash-button>
-      </dash-header>
+      <pre>
+        &lt;dash-box loading error&gt;
+          &lt;dash-header&gt;
+            &lt;dash-label&gt;Box Title&lt;/dash-label&gt;
+            &lt;dash-button&gt;Button&lt;/dash-button&gt;
+            &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
+            &lt;dash-button&gt;Button&lt;/dash-button&gt;
+            &lt;dash-button&gt;Button&lt;/dash-button&gt;
+            &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
+            &lt;dash-button&gt;Button 2&lt;/dash-button&gt;
+          &lt;/dash-header&gt;
+          Box user content!
+        &lt;/dash-box&gt;
+      </pre>
+
+      <dash-box>
+        <dash-header>
+          <dash-label>Box</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button>Action</dash-button>
+        </dash-header>
+        <dash-label>Box content</dash-label>
+      </dash-box>
 
       <br/>
 
-      <script>
-      window.onload = function() {
-        document.querySelector('dash-box').addEventListener('mouseover', function(e) {
-          e.target.setAttribute('loading', '');
-        });
-
-        document.querySelector('dash-box').addEventListener('mouseout', function(e) {
-          e.target.removeAttribute('loading');
-        });
-      }
-      </script>
-
-      <dash-box loading compact style="height: 300px">
+      <dash-box loading>
         <dash-header>
-          <dash-label>Box Title</dash-label>
-          <dash-button>Button</dash-button>
-          <dash-spacer></dash-spacer>
-          <dash-button>Button</dash-button>
-          <dash-button>Button</dash-button>
-          <dash-spacer></dash-spacer>
-          <dash-button>Button 2</dash-button>
+          <dash-label>Box Loading</dash-label>
         </dash-header>
-        Box user content!
       </dash-box>
+
+      <br/>
+
+      <dash-box error>
+        <dash-header>
+          <dash-label>Box Error</dash-label>
+        </dash-header>
+      </dash-box>
+    </dash-wrapper>
 
 <br/><br/><br/><br/><br/>
 

@@ -3,10 +3,10 @@
 @import "../common/units";
 @import "../common/icon";
 
-@keyframes dashRotate { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+@keyframes dashBoxRotate { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
 
-.dash-rotate {
-    animation: 0.75s linear 0s infinite dashRotate;
+.dash-box-rotate {
+    animation: 0.75s linear 0s infinite dashBoxRotate;
 }
 
 .dash-box {
@@ -50,7 +50,7 @@
 }
 
 .dash-box-header-icons-loading {
-  @extend .dash-rotate;
+  @extend .dash-box-rotate;
   @extend %dash-icon-loading;
   // display: none;
   margin-left: -100%;
@@ -59,7 +59,7 @@
 }
 
 .dash-box-header-icons-error {
-  @extend .dash-rotate;
+  @extend .dash-box-rotate;
   display: none;
 }
 
@@ -68,6 +68,6 @@
 }
 
 .dash-box-content {
-  padding: units(3);
+  // padding: units(3);
   flex-grow: 1;
 }
