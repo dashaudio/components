@@ -1,13 +1,16 @@
 @import "button";
 
-:host {
-  @extend .dash-button;
-}
+:host { @extend .dash-button; }
+:host(:hover) { @extend .dash-button--hover; }
+:host(:active) { @extend .dash-button--active; }
 
-:host(:hover) {
-  @extend .dash-button--hover;
-}
+// Colours
 
-:host(:active) {
-  @extend .dash-button--active;
-}
+:host([blue]) { @extend .dash-button--blue; }
+:host([navy]) { @extend .dash-button--navy; }
+:host([purple]) { @extend .dash-button--purple; }
+:host([orange]) { @extend .dash-button--orange; }
+:host([sorbet]) { @extend .dash-button--sorbet; }
+:host([yellow]) { @extend .dash-button--yellow; }
+:host([green]) { @extend .dash-button--green; }
+:host([turquoise]) { @extend .dash-button--turquoise; }
