@@ -1,13 +1,13 @@
 @import "header";
 
-:host {
+:host, dash-header {
   @extend .dash-header;
 }
 
-::content > * {
-  @extend .dash-item;
+:host-context(dash-box), dash-box dash-header {
+  @extend .dash-header--nested;
 }
 
-:host-context(dash-box) {
-  @extend .dash-nested;
+::content > *, dash-header > * {
+  @extend .dash-header-item;
 }

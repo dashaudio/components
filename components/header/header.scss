@@ -11,19 +11,18 @@
   border: 1px solid $dash-colour-outline;
   padding: units(0.5);
   border-radius: $dash-border-radius;
+}
 
-  &.dash-nested {
-    background-color: initial;
-    padding: initial;
-    border: initial;
-    border-radius: initial;
-  }
+.dash-header--nested {
+  background-color: initial;
+  padding: initial;
+  border: initial;
+  border-radius: initial;
+}
 
-  .dash-item {
-    margin-right: units(0.5);
-
-    &:last-child {
-      margin-right: 0;
-    }
+.dash-header-item {
+  margin-right: units(0.5);
+  &:last-child {
+    margin-right: 0;
   }
 }

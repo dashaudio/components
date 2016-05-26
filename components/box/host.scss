@@ -4,10 +4,14 @@
   @extend .dash-box;
 }
 
-:host([loading]) {
-  @extend .dash-loading;
+:host([padded]) {
+  @extend .dash-box--padded;
 }
-//
-// :host(:hover) {
-//   @extend .dash-box-hover;
-// }
+
+:host([loading]) {
+  @extend .dash-box--loading;
+}
+
+:host([error]) {
+  @extend .dash-box--error;
+}

@@ -1,13 +1,13 @@
 @import "button";
 
-:host {
+:host, dash-button {
   @extend .dash-button;
 }
 
-:host(:hover) {
+:host(:hover), dash-button:hover {
   @extend .dash-button--hover;
 }
 
-:host(:active) {
+:host(:active), dash-button:active {
   @extend .dash-button--active;
 }

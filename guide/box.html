@@ -12,103 +12,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
     <meta name="description" content="Dash web component guide." />
+
+    <link rel="stylesheet" href="./guide.css" />
   </head>
 
-  <body style="background-color: #fafafa; padding: 0; margin: 0;">
+  <body>
     <dash-wrapper>
       <dash-note>Box</dash-note>
 
       <pre>
-        &lt;dash-box loading error&gt;
+        &lt;dash-box loading error padded&gt;
           &lt;dash-header&gt;
-            &lt;dash-label&gt;Box Title&lt;/dash-label&gt;
-            &lt;dash-button&gt;Button&lt;/dash-button&gt;
+            &lt;dash-label&gt;Title&lt;/dash-label&gt;
             &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
-            &lt;dash-button&gt;Button&lt;/dash-button&gt;
-            &lt;dash-button&gt;Button&lt;/dash-button&gt;
-            &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
-            &lt;dash-button&gt;Button 2&lt;/dash-button&gt;
+            &lt;dash-button&gt;Action&lt;/dash-button&gt;
           &lt;/dash-header&gt;
-          Box user content!
+          Content
         &lt;/dash-box&gt;
       </pre>
 
-      <dash-box>
+      <dash-box padded>
         <dash-header>
-          <dash-label>Box</dash-label>
+          <dash-label>Title</dash-label>
           <dash-spacer></dash-spacer>
           <dash-button>Action</dash-button>
         </dash-header>
-        <dash-label>Box content</dash-label>
+        <a>Content</a>
       </dash-box>
 
       <br/>
 
-      <dash-box loading>
+      <dash-box id="loading-box" loading>
         <dash-header>
-          <dash-label>Box Loading</dash-label>
+          <dash-label>Loading</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button id="loading-toggle">Toggle Loading</dash-button>
         </dash-header>
       </dash-box>
 
       <br/>
 
-      <dash-box error>
+      <dash-box id="error-box" error>
         <dash-header>
-          <dash-label>Box Error</dash-label>
+          <dash-label>Error</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button id="error-toggle">Toggle Error</dash-button>
         </dash-header>
       </dash-box>
     </dash-wrapper>
 
-<br/><br/><br/><br/><br/>
+    <script>
+      loadingBox = document.getElementById('loading-box');
+      loadingToggle = document.getElementById('loading-toggle');
+      errorBox = document.getElementById('error-box');
+      errorToggle = document.getElementById('error-toggle');
 
+      loadingBox.addEventListener('click', function() {
+        if (loadingBox.hasAttribute('loading')) { loadingBox.removeAttribute('loading'); }
+        else { loadingBox.setAttribute('loading', ''); }
+      }, true);
 
-      <div class="dash-box">
-        <div class="dash-box-header">
-          <div class="dash-box-header-primary">
-            <div class="dash-box-header-title">Box Title</div>
-          </div>
-          <div class="dash-box-header-secondary">
-            <div class="dash-button">Action</div>
-          </div>
-        </div>
-        <div class="dash-pad">Content</div>
-      </div>
-
-      <br/>
-
-      <div class="dash-box dash-loading">
-        <div class="dash-box-header">
-          <div class="dash-box-header-primary">
-            <div class="dash-box-header-title">Box (Loading)</div>
-          </div>
-        </div>
-      </div>
-
-      <br/>
-
-      <div class="dash-box dash-error">
-        <div class="dash-box-header">
-          <div class="dash-box-header-primary">
-            <div class="dash-box-header-title">Box (Error)</div>
-          </div>
-        </div>
-      </div>
-
-      <br/>
-
-      <div class="dash-box">
-        <div class="dash-box-header">
-          <div class="dash-box-header-primary">
-            <div class="dash-box-header-title">Box Image</div>
-          </div>
-        </div>
-        <div class="dash-box-image">
-          <img src="http://placehold.it/1000x100" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Scripts -->
+      errorBox.addEventListener('click', function() {
+        if (errorBox.hasAttribute('error')) { errorBox.removeAttribute('error'); }
+        else { errorBox.setAttribute('error', ''); }
+      }, true);
+    </script>
 
     <script src="../polyfills.js"></script>
     <script src="../components.js"></script>

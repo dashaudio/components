@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rollup = require('gulp-rollup');
 var string = require('rollup-plugin-string');
 var sass = require('rollup-plugin-sass');
+var inline = require('gulp-base64');
 
 gulp.task('polyfills', () => {
   gulp.src('./node_modules/webcomponents.js/webcomponents.js')
@@ -24,6 +25,7 @@ gulp.task('components', () => {
       ],
       sourceMap: true
     }))
+    .pipe(inline({ baseDir: 'components' }))
     .pipe(babel({ presets: ['es2015'] }))
     // .pipe(uglify({ wrap: true }))
     .pipe(sourcemaps.write('.'))
@@ -31,7 +33,7 @@ gulp.task('components', () => {
 });
 
 gulp.task('guide', () => {
-  return gulp.src('guide/**/*.html')
+  return gulp.src('guide/**/*.{html,css}')
     .pipe(gulp.dest('build/guide/'));
 });
 

@@ -1,5 +1,5 @@
 @import "wrapper";
 
-:host {
+:host, dash-wrapper {
   @extend .dash-wrapper;
 }
