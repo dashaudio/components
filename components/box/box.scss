@@ -5,6 +5,8 @@
 
 @keyframes dashBoxRotate { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
 
+// TODO: move these out to animation namespace....
+
 @keyframes dashBoxPop {
   0% { transform: scale(0); }
   40% { transform: scale(1.5); }

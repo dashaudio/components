@@ -1,9 +1,11 @@
 import styles from './host.scss';
+import polyfills from '../common/polyfills';
 
 export class DashIcon extends HTMLElement {
 
   createdCallback() {
-    var shadow = this.createShadowRoot().innerHTML = `<style>${styles}</style>`;
+    let polyfilledStyles = polyfills.styles(styles, 'dash-icon');
+    this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>`;
   }
 
 }

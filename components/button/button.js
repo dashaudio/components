@@ -1,10 +1,12 @@
 import template from './button.html';
 import styles from './host.scss';
+import polyfills from '../common/polyfills';
 
 export class DashButton extends HTMLElement {
 
   createdCallback() {
-    var shadow = this.createShadowRoot().innerHTML = `<style>${styles}</style>${template}`;
+    let polyfilledStyles = polyfills.styles(styles, 'dash-button');
+    this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
 }

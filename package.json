@@ -19,6 +19,7 @@
     "gulp-debug": "^2.1.2",
     "gulp-deps-order": "^0.2.0",
     "gulp-file-include": "^0.13.7",
+    "gulp-file-process": "^1.0.1",
     "gulp-include": "^2.1.0",
     "gulp-inline-assets": "^0.1.1",
     "gulp-inline-base64": "^0.1.4",

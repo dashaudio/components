@@ -1,10 +1,12 @@
 import template from './note.html';
 import styles from './host.scss';
+import polyfills from '../common/polyfills';
 
 export class DashNote extends HTMLElement {
 
   createdCallback() {
-    var shadow = this.createShadowRoot().innerHTML = `<style>${styles}</style>${template}`;
+    let polyfilledStyles = polyfills.styles(styles, 'dash-note');
+    this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
 }
