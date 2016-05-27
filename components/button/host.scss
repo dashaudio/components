@@ -1,10 +1,25 @@
 @import "button";
 
 :host { @extend .dash-button; }
+
+// States
+
 :host(:hover) { @extend .dash-button--hover; }
 :host(:active) { @extend .dash-button--active; }
 
+// Styles
+
+:host([wide]) { @extend .dash-button--wide; }
+:host([large]) { @extend .dash-button--large; }
+
 // Colours
+
+:host([primary]) { @extend .dash-button--primary; }
+:host([secondary]) { @extend .dash-button--secondary; }
+:host([tertiary]) { @extend .dash-button--tertiary; }
+:host([quaternary]) { @extend .dash-button--quaternary; }
+
+:host([warning]) { @extend .dash-button--warning; }
 
 :host([blue]) { @extend .dash-button--blue; }
 :host([navy]) { @extend .dash-button--navy; }
@@ -14,3 +29,4 @@
 :host([yellow]) { @extend .dash-button--yellow; }
 :host([green]) { @extend .dash-button--green; }
 :host([turquoise]) { @extend .dash-button--turquoise; }
+:host([red]) { @extend .dash-button--red; }

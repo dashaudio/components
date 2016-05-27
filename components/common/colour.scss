@@ -8,7 +8,7 @@ $dash-colour-sorbet: #FF72BE;
 $dash-colour-yellow: #FADE09;
 $dash-colour-green: #ACEC4B;
 $dash-colour-turquoise: #3CC8D1;
-
+$dash-colour-red: #FF4444;
 
 // Default Colours
 
@@ -16,10 +16,12 @@ $dash-colour-dark: #3B3C45 !default;
 $dash-colour-medium: #838383 !default;
 $dash-colour-light: #FAFAFA !default;
 
-$dash-colour-primary: #00BFFF !default;
-$dash-colour-secondary: #FA1C68 !default;
-$dash-colour-tertiary: #FB7D34 !default;
-$dash-colour-quaternary: #00ACF3 !default;
+$dash-colour-primary: $dash-colour-blue !default;
+$dash-colour-secondary: $dash-colour-navy !default;
+$dash-colour-tertiary: $dash-colour-purple !default;
+$dash-colour-quaternary: $dash-colour-turquoise !default;
+
+$dash-colour-warning: $dash-colour-red !default;
 
 $dash-colour-list: (
   $dash-colour-primary,

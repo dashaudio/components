@@ -28,8 +28,7 @@
             &lt;dash-button&gt;Action&lt;/dash-button&gt;
           &lt;/dash-header&gt;
           Content
-        &lt;/dash-box&gt;
-      </pre>
+        &lt;/dash-box&gt;</pre>
 
       <dash-box padded>
         <dash-header>
@@ -67,11 +66,37 @@
       <dash-note>Button</dash-note>
 
       <pre>
-        &lt;dash-button primary disabled bordered&gt;Title&lt;/dash-button&gt;
-      </pre>
+        &lt;dash-button&gt;Title&lt;/dash-button&gt;
+        &lt;dash-button wide&gt;Title&lt;/dash-button&gt;</pre>
 
+      <dash-button>Button</dash-button><br/><br/>
+      <dash-button wide>Wide Button</dash-button>
 
-      <dash-button>Button</dash-button>
+      <pre>
+        &lt;dash-button primary&gt;Primary&lt;/dash-button&gt;
+        &lt;dash-button secondary&gt;Secondary&lt;/dash-button&gt;
+        &lt;dash-button tertiary&gt;Tertiary&lt;/dash-button&gt;
+        &lt;dash-button quaternary&gt;Quaternary&lt;/dash-button&gt;
+        &lt;dash-button warning&gt;Warning&lt;/dash-button&gt;</pre>
+
+      <dash-button primary>Primary</dash-button>
+      <dash-button secondary>Secondary</dash-button>
+      <dash-button tertiary>Tertiary</dash-button>
+      <dash-button quaternary>Quaternary</dash-button>
+      <dash-button warning>Warning</dash-button>
+      <dash-label>Special Colours</dash-label>
+
+      <pre>
+        &lt;dash-button blue&gt;Blue&lt;/dash-button&gt;
+        &lt;dash-button navy&gt;Navy&lt;/dash-button&gt;
+        &lt;dash-button purple&gt;Purple&lt;/dash-button&gt;
+        &lt;dash-button orange&gt;Orange&lt;/dash-button&gt;
+        &lt;dash-button sorbet&gt;Sorbet&lt;/dash-button&gt;
+        &lt;dash-button yellow&gt;Yellow&lt;/dash-button&gt;
+        &lt;dash-button green&gt;Green&lt;/dash-button&gt;
+        &lt;dash-button turquoise&gt;Turquoise&lt;/dash-button&gt;
+        &lt;dash-button red&gt;Red&lt;/dash-button&gt;</pre>
+
       <dash-button blue>Blue</dash-button>
       <dash-button navy>Navy</dash-button>
       <dash-button purple>Purple</dash-button>
@@ -80,6 +105,68 @@
       <dash-button yellow>Yellow</dash-button>
       <dash-button green>Green</dash-button>
       <dash-button turquoise>Turquoise</dash-button>
+      <dash-button red>Red</dash-button>
+      <dash-label>Palette Colours</dash-label>
+    </dash-wrapper>
+
+    <br/>
+
+    <dash-wrapper>
+      <dash-note>Label</dash-note>
+
+      <pre>
+        &lt;dash-label&gt;Label&lt;/dash-label&gt;</pre>
+
+      <dash-label>Label</dash-label>
+    </dash-wrapper>
+
+    <br/>
+
+    <dash-wrapper>
+      <dash-note>Header (TODO: Rename toolbar)</dash-note>
+
+      <pre>
+        &lt;dash-header&gt;
+          &lt;dash-label&gt;Header&lt;/dash-label&gt;
+          &lt;dash-button&gt;Button&lt;/dash-button&gt;
+          &lt;dash-button&gt;Button&lt;/dash-button&gt;
+          &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
+          &lt;dash-button&gt;Button&lt;/dash-button&gt;
+          &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
+          &lt;dash-button green&gt;Button&lt;/dash-button&gt;
+          &lt;dash-button sorbet&gt;Button&lt;/dash-button&gt;
+        &lt;/dash-header&gt;</pre>
+
+      <dash-header>
+        <dash-label>Header</dash-label>
+        <dash-spacer></dash-spacer>
+        <dash-button>Button</dash-button>
+        <dash-button>Button</dash-button>
+        <dash-spacer></dash-spacer>
+        <dash-button>Button</dash-button>
+        <dash-button>Button</dash-button>
+      </dash-header>
+
+      <br/>
+
+      <dash-header>
+        <dash-button primary>Button</dash-button>
+        <dash-label>Label</dash-label>
+        <dash-field-text contenteditable="">Text content</dash-field-text>
+        <dash-spacer></dash-spacer>
+        <dash-label>Header</dash-label>
+        <dash-spacer></dash-spacer>
+        <dash-button secondary>Button</dash-button>
+        <dash-button tertiary>Button</dash-button>
+      </dash-header>
+    </dash-wrapper>
+
+    <br/>
+
+    <dash-wrapper>
+      <dash-note>Text Field</dash-note>
+
+      <dash-field-text>Text content</dash-field-text>
     </dash-wrapper>
 
     <script>

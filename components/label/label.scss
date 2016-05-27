@@ -1,4 +1,5 @@
 @import "../common/text/caption";
+@import "../common/text/text";
 
 .dash-label {
   @extend %dash-text-caption-small;
@@ -7,8 +8,4 @@
   height: units(3);
   line-height: units(3);
   padding: units(0) units(1);
-}
-
-.dash-label-block {
-  display: block;
 }

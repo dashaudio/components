@@ -1,5 +1,5 @@
 @import "note";
 
-:host, dash-note {
+:host {
   @extend .dash-note;
 }

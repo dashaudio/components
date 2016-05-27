@@ -1,7 +1,7 @@
 @import "../common/units";
 @import "../common/colour";
 @import "../common/border";
-@import "../common/text";
+@import "../common/text/text";
 
 .dash-note {
   @extend .dash-text-body;

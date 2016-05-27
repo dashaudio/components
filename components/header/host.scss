@@ -8,6 +8,6 @@
   @extend .dash-header--nested;
 }
 
-::content > *, dash-header > * {
+::content > * {
   @extend .dash-header-item;
 }
