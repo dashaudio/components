@@ -77,7 +77,7 @@
 
 .dash-box-header-icons-loading {
   @extend .dash-box-rotate;
-  @extend %dash-icon-loading;
+  @extend .dash-icon-loading;
   display: none;
   margin-left: -100%;
   opacity: 0;
@@ -86,7 +86,7 @@
 
 .dash-box-header-icons-error {
   @extend .dash-box-pop;
-  @extend %dash-icon-error;
+  @extend .dash-icon-error;
   display: none;
   margin-left: -100%;
   opacity: 0;

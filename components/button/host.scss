@@ -6,11 +6,14 @@
 
 :host(:hover) { @extend .dash-button--hover; }
 :host(:active) { @extend .dash-button--active; }
+:host([loading]) { @extend .dash-button--loading; }
 
 // Styles
 
 :host([wide]) { @extend .dash-button--wide; }
 :host([large]) { @extend .dash-button--large; }
+:host([round]) { @extend .dash-button--round; }
+:host([compact]) { @extend .dash-button--compact; }
 
 // Colours
 

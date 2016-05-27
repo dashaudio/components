@@ -3,18 +3,14 @@
 @import "../common/icon";
 @import "../common/animation/appear";
 @import "../common/text/caption";
-@import "../common/hacks";
 @import "../common/functions";
 
 .dash-button {
   @extend %dash-text-caption-small;
-  @extend %webkit-no-highlight;
   @extend .dash-button--border;
-  display: inline-block;
-  user-select: none; -webkit-user-select: none;
   height: units(3);
   line-height: units(3);
-  padding: units(0) units(1.5);
+  padding: 0 units(1.5);
   white-space: nowrap;
   cursor: pointer;
   border-radius: $dash-border-radius;
@@ -22,6 +18,24 @@
   transition: background-color 0.25s, color 0.5s, opacity 0.5s;
   text-align: center;
   background-color: $dash-colour-white;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.dash-button-icon {
+  // !
+}
+
+.dash-button-icon-loading {
+  display: none;
+}
+
+.dash-button--loading .dash-button-icon-loading {
+  display: block;
+}
+
+.dash-button-content {
+  // padding: 0 units(2);
 }
 
 // Styles
@@ -36,6 +50,15 @@
 
 .dash-button--large {
   padding: units(1) units(3);
+}
+
+.dash-button--round {
+  border-radius: units(1.5);
+}
+
+.dash-button--compact {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 // States
