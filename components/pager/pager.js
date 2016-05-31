@@ -9,8 +9,6 @@ export class DashPager extends HTMLElement {
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
-
-
   set totalPages(total) {
 
     this.values.total = Math.max(1, Number(total));
@@ -46,15 +44,15 @@ export class DashPager extends HTMLElement {
     this.showPage(Math.min(this.values.total, this.values.current + 1));
   }
 
-  get firstPage() : number {
+  get firstPage() {
     return 1;
   }
 
-  get lastPage() : number {
+  get lastPage() {
     return this.values.total;
   }
 
-  get firstVisiblePage() : number {
+  get firstVisiblePage() {
 
     let value = this.values.current - this.values.padding;
     let expansion = this.values.total - (this.values.current + this.values.padding);
@@ -63,7 +61,7 @@ export class DashPager extends HTMLElement {
 
   }
 
-  get lastVisiblePage() : number {
+  get lastVisiblePage() {
 
     let value = this.values.current + this.values.padding;
     let expansion = this.values.current - this.values.padding - 1;
@@ -72,7 +70,7 @@ export class DashPager extends HTMLElement {
 
   }
 
-  get currentPage() : number {
+  get currentPage() {
     return this.values.current;
   }
 

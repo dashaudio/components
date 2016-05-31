@@ -21,3 +21,7 @@ document.registerElement('dash-wrapper', { prototype: DashWrapper.prototype });
 document.registerElement('dash-note', { prototype: DashNote.prototype });
 document.registerElement('dash-divider', { prototype: DashDivider.prototype });
 document.registerElement('dash-pager', { prototype: DashPager.prototype });
+
+import { DashAnalyticsSummary } from './analytics/summary/summary';
+
+document.registerElement('dash-analytics-summary', { prototype: DashAnalyticsSummary.prototype });
