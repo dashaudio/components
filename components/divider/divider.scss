@@ -1,0 +1,10 @@
+@import "../common/colour";
+@import "../common/units";
+
+.dash-divider {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: $dash-colour-outline;
+  margin: units(3) 0;
+}

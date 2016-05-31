@@ -14,6 +14,9 @@
 :host([large]) { @extend .dash-button--large; }
 :host([round]) { @extend .dash-button--round; }
 :host([compact]) { @extend .dash-button--compact; }
+:host([selected]) { @extend .dash-button--selected; }
+
+:host-context(dash-button-group) { @extend .dash-button--grouped; }
 
 // Colours
 

@@ -2,9 +2,7 @@
 @import "../common/colour";
 @import "../common/border";
 
-// TODO: Rename to toolbar??
-
-.dash-header {
+.dash-toolbar {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -14,15 +12,20 @@
   border-radius: $dash-border-radius;
 }
 
-.dash-header--nested {
+.dash-toolbar--nested {
   background-color: initial;
   padding: initial;
   border: initial;
   border-radius: initial;
 }
 
-.dash-header-item {
+.dash-toolbar--large {
+  padding: units(2);
+}
+
+.dash-toolbar-item {
   margin-right: units(0.5);
+
   &:last-child {
     margin-right: 0;
   }

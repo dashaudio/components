@@ -1,11 +1,11 @@
-import template from './header.html';
+import template from './toolbar.html';
 import styles from './host.scss';
 import polyfills from '../common/polyfills';
 
-export class DashHeader extends HTMLElement {
+export class DashToolbar extends HTMLElement {
 
   createdCallback() {
-    let polyfilledStyles = polyfills.styles(styles, 'dash-header');
+    let polyfilledStyles = polyfills.styles(styles, 'dash-toolbar');
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 

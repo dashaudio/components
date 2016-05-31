@@ -1,0 +1,12 @@
+@import "../layout/width";
+@import "../colour";
+@import "../units";
+
+.dash-text-body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: units(1.8);
+  text-transform: unset;
+  letter-spacing: unset;
+  color: $dash-colour-dark;
+}

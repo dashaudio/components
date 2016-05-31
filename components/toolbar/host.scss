@@ -1,0 +1,7 @@
+@import "toolbar";
+
+:host { @extend .dash-toolbar; }
+:host([large]) { @extend .dash-toolbar--large; }
+:host-context(dash-box) { @extend .dash-toolbar--nested; }
+
+::content > * { @extend .dash-toolbar-item; }

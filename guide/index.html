@@ -22,41 +22,41 @@
 
       <pre>
         &lt;dash-box loading error padded&gt;
-          &lt;dash-header&gt;
+          &lt;dash-toolbar&gt;
             &lt;dash-label&gt;Title&lt;/dash-label&gt;
             &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
             &lt;dash-button&gt;Action&lt;/dash-button&gt;
-          &lt;/dash-header&gt;
+          &lt;/dash-toolbar&gt;
           Content
         &lt;/dash-box&gt;</pre>
 
       <dash-box padded>
-        <dash-header>
+        <dash-toolbar>
           <dash-label>Title</dash-label>
           <dash-spacer></dash-spacer>
           <dash-button>Action</dash-button>
-        </dash-header>
+        </dash-toolbar>
         <a>Content</a>
       </dash-box>
 
       <br/>
 
       <dash-box id="loading-box" loading>
-        <dash-header>
+        <dash-toolbar>
           <dash-label>Loading</dash-label>
           <dash-spacer></dash-spacer>
           <dash-button id="loading-toggle">Toggle</dash-button>
-        </dash-header>
+        </dash-toolbar>
       </dash-box>
 
       <br/>
 
       <dash-box id="error-box" error>
-        <dash-header>
+        <dash-toolbar>
           <dash-label>Error</dash-label>
           <dash-spacer></dash-spacer>
           <dash-button id="error-toggle">Toggle</dash-button>
-        </dash-header>
+        </dash-toolbar>
       </dash-box>
     </dash-wrapper>
 
@@ -111,7 +111,11 @@
       <pre>
         &lt;dash-button&gt;&lt;dash-icon feed&gt;&lt;/dash-icon&gt;Button&lt;/dash-button&gt;
         &lt;dash-button&gt;&lt;dash-icon help&gt;&lt;/dash-icon&gt;Button&lt;/dash-button&gt;
-        &lt;dash-button&gt;&lt;dash-icon error&gt;&lt;/dash-icon&gt;Button&lt;/dash-button&gt;</pre>
+        &lt;dash-button&gt;&lt;dash-icon error&gt;&lt;/dash-icon&gt;Button&lt;/dash-button&gt;
+        &lt;dash-button&gt;&lt;dash-icon feed&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;
+        &lt;dash-button compact&gt;&lt;dash-icon help&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;
+        &lt;dash-button compact&gt;&lt;dash-icon feed&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;
+        &lt;dash-button compact&gt;&lt;dash-icon loading&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;</pre>
 
       <dash-button><dash-icon feed></dash-icon>Button</dash-button>
       <dash-button><dash-icon help></dash-icon>Button</dash-button>
@@ -122,17 +126,35 @@
       <dash-button compact><dash-icon loading></dash-icon></dash-button>
       <dash-label>Icon Buttons</dash-label>
 
-      <pre></pre>
+      <pre>
+        &lt;dash-button loading&gt;&lt;dash-icon feed&gt;&lt;/dash-icon&gt;Button&lt;/dash-button&gt;</pre>
 
-      <dash-button loading><dash-icon feed></dash-icon>Loading button</dash-button>
+      <dash-button loading><dash-icon feed></dash-icon>Button</dash-button>
       <dash-label>Loading Buttons</dash-label>
 
-      <pre></pre>
+      <pre>
+        &lt;dash-button round compact&gt;&lt;dash-icon feed&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;
+        &lt;dash-button round compact&gt;&lt;dash-icon help&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;
+        &lt;dash-button round compact&gt;&lt;dash-icon loading&gt;&lt;/dash-icon&gt;&lt;/dash-button&gt;</pre>
 
       <dash-button round compact><dash-icon feed></dash-icon></dash-button>
       <dash-button round compact><dash-icon help></dash-icon></dash-button>
       <dash-button round compact><dash-icon loading></dash-icon></dash-button>
       <dash-label>Round Buttons</dash-label>
+
+      <pre>
+        &lt;dash-button-group&gt;
+          &lt;dash-button&gt;One&lt;/dash-button&gt;
+          &lt;dash-button&gt;Two&lt;/dash-button&gt;
+          &lt;dash-button selected&gt;Three&lt;/dash-button&gt;
+        &lt;/dash-button-group&gt;</pre>
+
+      <dash-button-group>
+        <dash-button>One</dash-button>
+        <dash-button>Two</dash-button>
+        <dash-button selected>Three</dash-button>
+      </dash-button-group>
+      <dash-label>Button Group</dash-label>
     </dash-wrapper>
 
     <br/>
@@ -147,9 +169,21 @@
         &lt;dash-icon error&gt;&lt;/dash-icon&gt;</pre>
 
       <dash-icon></dash-icon><dash-label>Default</dash-label>
-      <dash-icon feed></dash-icon><dash-label>Feed</dash-label>
       <dash-icon loading></dash-icon><dash-label>Loading</dash-label>
       <dash-icon error></dash-icon><dash-label>Error</dash-label>
+      <dash-icon feed></dash-icon><dash-label>Feed</dash-label>
+      <dash-icon help></dash-icon><dash-label>Help</dash-label>
+
+      <br/><br/>
+
+      <dash-toolbar>
+        <dash-icon></dash-icon>
+        <dash-icon loading></dash-icon>
+        <dash-icon error></dash-icon>
+        <dash-icon feed></dash-icon>
+        <dash-icon help></dash-icon>
+        <dash-label>Inside Toolbar</dash-label>
+      </dash-toolbar>
 
     </dash-wrapper>
 
@@ -167,42 +201,59 @@
     <br/>
 
     <dash-wrapper>
-      <dash-note>Header (TODO: Rename toolbar)</dash-note>
+      <dash-note>Toolbar</dash-note>
 
       <pre>
-        &lt;dash-header&gt;
-          &lt;dash-label&gt;Header&lt;/dash-label&gt;
-          &lt;dash-button&gt;Button&lt;/dash-button&gt;
-          &lt;dash-button&gt;Button&lt;/dash-button&gt;
-          &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
-          &lt;dash-button&gt;Button&lt;/dash-button&gt;
-          &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
-          &lt;dash-button&gt;Button&lt;/dash-button&gt;
-          &lt;dash-button&gt;Button&lt;/dash-button&gt;
-        &lt;/dash-header&gt;</pre>
+        <dash-toolbar>
+          <dash-label>toolbar</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button>Button</dash-button>
+          <dash-button>Button</dash-button>
+          <dash-spacer></dash-spacer>
+          <dash-button>Button</dash-button>
+          <dash-button>Button</dash-button>
+        </dash-toolbar></pre>
 
-      <dash-header>
-        <dash-label>Header</dash-label>
+      <dash-toolbar>
+        <dash-label>toolbar</dash-label>
         <dash-spacer></dash-spacer>
         <dash-button>Button</dash-button>
         <dash-button>Button</dash-button>
         <dash-spacer></dash-spacer>
         <dash-button>Button</dash-button>
         <dash-button>Button</dash-button>
-      </dash-header>
+      </dash-toolbar>
 
       <br/>
 
-      <dash-header>
+      <dash-toolbar>
         <dash-button primary>Button</dash-button>
         <dash-label>Label</dash-label>
         <dash-field-text contenteditable="">Text content</dash-field-text>
         <dash-spacer></dash-spacer>
-        <dash-label>Header</dash-label>
+        <dash-label>toolbar</dash-label>
         <dash-spacer></dash-spacer>
         <dash-button secondary>Button</dash-button>
         <dash-button tertiary>Button</dash-button>
-      </dash-header>
+      </dash-toolbar>
+
+      <pre>
+        &lt;dash-toolbar large&gt;
+          &lt;!-- contents --&gt;
+        &lt;/dash-toolbar&gt;
+      </pre>
+
+      <dash-toolbar large>
+        <dash-label large>Large Toolbar</dash-label>
+        <dash-button-group>
+          <dash-button>One</dash-button>
+          <dash-button>Two</dash-button>
+          <dash-button selected>Three</dash-button>
+        </dash-button-group>
+        <dash-spacer></dash-spacer>
+        <dash-button>Button</dash-button>
+        <dash-button primary>Button</dash-button>
+      </dash-toolbar>
     </dash-wrapper>
 
     <br/>

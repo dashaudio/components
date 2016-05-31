@@ -6,7 +6,7 @@
 @import "../common/functions";
 
 .dash-button {
-  @extend %dash-text-caption-small;
+  @extend .dash-text-caption-small;
   @extend .dash-button--border;
   height: units(3);
   line-height: units(3);
@@ -61,10 +61,31 @@
   padding-right: 0;
 }
 
+.dash-button--selected {
+  background-color: $dash-colour-light;
+  cursor: default;
+  &.dash-button--hover {
+    background-color: $dash-colour-light;
+  }
+}
+
+.dash-button--grouped {
+  display: block;
+  float: left;
+
+  margin-right: -1px;
+  // border-radius: 0;
+  &:first-of-type {
+    background: red;
+    border-top-left-radius: $dash-border-radius;
+    border-bottom-left-radius: $dash-border-radius;
+  }
+}
+
 // States
 
 .dash-button--hover {
-  background-color: $dash-colour-white;
+  // background-color: $dash-colour-white;
 }
 
 .dash-button--active {

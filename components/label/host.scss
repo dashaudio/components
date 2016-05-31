@@ -1,5 +1,4 @@
 @import "label";
 
-:host {
-  @extend .dash-label;
-}
+:host { @extend .dash-label; }
+:host([large]) { @extend .dash-label--large; }

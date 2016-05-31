@@ -1,7 +1,10 @@
 @import "../common/layout/width";
+@import "../common/clearfix";
 @import "../common/units";
 
 .dash-wrapper {
+  @extend .dash-clearfix;
+
   display: block;
 
   $small-padding: units(2);
