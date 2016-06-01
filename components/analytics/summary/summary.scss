@@ -1,24 +1,24 @@
+@import "../../common/units";
+@import "../../common/text/body";
+
 .dash-analytics-summary {
   display: block;
 }
 
-
-
-
-
-
-.dash-analytics-summary-content {
-  display: flex;
-  flex-direction: column;
+.dash-analytics-summary-title {
+  // !
 }
 
-.dash-analytics-summary-content-sparkline {
-  height: 50px;
-  order: 2;
+.dash-analytics-summary-value {
+  @extend .dash-text-body;
+  font-size: 40px;
 }
 
-.dash-analytics-summary-content-headline {
-  height: 50px;
-  order: 1;
-  font-size: 28px;
+.dash-analytics-summary-sparkline {
+  height: units(5);
+}
+
+
+.dash-analytics-summary--selected {
+  // !
 }

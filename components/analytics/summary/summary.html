@@ -1,12 +1,13 @@
 <dash-box padded>
-  <content select="dash-toolbar"></content>
+  <dash-toolbar>
+    <dash-label class="dash-analytics-summary-title"></dash-label>
+  </dash-toolbar>
 
-  <div class="dash-analytics-summary-content">
-    <div class="dash-analytics-summary-content-sparkline">
-      <content select="dash-sparkline"></content>
-    </div>
-    <div class="dash-analytics-summary-content-headline">
-      <content></content>
-    </div>
+  <div class="dash-analytics-summary-value"></div>
+
+  <div class="dash-analytics-summary-sparkline">
+    <content select="dash-sparkline"></content>
   </div>
+
+  <content></content>
 </dash-box>

@@ -2,10 +2,10 @@ import template from './sparkline.html';
 import styles from './host.scss';
 import polyfills from '../common/polyfills';
 
-const ATTRIBUTE_DATA = "data";
-const ATTRIBUTE_INVALID = "invalid";
+const ATTRIBUTE_DATA = 'data';
+const ATTRIBUTE_INVALID = 'invalid';
 
-const ELEMENT_PATH = ".dash-sparkline-path";
+const ELEMENT_PATH = '.dash-sparkline-path';
 
 export class DashSparkline extends HTMLElement {
 
