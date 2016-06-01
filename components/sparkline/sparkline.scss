@@ -1,0 +1,118 @@
+@import "../common/colour";
+@import "../common/units";
+@import "../common/border";
+
+.dash-sparkline {
+  display: inline-block;
+  vertical-align: bottom;
+  width: units(10);
+  height: units(2);
+  padding: units(0.5) 0;
+}
+
+.dash-sparkline-image {
+  display: block;
+  padding: 0 1px;
+  margin-left: -1px;
+}
+
+.dash-sparkline-path {
+  stroke: $dash-colour-dark;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.dash-sparkline-error {
+  display: none;
+  margin: units(-0.5) auto;
+}
+
+.dash-sparkline--invalid {
+  .dash-sparkline-image {
+    display: none;
+  }
+
+  .dash-sparkline-error {
+    display: block;
+  }
+}
+
+// Sizes
+
+.dash-sparkline--small {
+  width: units(3);
+}
+
+.dash-sparkline--medium {
+  width: units(10);
+}
+
+.dash-sparkline--large {
+  width: units(20);
+}
+
+.dash-sparkline--full {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+// Colours
+
+.dash-sparkline--primary {
+  .dash-sparkline-path { stroke: $dash-colour-primary; }
+}
+
+.dash-sparkline--secondary {
+  .dash-sparkline-path { stroke: $dash-colour-secondary; }
+}
+
+.dash-sparkline--tertiary {
+  .dash-sparkline-path { stroke: $dash-colour-tertiary; }
+}
+
+.dash-sparkline--quaternary {
+  .dash-sparkline-path { stroke: $dash-colour-quaternary; }
+}
+
+.dash-sparkline--warning {
+  .dash-sparkline-path { stroke: $dash-colour-warning; }
+}
+
+.dash-sparkline--blue {
+  .dash-sparkline-path { stroke: $dash-colour-blue; }
+}
+
+.dash-sparkline--navy {
+  .dash-sparkline-path { stroke: $dash-colour-navy; }
+}
+
+.dash-sparkline--purple {
+  .dash-sparkline-path { stroke: $dash-colour-purple; }
+}
+
+.dash-sparkline--orange {
+  .dash-sparkline-path { stroke: $dash-colour-orange; }
+}
+
+.dash-sparkline--sorbet {
+  .dash-sparkline-path { stroke: $dash-colour-sorbet; }
+}
+
+.dash-sparkline--yellow {
+  .dash-sparkline-path { stroke: $dash-colour-yellow; }
+}
+
+.dash-sparkline--green {
+  .dash-sparkline-path { stroke: $dash-colour-green; }
+}
+
+.dash-sparkline--turquoise {
+  .dash-sparkline-path { stroke: $dash-colour-turquoise; }
+}
+
+.dash-sparkline--red {
+  .dash-sparkline-path { stroke: $dash-colour-red; }
+}

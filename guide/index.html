@@ -18,10 +18,73 @@
 
   <body>
     <dash-wrapper>
-      <dash-note>Analytics Summary</dash-note>
+      <dash-note id="sparkline">Sparkline</dash-note>
+
+      <pre>
+        &lt;dash-sparkline small data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline medium data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline large data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small data=&quot;[0.5,ABC]&quot;&gt;&lt;/dash-sparkline&gt;</pre>
+
+      <dash-sparkline small data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Small</dash-label>
+      <dash-sparkline medium data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Medium</dash-label>
+      <dash-sparkline large data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Large</dash-label>
+      <dash-sparkline small data="[0.5,ABC]"></dash-sparkline><dash-label>Invalid</dash-label>
+
+      <pre>
+        &lt;dash-sparkline small primary data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small secondary data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small tertiary data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small quaternary data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small warning data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;</pre>
+
+      <dash-sparkline small primary data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Primary</dash-label>
+      <dash-sparkline small secondary data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Secondary</dash-label>
+      <dash-sparkline small tertiary data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Tertiary</dash-label>
+      <dash-sparkline small quaternary data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Quaternary</dash-label>
+      <dash-sparkline small warning data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline><dash-label>Warning</dash-label>
+
+      <pre>
+        &lt;dash-sparkline small blue data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small navy data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small purple data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small orange data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small sorbet data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small yellow data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small green data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small turquoise data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;dash-sparkline small red data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;</pre>
+
+      <dash-sparkline small blue data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small navy data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small purple data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small orange data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small sorbet data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small yellow data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small green data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small turquoise data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      <dash-sparkline small red data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+
+      <pre>
+        &lt;div style=&quot;height: 60px;&quot;&gt;
+          &lt;dash-sparkline full data=&quot;[0.5,0.2,1,0,0.75,0.25,0.5,0,1]&quot;&gt;&lt;/dash-sparkline&gt;
+        &lt;/div&gt;</pre>
+
+      <div style="height: 60px;">
+        <dash-sparkline full data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+      </div>
+
+      <br/>
+
+      <!-- <dash-analytics-summary title="Plays in the past 30 days" value="28,000%">
+      </dash-analytics-summary> -->
 
       <dash-analytics-summary style="width: 25%">
-        Summary
+        <dash-toolbar>
+          <dash-label>Plays in the last 30 days</dash-label>
+        </dash-toolbar>
+        <dash-sparkline full primary data="[0.5,0.2,1,0,0.75,0.25,0.5,0,1]"></dash-sparkline>
+        28,000
       </dash-analytics-summary>
     </dash-wrapper>
 

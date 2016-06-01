@@ -1,6 +1,12 @@
 <dash-box padded>
-  <dash-toolbar>
-    <dash-label>Plays in the last 30 days</dash-label>
-  </dash-toolbar>
-  21,000
+  <content select="dash-toolbar"></content>
+
+  <div class="dash-analytics-summary-content">
+    <div class="dash-analytics-summary-content-sparkline">
+      <content select="dash-sparkline"></content>
+    </div>
+    <div class="dash-analytics-summary-content-headline">
+      <content></content>
+    </div>
+  </div>
 </dash-box>

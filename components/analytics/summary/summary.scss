@@ -1,3 +1,24 @@
 .dash-analytics-summary {
   display: block;
 }
+
+
+
+
+
+
+.dash-analytics-summary-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-analytics-summary-content-sparkline {
+  height: 50px;
+  order: 2;
+}
+
+.dash-analytics-summary-content-headline {
+  height: 50px;
+  order: 1;
+  font-size: 28px;
+}

@@ -1,0 +1,33 @@
+@import "sparkline";
+
+:host { @extend .dash-sparkline; }
+:host-context(dash-analytics-summary) { @extend .dash-sparkline--full; }
+
+:host([invalid]) { @extend .dash-sparkline--invalid; }
+// :host([loading]) // TODO
+
+// Sizes
+
+:host([small]) { @extend .dash-sparkline--small; }
+:host([medium]) { @extend .dash-sparkline--medium; }
+:host([large]) { @extend .dash-sparkline--large; }
+:host([full]) { @extend .dash-sparkline--full; }
+
+// Colours
+
+:host([primary]) { @extend .dash-sparkline--primary; }
+:host([secondary]) { @extend .dash-sparkline--secondary; }
+:host([tertiary]) { @extend .dash-sparkline--tertiary; }
+:host([quaternary]) { @extend .dash-sparkline--quaternary; }
+
+:host([warning]) { @extend .dash-sparkline--warning; }
+
+:host([blue]) { @extend .dash-sparkline--blue; }
+:host([navy]) { @extend .dash-sparkline--navy; }
+:host([purple]) { @extend .dash-sparkline--purple; }
+:host([orange]) { @extend .dash-sparkline--orange; }
+:host([sorbet]) { @extend .dash-sparkline--sorbet; }
+:host([yellow]) { @extend .dash-sparkline--yellow; }
+:host([green]) { @extend .dash-sparkline--green; }
+:host([turquoise]) { @extend .dash-sparkline--turquoise; }
+:host([red]) { @extend .dash-sparkline--red; }
