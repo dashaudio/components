@@ -48,7 +48,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "gulp serve",
-    "test": "exit 0"
+    "test": "gulp build"
   },
   "author": "",
   "license": "ISC"

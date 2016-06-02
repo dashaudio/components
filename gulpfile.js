@@ -48,6 +48,6 @@ gulp.task('test', (done) => {
     }, done).start();
 });
 
-gulp.task('build', ['polyfills', 'components', 'guide', 'test']);
-gulp.task('serve', ['build', 'watch']);
+gulp.task('build', ['polyfills', 'components', 'guide']);
+gulp.task('serve', ['build', 'test', 'watch']);
 gulp.task('default', ['build']);
