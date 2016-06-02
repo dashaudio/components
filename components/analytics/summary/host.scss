@@ -1,3 +1,4 @@
 @import "summary";
 
 :host { @extend .dash-analytics-summary; }
+:host(:active) { @extend .dash-analytics-summary--selected; }
