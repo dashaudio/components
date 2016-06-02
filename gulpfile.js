@@ -12,7 +12,7 @@ var inline = require('gulp-base64');
 gulp.task('polyfills', () => {
   gulp.src('./node_modules/webcomponents.js/webcomponents.js')
     .pipe(concat('polyfills.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
 
@@ -27,7 +27,7 @@ gulp.task('components', () => {
     }))
     .pipe(inline({ baseDir: 'components' }))
     .pipe(babel({ presets: ['es2015'] }))
-    // .pipe(uglify({ wrap: true }))
+    .pipe(uglify({ wrap: true }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'));
 });
