@@ -1,0 +1,29 @@
+@import "../common/units";
+@import "../common/icon";
+
+.dash-icon {
+  @extend .dash-icon-default;
+  display: inline-flex;
+  vertical-align: top;
+  width: units(3);
+  height: units(3);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.dash-icon--loading {
+  @extend .dash-icon-loading;
+}
+
+.dash-icon--error {
+  @extend .dash-icon-error;
+}
+
+.dash-icon--feed {
+  @extend .dash-icon-feed;
+}
+
+.dash-icon--help {
+  @extend .dash-icon-help;
+}

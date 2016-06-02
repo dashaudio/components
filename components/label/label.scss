@@ -1,0 +1,16 @@
+@import "../common/text/caption";
+@import "../common/text/body";
+
+.dash-label {
+  @extend .dash-text-caption-small;
+  display: inline-block;
+  user-select: none;
+  height: units(3);
+  line-height: units(3);
+  padding: units(0) units(1);
+}
+
+.dash-label--large {
+  @extend .dash-text-body;
+
+}

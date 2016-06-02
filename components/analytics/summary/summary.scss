@@ -1,0 +1,31 @@
+@import "../../common/units";
+@import "../../common/text/body";
+
+.dash-analytics-summary {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dash-analytics-summary-box {
+  transition: background-color .25s;
+}
+
+.dash-analytics-summary-title {
+  // !
+}
+
+.dash-analytics-summary-value {
+  @extend .dash-text-body;
+  font-size: 40px;
+  margin-bottom: units(1);
+}
+
+.dash-analytics-summary-sparkline {
+  height: units(5);
+}
+
+.dash-analytics-summary--selected {
+  .dash-analytics-summary-box {
+    background-color: $dash-colour-light;
+  }
+}

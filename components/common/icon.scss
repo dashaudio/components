@@ -1,0 +1,26 @@
+@import "../common/animation/rotate";
+
+.dash-icon-default {
+  background-image: url(common/icon/default.svg);
+}
+
+.dash-icon-loading {
+  @extend .dash-animation-rotate;
+  background-image: url(common/icon/loading.svg);
+  background-size: 50%;
+}
+
+.dash-icon-error {
+  background-image: url(common/icon/error.svg);
+  background-size: 48%;
+}
+
+.dash-icon-feed {
+  background-image: url(common/icon/feed.svg);
+  background-size: 40%;
+}
+
+.dash-icon-help {
+  background-image: url(common/icon/help.svg);
+  background-size: 36%;
+}

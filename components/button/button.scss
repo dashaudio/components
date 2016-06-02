@@ -1,0 +1,449 @@
+@import "../common/colour";
+@import "../common/border";
+@import "../common/icon";
+@import "../common/animation/appear";
+@import "../common/text/caption";
+@import "../common/functions";
+
+.dash-button {
+  @extend .dash-text-caption-small;
+  @extend .dash-button--border;
+  height: units(3);
+  line-height: units(3);
+  padding: 0 units(1.5);
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: $dash-border-radius;
+  align-content: flex-end;
+  transition: background-color 0.25s, color 0.5s, opacity 0.5s;
+  text-align: center;
+  background-color: $dash-colour-white;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.dash-button-icon {
+  // !
+}
+
+.dash-button-icon-loading {
+  display: none;
+}
+
+.dash-button--loading .dash-button-icon-loading {
+  display: block;
+}
+
+.dash-button-content {
+  // padding: 0 units(2);
+}
+
+// Styles
+
+.dash-button--wide {
+  display: block;
+}
+
+.dash-button--border {
+  box-shadow: inset 0 0 0 1px $dash-colour-outline;
+}
+
+.dash-button--large {
+  padding: units(1) units(3);
+}
+
+.dash-button--round {
+  border-radius: units(1.5);
+}
+
+.dash-button--compact {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dash-button--selected {
+  background-color: $dash-colour-light;
+  cursor: default;
+  &.dash-button--hover {
+    background-color: $dash-colour-light;
+  }
+}
+
+.dash-button--grouped {
+  display: block;
+  float: left;
+
+  margin-right: -1px;
+  // border-radius: 0;
+  &:first-of-type {
+    background: red;
+    border-top-left-radius: $dash-border-radius;
+    border-bottom-left-radius: $dash-border-radius;
+  }
+}
+
+// States
+
+.dash-button--hover {
+  // background-color: $dash-colour-white;
+}
+
+.dash-button--active {
+  background-color: $dash-colour-outline;
+}
+
+// Colours
+
+@mixin dash-button--coloured($colour) {
+  box-shadow: initial;
+  background-color: $colour;
+  color: $dash-colour-white;
+  // text-shadow: 0 0 2px rgba($dash-colour-dark, 0.5);
+
+  // @if lightness($colour) > 180 { color: $dash-colour-black; }
+  // @else { color: $dash-colour-white; }
+
+  &.dash-button--hover {
+    // background-color: scale-color($colour, $saturation: -100%);
+  }
+
+  &.dash-button--active {
+    background-color: scale-color($colour, $lightness: -50%);
+  }
+}
+
+.dash-button--primary {
+  @include dash-button--coloured($dash-colour-primary);
+}
+
+.dash-button--secondary {
+  @include dash-button--coloured($dash-colour-secondary);
+}
+
+.dash-button--tertiary {
+  @include dash-button--coloured($dash-colour-tertiary);
+}
+
+.dash-button--quaternary {
+  @include dash-button--coloured($dash-colour-quaternary);
+}
+
+.dash-button--warning {
+  @include dash-button--coloured($dash-colour-warning);
+}
+
+.dash-button--blue {
+  @include dash-button--coloured($dash-colour-blue);
+}
+
+.dash-button--navy {
+  @include dash-button--coloured($dash-colour-navy);
+}
+
+.dash-button--purple {
+  @include dash-button--coloured($dash-colour-purple);
+}
+
+.dash-button--orange {
+  @include dash-button--coloured($dash-colour-orange);
+}
+
+.dash-button--sorbet {
+  @include dash-button--coloured($dash-colour-sorbet);
+}
+
+.dash-button--yellow {
+  @include dash-button--coloured($dash-colour-yellow);
+}
+
+.dash-button--green {
+  @include dash-button--coloured($dash-colour-green);
+}
+
+.dash-button--turquoise {
+  @include dash-button--coloured($dash-colour-turquoise);
+}
+
+.dash-button--red {
+  @include dash-button--coloured($dash-colour-red);
+}
+
+//   font-weight: 500;
+//   vertical-align: middle;
+//   min-height: units(1);
+//   color: $dash-colour-dark; // darken($dash-colour-medium, 10%);
+//   text-align: center;
+//   background-color: $dash-colour-white;
+//
+//   &:hover {
+//     background-color: $dash-colour-light;
+//   }
+//
+//   &:active, &:focus {
+//     outline: none;
+//     background-color: darken($dash-colour-light, 5%);
+//   }
+//
+//   &[disabled] {
+//     transition: none;
+//     background-color: initial;
+//     cursor: default;
+//     opacity: 0.35;
+//     cursor: not-allowed;
+//   }
+//
+//   // &.dash-border {
+//     box-shadow: inset 0 0 0 1px $dash-colour-outline;
+//   // }
+//
+//   &.dash-loading,
+//   &.dash-loading.dash-colour-primary,
+//   &.dash-loading.dash-colour-secondary,
+//   &.dash-loading.dash-colour-tertiary,
+//   &.dash-loading.dash-colour-quaternary {
+//     @extend %dash-icon-loading;
+//     background-position: center;
+//     background-size: 1.8rem;
+//     background-repeat: no-repeat;
+//     opacity: 1;
+//     color: transparent;
+//     text-shadow: none;
+//     cursor: progress;
+//   }
+//
+//   &.dash-colour-primary, .dash-colour-primary & {
+//     background-color: $dash-colour-primary;
+//     color: $dash-colour-white;
+//     font-weight: 700;
+//     &:hover { background-color: lighten($dash-colour-primary, 15%); }
+//     &:active { background-color: $dash-colour-medium; }
+//     &[disabled] { background-color: $dash-colour-primary; }
+//     &.dash-loading { @extend %dash-icon-loading-light; }
+//   }
+//
+//   &.dash-colour-secondary, .dash-colour-secondary & {
+//     background-color: $dash-colour-secondary;
+//     color: $dash-colour-white;
+//     font-weight: 700;
+//     &:hover { background-color: lighten($dash-colour-secondary, 15%); }
+//     &:active { background-color: $dash-colour-medium; }
+//     &[disabled] { background-color: $dash-colour-secondary; }
+//     &.dash-loading { @extend %dash-icon-loading-light; }
+//   }
+//
+//   &.dash-colour-tertiary, .dash-colour-tertiary & {
+//     background-color: $dash-colour-tertiary;
+//     color: $dash-colour-white;
+//     font-weight: 700;
+//     &:hover { background-color: lighten($dash-colour-tertiary, 15%); }
+//     &:active { background-color: $dash-colour-medium; }
+//     &[disabled] { background-color: $dash-colour-tertiary; }
+//     &.dash-loading { @extend %dash-icon-loading-light; }
+//   }
+//
+//   &.dash-colour-quaternary, .dash-colour-quaternary & {
+//     background-color: $dash-colour-quaternary;
+//     color: $dash-colour-white;
+//     font-weight: 700;
+//     &:hover { background-color: lighten($dash-colour-quaternary, 15%); }
+//     &:active { background-color: $dash-colour-medium; }
+//     &[disabled] { background-color: $dash-colour-quaternary; }
+//     &.dash-loading { @extend %dash-icon-loading-light; }
+//   }
+//
+//   &.dash-colour-dark, .dash-colour-dark & {
+//     background-color: $dash-colour-dark;
+//     color: $dash-colour-white;
+//     font-weight: 700;
+//     &:hover { background-color: lighten($dash-colour-dark, 25%); }
+//     &:active { background-color: $dash-colour-dark; }
+//     &[disabled] { background-color: $dash-colour-dark; }
+//     &.dash-loading { @extend %dash-icon-loading-light; }
+//   }
+//
+//   & + & {
+//     margin-left: 0.5rem;
+//   }
+//
+//   .dash-box-header & {
+//     box-shadow: inset 0 0 0 1px $dash-colour-outline;
+//     margin-top: -1rem;
+//     margin-bottom: -1rem;
+//     padding-left: 1.5rem;
+//     padding-right: 1.5rem;
+//
+//     &:first-child {
+//       margin-left: -1rem;
+//     }
+//
+//     &:last-child {
+//       margin-right: -1rem;
+//     }
+//   }
+//
+//   .dash-accordion-title & {
+//     margin-top: -1rem;
+//     margin-bottom: -1rem;
+//   }
+//
+//   .dash-toolbar & {
+//     // ...
+//     &[disabled] {
+//       opacity: 0.25;
+//     }
+//   }
+//
+//   .dash-list-item & {
+//     margin-top: -1.2rem;
+//     margin-bottom: -0.5rem;
+//   }
+//
+//   &[class*="dash-icon"] {
+//     background-size: auto 1.6rem;
+//     background-repeat: no-repeat;
+//     background-position: left center;
+//     background-origin: content-box;
+//
+//     &:before {
+//       content: "";
+//       width: 1.8rem;
+//       display: inline-block;
+//     }
+//   }
+//
+//   &.dash-icon-menu, &.dash-icon-menu-light {
+//     background-position: right center;
+//     padding-right: 1.1rem;
+//     padding-left: 1.5rem;
+//
+//     &:before {
+//       display: none;
+//     }
+//
+//     &:after {
+//       content: "";
+//       width: 1.8rem;
+//       display: inline-block;
+//     }
+//   }
+//
+//   &.dash-icon-help {
+//     border-radius: 50%;
+//     margin-top: 0; margin-bottom: 0;
+//     padding: 0;
+//     width: 3rem; height: 3rem;
+//     box-shadow: inset 0 0 0 1px $dash-colour-outline;
+//     background-size: 1rem;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     cursor: default;
+//
+//     .dash-box-header-primary & {
+//       width: 2rem; height: 2rem;
+//       margin: -0.5rem 1rem -0.5rem -0.5rem;
+//       background-size: 0.8rem;
+//     }
+//
+//     .dash-box-header-secondary & {
+//       width: 2rem; height: 2rem;
+//       margin: -0.5rem -0.5rem -0.5rem 1rem;
+//       background-size: 0.8rem;
+//     }
+//   }
+// }
+//
+// // Element-specific
+//
+// a.dash-button {
+//   text-decoration: none;
+// }
+//
+// input[type=submit].dash-button {
+//   appearance: none;
+//   border: none;
+//   outline: none;
+// }
+//
+// // Link button
+//
+// .dash-button-links {
+//   @extend %dash-animation-appear;
+//   display: none;
+//   position: absolute;
+//   top: 3rem - 0.2rem; left: 0;
+//   z-index: 10;
+//   border-radius: $dash-border-radius;
+//   overflow: hidden;
+//   border: 1px solid $dash-colour-outline;
+//   background: $dash-colour-white;
+//   min-width: 100%;
+//   box-shadow: 0 0 0.2rem rgba($dash-colour-dark, 0.05),
+//               0 0 2rem rgba($dash-colour-dark, 0.05);
+//
+//   &.dash-align-left {
+//     left: 0; right: initial;
+//   }
+//
+//   &.dash-align-right {
+//     right: 0; left: initial;
+//   }
+//
+//   .dash-button {
+//     display: block;
+//     margin: 0;
+//     border-radius: 0;
+//     box-shadow: none;
+//     border-top: none; border-right: none; border-left: none;
+//     border-bottom: 1px solid $dash-colour-outline;
+//     text-align: left;
+//     padding: 1.5rem 3rem 1.5rem 1.5rem;
+//     background-color: $dash-colour-white;
+//     color: darken($dash-colour-medium, 10%);
+//     font-weight: 500;
+//
+//     &:first-child {
+//       margin-left: 0;
+//     }
+//
+//     &:last-child {
+//       border-bottom: none;
+//       margin-right: 0;
+//     }
+//
+//     &:hover { background-color: $dash-colour-light; }
+//     &:active { background-color: darken($dash-colour-light, 5%); }
+//   }
+//
+//   .dash-button:hover & {
+//     display: block;
+//   }
+// }
+//
+// // Button group
+//
+// .dash-button-group {
+//   .dash-button {
+//     box-shadow: inset 0 0 0 1px $dash-colour-outline;
+//     border-radius: 0;
+//     display: block;
+//     float: left;
+//
+//     &:first-child {
+//       border-top-left-radius: $dash-border-radius;
+//       border-bottom-left-radius: $dash-border-radius;
+//     }
+//
+//     &:last-child {
+//       border-top-right-radius: $dash-border-radius;
+//       border-bottom-right-radius: $dash-border-radius;
+//     }
+//
+//     &.dash-selected {
+//       background-color: $dash-colour-light;
+//       cursor: default;
+//     }
+//   }
+//
+//   .dash-button + .dash-button {
+//     margin-left: -1px;
+//   }

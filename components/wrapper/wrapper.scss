@@ -1,0 +1,45 @@
+@import "../common/layout/width";
+@import "../common/clearfix";
+@import "../common/units";
+
+.dash-wrapper {
+  @extend .dash-clearfix;
+
+  display: block;
+
+  $small-padding: units(2);
+  $large-padding: units(6);
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $small-padding;
+  padding-right: $small-padding;
+
+  @include dash-width(medium) {
+    padding-left: $large-padding;
+    padding-right: $large-padding;
+  }
+
+  @include dash-width(large) {
+    // max-width: $dash-width-large;
+  }
+
+  @include dash-width(huge) {
+    // max-width: $dash-width-huge;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+.dash-wrapper-vertical {
+  $small-padding: units(2);
+  $large-padding: units(6);
+
+  padding-top: $small-padding;
+  padding-bottom: $small-padding;
+
+  @include dash-width(medium) {
+    padding-top: $large-padding;
+    padding-bottom: $large-padding;
+  }
+}

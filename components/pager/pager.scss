@@ -1,0 +1,27 @@
+@import "../common/text/caption";
+@import "../common/units";
+
+.dash-pager {
+  display: inline-flex;
+}
+
+.dash-pager-link {
+  @extend .dash-text-caption-small;
+  height: units(3);
+  line-height: units(3);
+  padding: 0 units(0.8);
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.dash-pager-link--previous {
+  // !
+}
+
+.dash-pager-link--next {
+  // !
+}
+
+.dash-pager-link--selected {
+  opacity: 1;
+}

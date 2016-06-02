@@ -1,0 +1,38 @@
+@import "button";
+
+:host { @extend .dash-button; }
+
+// States
+
+:host(:hover) { @extend .dash-button--hover; }
+:host(:active) { @extend .dash-button--active; }
+:host([loading]) { @extend .dash-button--loading; }
+
+// Styles
+
+:host([wide]) { @extend .dash-button--wide; }
+:host([large]) { @extend .dash-button--large; }
+:host([round]) { @extend .dash-button--round; }
+:host([compact]) { @extend .dash-button--compact; }
+:host([selected]) { @extend .dash-button--selected; }
+
+:host-context(dash-button-group) { @extend .dash-button--grouped; }
+
+// Colours
+
+:host([primary]) { @extend .dash-button--primary; }
+:host([secondary]) { @extend .dash-button--secondary; }
+:host([tertiary]) { @extend .dash-button--tertiary; }
+:host([quaternary]) { @extend .dash-button--quaternary; }
+
+:host([warning]) { @extend .dash-button--warning; }
+
+:host([blue]) { @extend .dash-button--blue; }
+:host([navy]) { @extend .dash-button--navy; }
+:host([purple]) { @extend .dash-button--purple; }
+:host([orange]) { @extend .dash-button--orange; }
+:host([sorbet]) { @extend .dash-button--sorbet; }
+:host([yellow]) { @extend .dash-button--yellow; }
+:host([green]) { @extend .dash-button--green; }
+:host([turquoise]) { @extend .dash-button--turquoise; }
+:host([red]) { @extend .dash-button--red; }

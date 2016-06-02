@@ -1,0 +1,17 @@
+@import "box";
+
+:host {
+  @extend .dash-box;
+}
+
+:host([padded]) {
+  @extend .dash-box--padded;
+}
+
+:host([loading]) {
+  @extend .dash-box--loading;
+}
+
+:host([error]) {
+  @extend .dash-box--error;
+}

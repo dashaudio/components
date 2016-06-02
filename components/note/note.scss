@@ -1,0 +1,13 @@
+@import "../common/units";
+@import "../common/colour";
+@import "../common/border";
+@import "../common/text/body";
+
+.dash-note {
+  @extend .dash-text-body;
+  color: $dash-colour-medium;
+  display: block;
+  padding: units(1) units(1.5);
+  border: 1px dotted $dash-colour-outline;
+  border-radius: $dash-border-radius;
+}

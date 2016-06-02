@@ -1,0 +1,32 @@
+@import "../common/units";
+@import "../common/colour";
+@import "../common/border";
+
+.dash-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: $dash-colour-white;
+  border: 1px solid $dash-colour-outline;
+  padding: units(0.5);
+  border-radius: $dash-border-radius;
+}
+
+.dash-toolbar--nested {
+  background-color: initial;
+  padding: initial;
+  border: initial;
+  border-radius: initial;
+}
+
+.dash-toolbar--large {
+  padding: units(2);
+}
+
+.dash-toolbar-item {
+  margin-right: units(0.5);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,5 @@
+@import "group";
+
+:host {
+  @extend .dash-button-group;
+}

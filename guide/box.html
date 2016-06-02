@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+  <head>
+    <title>Dash Component Guide</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <meta name="description" content="Dash web component guide." />
+
+    <link rel="stylesheet" href="./guide.css" />
+  </head>
+
+  <body>
+    <dash-wrapper>
+      <dash-note>Box</dash-note>
+
+      <pre>
+        &lt;dash-box loading error padded&gt;
+          &lt;dash-header&gt;
+            &lt;dash-label&gt;Title&lt;/dash-label&gt;
+            &lt;dash-spacer&gt;&lt;/dash-spacer&gt;
+            &lt;dash-button&gt;Action&lt;/dash-button&gt;
+          &lt;/dash-header&gt;
+          Content
+        &lt;/dash-box&gt;
+      </pre>
+
+      <dash-box padded>
+        <dash-header>
+          <dash-label>Title</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button>Action</dash-button>
+        </dash-header>
+        <a>Content</a>
+      </dash-box>
+
+      <br/>
+
+      <dash-box id="loading-box" loading>
+        <dash-header>
+          <dash-label>Loading</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button id="loading-toggle">Toggle Loading</dash-button>
+        </dash-header>
+      </dash-box>
+
+      <br/>
+
+      <dash-box id="error-box" error>
+        <dash-header>
+          <dash-label>Error</dash-label>
+          <dash-spacer></dash-spacer>
+          <dash-button id="error-toggle">Toggle Error</dash-button>
+        </dash-header>
+      </dash-box>
+    </dash-wrapper>
+
+    <script>
+      loadingBox = document.getElementById('loading-box');
+      loadingToggle = document.getElementById('loading-toggle');
+      errorBox = document.getElementById('error-box');
+      errorToggle = document.getElementById('error-toggle');
+
+      loadingBox.addEventListener('click', function() {
+        if (loadingBox.hasAttribute('loading')) { loadingBox.removeAttribute('loading'); }
+        else { loadingBox.setAttribute('loading', ''); }
+      });
+
+      errorBox.addEventListener('click', function() {
+        if (errorBox.hasAttribute('error')) { errorBox.removeAttribute('error'); }
+        else { errorBox.setAttribute('error', ''); }
+      });
+    </script>
+
+    <script src="../polyfills.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

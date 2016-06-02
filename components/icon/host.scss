@@ -1,0 +1,10 @@
+@import "icon";
+
+:host {
+  @extend .dash-icon;
+}
+
+:host([loading]) { @extend .dash-icon--loading; }
+:host([error]) { @extend .dash-icon--error; }
+:host([feed]) { @extend .dash-icon--feed; }
+:host([help]) { @extend .dash-icon--help; }
