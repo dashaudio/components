@@ -26,6 +26,6 @@
 
 .dash-analytics-summary--selected {
   .dash-analytics-summary-box {
-    background-color: $dash-colour-light;
+    background-color: darken($dash-colour-light, 5%);
   }
 }
