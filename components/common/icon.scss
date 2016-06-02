@@ -2,6 +2,7 @@
 
 .dash-icon-default {
   background-image: url(common/icon/default.svg);
+  background-size: 50%;
 }
 
 .dash-icon-loading {
@@ -23,4 +24,38 @@
 .dash-icon-help {
   background-image: url(common/icon/help.svg);
   background-size: 36%;
+}
+
+// Arrows
+
+.dash-icon-arrow-up {
+  background-image: url(common/icon/arrow-up.svg);
+  background-size: 35%;
+}
+
+.dash-icon-arrow-right {
+  background-image: url(common/icon/arrow-right.svg);
+  background-size: 35%;
+}
+
+.dash-icon-arrow-down {
+  background-image: url(common/icon/arrow-down.svg);
+  background-size: 35%;
+}
+
+.dash-icon-arrow-left {
+  background-image: url(common/icon/arrow-left.svg);
+  background-size: 35%;
+}
+
+// Bars
+
+.dash-icon-bar-horizontal {
+  background-image: url(common/icon/bar-horizontal.svg);
+  background-size: 50%;
+}
+
+.dash-icon-bar-vertical {
+  background-image: url(common/icon/bar-vertical.svg);
+  background-size: 50%;
 }

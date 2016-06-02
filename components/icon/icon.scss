@@ -27,3 +27,31 @@
 .dash-icon--help {
   @extend .dash-icon-help;
 }
+
+// Arrows
+
+.dash-icon--arrow-up {
+  @extend .dash-icon-arrow-up;
+}
+
+.dash-icon--arrow-right {
+  @extend .dash-icon-arrow-right;
+}
+
+.dash-icon--arrow-down {
+  @extend .dash-icon-arrow-down;
+}
+
+.dash-icon--arrow-left {
+  @extend .dash-icon-arrow-left;
+}
+
+// Bars
+
+.dash-icon--bar-horizontal {
+  @extend .dash-icon-bar-horizontal;
+}
+
+.dash-icon--bar-vertical {
+  @extend .dash-icon-bar-vertical;
+}

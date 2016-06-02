@@ -1,0 +1,58 @@
+@import "../common/units";
+@import "../common/colour";
+@import "../common/icon";
+@import "../label/label";
+
+.dash-trend {
+  display: inline-block;
+  vertical-align: bottom;
+  height: units(3);
+  box-shadow: 0 0 0 1px rgba($dash-colour-medium, 0.25);
+  border-radius: units(1.5);
+}
+
+// Icons
+
+.dash-trend-icon {
+  @extend .dash-icon-default;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: units(3);
+  height: units(3);
+  border-radius: units(1.5);
+  float: left;
+}
+
+//
+
+.dash-trend-value {
+  @extend .dash-label;
+  padding-left: 0;
+}
+
+// Direction
+
+.dash-trend--up {
+  .dash-trend-icon { @extend .dash-icon-arrow-up; }
+}
+
+.dash-trend--flat {
+  .dash-trend-icon { @extend .dash-icon-bar-horizontal; }
+}
+
+.dash-trend--down {
+  .dash-trend-icon { @extend .dash-icon-arrow-down; }
+}
+
+//
+
+.dash-trend--positive {
+  box-shadow: none;
+  background-color: $dash-colour-green;
+}
+
+.dash-trend--negative {
+  box-shadow: none;
+  background-color: $dash-colour-red;
+}

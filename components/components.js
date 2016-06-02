@@ -10,6 +10,7 @@ import { DashNote } from './note/note';
 import { DashDivider } from './divider/divider';
 import { DashPager } from './pager/pager';
 import { DashSparkline } from './sparkline/sparkline';
+import { DashTrend } from './trend/trend';
 
 document.registerElement('dash-button', { prototype: DashButton.prototype });
 document.registerElement('dash-button-group', { prototype: DashButtonGroup.prototype });
@@ -23,6 +24,7 @@ document.registerElement('dash-note', { prototype: DashNote.prototype });
 document.registerElement('dash-divider', { prototype: DashDivider.prototype });
 document.registerElement('dash-pager', { prototype: DashPager.prototype });
 document.registerElement('dash-sparkline', { prototype: DashSparkline.prototype });
+document.registerElement('dash-trend', { prototype: DashTrend.prototype });
 
 import { DashAnalyticsSummary } from './analytics/summary/summary';
 

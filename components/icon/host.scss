@@ -8,3 +8,8 @@
 :host([error]) { @extend .dash-icon--error; }
 :host([feed]) { @extend .dash-icon--feed; }
 :host([help]) { @extend .dash-icon--help; }
+
+:host([arrow-up]) { @extend .dash-icon--arrow-up; }
+:host([arrow-right]) { @extend .dash-icon--arrow-right; }
+:host([arrow-down]) { @extend .dash-icon--arrow-down; }
+:host([arrow-left]) { @extend .dash-icon--arrow-left; }

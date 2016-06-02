@@ -329,6 +329,44 @@
     <br/>
 
     <dash-wrapper>
+      <dash-note id="trend">Trend</dash-note>
+
+      <pre>
+        &lt;dash-trend value=&quot;20%&quot;&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend value=&quot;0&quot;&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend value=&quot;100,000&quot;&gt;&lt;/dash-trend&gt;</pre>
+
+      <dash-label>Values:</dash-label>
+      <dash-trend value="20%"></dash-trend><dash-label>20%</dash-label>
+      <dash-trend value="0"></dash-trend><dash-label>0</dash-label>
+      <dash-trend value="100,000"></dash-trend><dash-label>100,000</dash-label>
+
+      <pre>
+        &lt;dash-trend&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend up&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend flat&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend down&gt;&lt;/dash-trend&gt;</pre>
+
+      <dash-label>Direction:</dash-label>
+      <dash-trend></dash-trend><dash-label>None (?)</dash-label>
+      <dash-trend up value="20%"></dash-trend><dash-label>Up</dash-label>
+      <dash-trend flat></dash-trend><dash-label>Flat</dash-label>
+      <dash-trend down value="-5h"></dash-trend><dash-label>Down</dash-label>
+
+      <pre>
+        &lt;dash-trend&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend up positive&gt;&lt;/dash-trend&gt;
+        &lt;dash-trend down negative&gt;&lt;/dash-trend&gt;</pre>
+
+      <dash-label>Meaning:</dash-label>
+      <dash-trend></dash-trend><dash-label>None (?)</dash-label>
+      <dash-trend up positive value="20"></dash-trend><dash-label>Positive</dash-label>
+      <dash-trend down negative value="-5"></dash-trend><dash-label>Negative</dash-label>
+    </dash-wrapper>
+
+    <br/>
+
+    <dash-wrapper>
       <dash-note id="analytics-summary">Analytics Summary</dash-note>
 
       <pre>
