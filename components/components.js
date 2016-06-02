@@ -27,5 +27,7 @@ document.registerElement('dash-sparkline', { prototype: DashSparkline.prototype 
 document.registerElement('dash-trend', { prototype: DashTrend.prototype });
 
 import { DashAnalyticsSummary } from './analytics/summary/summary';
+import { DashAnalyticsSummaryPlays } from './analytics/summary/plays/plays';
 
 document.registerElement('dash-analytics-summary', { prototype: DashAnalyticsSummary.prototype });
+document.registerElement('dash-analytics-summary-plays', { prototype: DashAnalyticsSummaryPlays.prototype });
