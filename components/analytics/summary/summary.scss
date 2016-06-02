@@ -24,6 +24,11 @@
   height: units(5);
 }
 
+.dash-analytics-summary-trend {
+  height: units(3);
+  margin-top: units(2);
+}
+
 .dash-analytics-summary--selected {
   .dash-analytics-summary-box {
     background-color: darken($dash-colour-light, 5%);
