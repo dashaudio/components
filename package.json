@@ -43,7 +43,8 @@
     "rollup-plugin-sass": "^0.1.0",
     "rollup-plugin-string": "^1.0.1",
     "vulcanize": "^1.14.8",
-    "webcomponents.js": "^0.7.22"
+    "webcomponents.js": "^0.7.22",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {

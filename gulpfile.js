@@ -9,8 +9,13 @@ var string = require('rollup-plugin-string');
 var sass = require('rollup-plugin-sass');
 var inline = require('gulp-base64');
 
+const POLYFILLS = [
+  './node_modules/webcomponents.js/webcomponents.js',
+  './node_modules/whatwg-fetch/fetch.js'
+];
+
 gulp.task('polyfills', () => {
-  gulp.src('./node_modules/webcomponents.js/webcomponents.js')
+  gulp.src(POLYFILLS)
     .pipe(concat('polyfills.js'))
     .pipe(uglify())
     .pipe(gulp.dest('build/'));
