@@ -4,6 +4,19 @@ import polyfills from '../common/polyfills';
 
 export class DashBox extends HTMLElement {
 
+  set loading(value) {
+    console.log(value);
+    if (value) {
+      this.setAttribute('loading', '');
+    } else {
+      this.removeAttribute('loading');
+    }
+  }
+
+  get loading() {
+    return this.getAttribute('loading') !== null;
+  }
+
   createdCallback() {
     let polyfilledStyles = polyfills.styles(styles, 'dash-box');
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
