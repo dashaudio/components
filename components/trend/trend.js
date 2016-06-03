@@ -20,6 +20,10 @@ export class DashTrend extends HTMLElement {
     this.update();
   }
 
+  attributeChangedCallback() {
+    this.update();
+  }
+
   update() {
     this.value.textContent = this.getAttribute(ATTRIBUTE_VALUE);
   }

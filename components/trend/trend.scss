@@ -50,9 +50,11 @@
 .dash-trend--positive {
   box-shadow: none;
   background-color: $dash-colour-green;
+  // .dash-trend-value { color: $dash-colour-white; }
 }
 
 .dash-trend--negative {
   box-shadow: none;
   background-color: $dash-colour-red;
+  .dash-trend-value { color: $dash-colour-white; }
 }
