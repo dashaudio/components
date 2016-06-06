@@ -1,34 +1,23 @@
-import template from './plays.html';
-import styles from './host.scss';
-import polyfills from '../../../common/polyfills';
+import { DashAnalyticsSummary } from '../summary';
 
 const TITLE = 'Plays';
 
-export class DashAnalyticsSummaryPlays extends HTMLElement {
-
-  get summary() { return this._summary || (this._summary = this.shadowRoot.querySelector('#summary')); }
-
-  createdCallback() {
-    let polyfilledStyles = polyfills.styles(styles, 'dash-analytics-summary-plays');
-    this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
-  }
+export class DashAnalyticsSummaryPlays extends DashAnalyticsSummary {
 
   attachedCallback() {
     document.addEventListener('WebComponentsReady', this.update.bind(this));
   }
 
-  refresh() {
-    this.update();
-  }
-
   update() {
 
-    this.summary.update({
+    super.update({
       title: TITLE,
       loading: true,
-      dateStart: '1 May 2016',
-      dateEnd: 'Today',
-      trendPeriod: '1 Month Ago'
+      labels: {
+        start: '1 May 2016',
+        end: 'Today',
+        trend: '1 Month Ago'
+      }
     });
 
     let start = (new Date);
@@ -54,15 +43,15 @@ export class DashAnalyticsSummaryPlays extends HTMLElement {
         }
 
         return {
-          sparkline: response.buckets.map((bucket) => bucket.doc_count / max),
-          value: response.buckets.reduce((prev, curr) => prev + curr.doc_count, 0)
+          series: response.buckets.map((bucket) => bucket.doc_count / max),
+          headline: response.buckets.reduce((prev, curr) => prev + curr.doc_count, 0)
         }
     }).then((data) => {
       window.setTimeout(() => {
-        this.summary.update({
+        super.update({
           loading: false,
-          sparkline: { data: data.sparkline },
-          headline: data.value
+          sparkline: { data: data.series },
+          headline: data.headline
         });
       }, 1500);
 

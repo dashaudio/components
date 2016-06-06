@@ -44,7 +44,7 @@
 .dash-sparkline--loading {
   .dash-sparkline-path {
     transform: scale(1, 0.00001);
-    transition: none;
+    // transition: none;
   }
 }
 

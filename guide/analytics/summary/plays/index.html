@@ -11,20 +11,30 @@
   </head>
 
   <body>
+    <style>
+      dash-analytics-summary-plays {
+        width: 30%;
+      }
+    </style>
+
     <dash-wrapper>
       <dash-note>dash-analytics-summary-plays</dash-note>
+      <pre>
+        &lt;dash-analytics-summary-plays&gt;&lt;/dash-analytics-summary-plays&gt;
+
+        summary.refresh();
+      </pre>
       <dash-analytics-summary-plays id="summary"></dash-analytics-summary-plays><br/>
-      <button id="refresh">Refresh Data</button>
+      <button id="update">Update Data</button>
     </dash-wrapper>
 
     <script>
       document.addEventListener('WebComponentsReady', function() {
-        var button = document.querySelector('#refresh');
+        var button = document.querySelector('#update');
         var summary = document.querySelector('#summary');
 
         button.addEventListener('click', function() {
-          console.log(summary);
-          summary.refresh();
+          summary.update();
         });
       });
     </script>

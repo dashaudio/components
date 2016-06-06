@@ -8,13 +8,13 @@ export class DashAnalyticsSummary extends HTMLElement {
   get title() { return this._title || (this._title = this.shadowRoot.querySelector('#title')); }
   get headline() { return this._headline || (this._headline = this.shadowRoot.querySelector('#headline')); }
   get sparkline() { return this._sparkline || (this._sparkline = this.shadowRoot.querySelector('#sparkline')); }
-  get dateStart() { return this._dateStart || (this._dateStart = this.shadowRoot.querySelector('#date-start')); }
-  get dateEnd() { return this._dateEnd || (this._dateEnd = this.shadowRoot.querySelector('#date-end')); }
+  get startLabel() { return this._startLabel || (this._startLabel = this.shadowRoot.querySelector('#label-start')); }
+  get endLabel() { return this._endLabel || (this._endLabel = this.shadowRoot.querySelector('#label-end')); }
   get trend() { return this._trend || (this._trend = this.shadowRoot.querySelector('#trend')); }
-  get trendPeriod() { return this._trendPeriod || (this._trendPeriod = this.shadowRoot.querySelector('#trend-period')); }
+  get trendLabel() { return this._trendLabel || (this._trendLabel = this.shadowRoot.querySelector('#label-trend')); }
 
   createdCallback() {
-    let polyfilledStyles = polyfills.styles(styles, 'dash-analytics-summary');
+    let polyfilledStyles = polyfills.styles(styles, this.tagName);
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
@@ -32,15 +32,16 @@ export class DashAnalyticsSummary extends HTMLElement {
     this.box.loading = !! state.loading;
 
     if (state.title) this.title.textContent = state.title;
-    if (state.headline) this.headline.textContent = state.headline;
+    if (state.headline) this.headline.textContent = state.headline.toLocaleString();
 
     this.sparkline.loading = !! state.loading;
     if (state.sparkline) this.sparkline.data = state.sparkline.data;
 
-    if (state.dateStart) this.dateStart.textContent = state.dateStart;
-    if (state.dateEnd) this.dateEnd.textContent = state.dateEnd;
-
-    if (state.trendPeriod) this.trendPeriod.textContent = state.trendPeriod;
+    if (state.labels) {
+      if (state.labels.start) this.startLabel.textContent = state.labels.start;
+      if (state.labels.end) this.endLabel.textContent = state.labels.end;
+      if (state.labels.trend) this.trendLabel.textContent = state.labels.trend;
+    }
 
   }
 

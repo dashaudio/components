@@ -12,10 +12,57 @@
   </head>
 
   <body>
+    <style>
+      dash-analytics-summary {
+        width: 30%;
+      }
+    </style>
+
     <dash-wrapper>
       <dash-note>dash-analytics-summary</dash-note>
+      <pre>
+        &lt;dash-analytics-summary&gt;&lt;/dash-analytics-summary&gt;
+
+        summary.update({
+          loading: false,
+          title: &apos;My Summary&apos;,
+          headline: 1000,
+          sparkline: {
+            data: [0.5, 0.2, 0.7, 0.05, 0.8, 0.0, 1.0]
+          },
+          trend: {
+            // TODO
+          },
+          labels: {
+            start: &apos;May 2016&apos;,
+            end: &apos;Today&apos;,
+            trend: &apos;Since last month&apos;
+          }
+        });
+      </pre>
       <dash-analytics-summary></dash-analytics-summary>
+      <dash-analytics-summary id="summary"></dash-analytics-summary>
     </dash-wrapper>
+
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        document.querySelector('#summary').update({
+          title: 'My Summary',
+          headline: 1000,
+          sparkline: {
+            data: [0.5, 0.2, 0.7, 0.05, 0.8, 0.0, 1.0]
+          },
+          trend: {
+            // ...
+          },
+          labels: {
+            start: 'May 2016',
+            end: 'Today',
+            trend: 'Since last month'
+          }
+        });
+      });
+    </script>
 
     <script src="../../../polyfills.js"></script>
     <script src="../../../components.js"></script>

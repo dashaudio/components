@@ -4,11 +4,11 @@
 @import "../../common/clearfix";
 
 .dash-analytics-summary {
-  display: block;
+  display: inline-block;
 }
 
 .dash-analytics-summary-box {
-  max-width: units(30);
+  // !
 }
 
 .dash-analytics-summary-title {
@@ -21,7 +21,8 @@
 }
 
 .dash-analytics-summary-sparkline {
-  height: units(3);
+  height: units(5);
+  width: 100%;
   float: left;
   // width: 80%;
 }
