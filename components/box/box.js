@@ -5,7 +5,6 @@ import polyfills from '../common/polyfills';
 export class DashBox extends HTMLElement {
 
   set loading(value) {
-    console.log(value);
     if (value) {
       this.setAttribute('loading', '');
     } else {
@@ -20,6 +19,11 @@ export class DashBox extends HTMLElement {
   createdCallback() {
     let polyfilledStyles = polyfills.styles(styles, 'dash-box');
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
+  }
+
+  setInternal(value) {
+    console.log('set internal', this);
+    this.loading = value;
   }
 
 }

@@ -1,7 +1,55 @@
 @import "../../common/units";
 @import "../../common/text/body";
 @import "../../common/colour";
+@import "../../common/clearfix";
 
 .dash-analytics-summary {
+  display: block;
+}
+
+.dash-analytics-summary-box {
+  max-width: units(30);
+}
+
+.dash-analytics-summary-title {
+
+}
+
+.dash-analytics-summary-headline {
+  @extend .dash-text-body;
+  font-size: units(5);
+}
+
+.dash-analytics-summary-sparkline {
+  height: units(3);
+  float: left;
+  // width: 80%;
+}
+
+.dash-analytics-summary-sparkline-label {
+  float: right;
+  width: 20%;
+  padding: 0;
+  display: none; // TODO
+}
+
+.dash-analytics-summary-dates {
+  @extend .dash-clearfix;
+  clear: both;
+}
+
+.dash-analytics-summary-date-start {
+  float: left;
+}
+
+.dash-analytics-summary-date-end {
+  float: right;
+}
+
+// .dash-analytics-summary-trend {
+//   clear: both;
+// }
+
+.dash-analytics-summary-trend-period {
   display: block;
 }

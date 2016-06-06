@@ -4,7 +4,7 @@
 :host-context(dash-analytics-summary) { @extend .dash-sparkline--full; }
 
 :host([invalid]) { @extend .dash-sparkline--invalid; }
-// :host([loading]) // TODO
+:host([loading]) { @extend .dash-sparkline--loading; }
 
 // Sizes
 

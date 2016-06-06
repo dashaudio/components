@@ -1,7 +1,17 @@
-TODO: fill this out as before, and allow setup via .update() method with JSON/object as argument.
-
-<dash-box id="box">
+<dash-box id="box" class="dash-analytics-summary-box" padded>
   <dash-toolbar>
-    <dash-label>Label</dash-label>
+    <dash-label id="title">···</dash-label>
   </dash-toolbar>
+  <div id="headline" class="dash-analytics-summary-headline">···</div>
+  <div>
+    <dash-sparkline id="sparkline" class="dash-analytics-summary-sparkline" data="[0.5,0.5]"></dash-sparkline>
+    <dash-label class="dash-analytics-summary-sparkline-label">···</dash-label>
+  </div>
+  <div class="dash-analytics-summary-dates">
+    <dash-label id="date-start" class="dash-analytics-summary-date-start">···</dash-label>
+    <dash-label id="date-end" class="dash-analytics-summary-date-end">···</dash-label>
+  </div>
+  <dash-divider></dash-divider>
+  <dash-trend id="trend" class="dash-analytics-summary-trend" up positive value="30%">···</dash-trend>
+  <dash-label id="trend-period" class="dash-analytics-summary-trend-period">···</dash-label>
 </dash-box>

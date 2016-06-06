@@ -13,8 +13,21 @@
   <body>
     <dash-wrapper>
       <dash-note>dash-analytics-summary-plays</dash-note>
-      <dash-analytics-summary-plays></dash-analytics-summary-plays>
+      <dash-analytics-summary-plays id="summary"></dash-analytics-summary-plays><br/>
+      <button id="refresh">Refresh Data</button>
     </dash-wrapper>
+
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        var button = document.querySelector('#refresh');
+        var summary = document.querySelector('#summary');
+
+        button.addEventListener('click', function() {
+          console.log(summary);
+          summary.refresh();
+        });
+      });
+    </script>
 
     <script src="../../../../polyfills.js"></script>
     <script src="../../../../components.js"></script>

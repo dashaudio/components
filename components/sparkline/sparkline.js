@@ -13,6 +13,23 @@ export class DashSparkline extends HTMLElement {
     return this._path || (this._path = this.shadowRoot.querySelector(ELEMENT_PATH));
   }
 
+  set loading(value) {
+    if (value) { this.setAttribute('loading', ''); }
+    else { this.removeAttribute('loading'); }
+  }
+
+  get loading() {
+    return this.getAttribute('loading') !== null;
+  }
+
+  set data(data) {
+    this.update(data);
+  }
+
+  get data() {
+    return this.getAttribute('data');
+  }
+
   // Lifecycle
 
   createdCallback() {
@@ -51,6 +68,12 @@ export class DashSparkline extends HTMLElement {
 
     if (data instanceof Array === false) {
       console.warn(`dash-sparkline: data parameter must be an array, was ${result}`);
+      this.updateValidity(false);
+      return null;
+    }
+
+    if (data.length < 2) {
+      console.warn(`dash-sparkline: data parameter must have at least two values`);
       this.updateValidity(false);
       return null;
     }

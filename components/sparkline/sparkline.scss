@@ -22,6 +22,8 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+  transform-origin: 50% 50%;
+  transition: transform .25s;
 }
 
 .dash-sparkline-error {
@@ -36,6 +38,13 @@
 
   .dash-sparkline-error {
     display: block;
+  }
+}
+
+.dash-sparkline--loading {
+  .dash-sparkline-path {
+    transform: scale(1, 0.00001);
+    transition: none;
   }
 }
 
