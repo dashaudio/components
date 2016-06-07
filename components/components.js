@@ -28,6 +28,10 @@ document.registerElement('dash-trend', { prototype: DashTrend.prototype });
 
 import { DashAnalyticsSummary } from './analytics/summary/summary';
 import { DashAnalyticsSummaryPlays } from './analytics/summary/plays/plays';
+import { DashAnalyticsSummaryListeners } from './analytics/summary/listeners/listeners';
+import { DashAnalyticsSummaryInstalls } from './analytics/summary/installs/installs';
 
 document.registerElement('dash-analytics-summary', { prototype: DashAnalyticsSummary.prototype });
 document.registerElement('dash-analytics-summary-plays', { prototype: DashAnalyticsSummaryPlays.prototype });
+document.registerElement('dash-analytics-summary-listeners', { prototype: DashAnalyticsSummaryListeners.prototype });
+document.registerElement('dash-analytics-summary-installs', { prototype: DashAnalyticsSummaryInstalls.prototype });

@@ -21,9 +21,4 @@ export class DashBox extends HTMLElement {
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
-  setInternal(value) {
-    console.log('set internal', this);
-    this.loading = value;
-  }
-
 }

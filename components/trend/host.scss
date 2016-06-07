@@ -2,9 +2,9 @@
 
 :host { @extend .dash-trend; }
 
-:host([up]) { @extend .dash-trend--up; }
-:host([flat]) { @extend .dash-trend--flat; }
-:host([down]) { @extend .dash-trend--down; }
+:host([direction=up]) { @extend .dash-trend--up; }
+:host([direction=flat]) { @extend .dash-trend--flat; }
+:host([direction=down]) { @extend .dash-trend--down; }
 
-:host([positive]) { @extend .dash-trend--positive; }
-:host([negative]) { @extend .dash-trend--negative; }
+:host([meaning=positive]) { @extend .dash-trend--positive; }
+:host([meaning=negative]) { @extend .dash-trend--negative; }

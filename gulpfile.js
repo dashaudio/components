@@ -9,14 +9,15 @@ var string = require('rollup-plugin-string');
 var sass = require('rollup-plugin-sass');
 var inline = require('gulp-base64');
 
-const POLYFILLS = [
+const LIBRARIES = [
   './node_modules/webcomponents.js/webcomponents.js',
-  './node_modules/whatwg-fetch/fetch.js'
+  './node_modules/whatwg-fetch/fetch.js',
+  './node_modules/moment/moment.js'
 ];
 
-gulp.task('polyfills', () => {
-  gulp.src(POLYFILLS)
-    .pipe(concat('polyfills.js'))
+gulp.task('libraries', () => {
+  gulp.src(LIBRARIES)
+    .pipe(concat('libraries.js'))
     // .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
@@ -53,6 +54,6 @@ gulp.task('test', (done) => {
     }, done).start();
 });
 
-gulp.task('build', ['polyfills', 'components', 'guide']);
+gulp.task('build', ['libraries', 'components', 'guide']);
 gulp.task('serve', ['build', 'test', 'watch']);
 gulp.task('default', ['build']);

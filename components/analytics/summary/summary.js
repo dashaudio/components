@@ -43,6 +43,12 @@ export class DashAnalyticsSummary extends HTMLElement {
       if (state.labels.trend) this.trendLabel.textContent = state.labels.trend;
     }
 
+    if (state.trend) {
+      if (state.trend.label) this.trend.label = state.trend.label;
+      if (state.trend.direction) this.trend.direction = state.trend.direction;
+      if (state.trend.meaning) this.trend.meaning = state.trend.meaning;
+    }
+
   }
 
 }

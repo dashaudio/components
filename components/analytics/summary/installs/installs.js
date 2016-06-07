@@ -1,8 +1,8 @@
 import { DashAnalyticsSummary } from '../summary';
 
-const TITLE = 'Plays (Today & This Month)';
+const TITLE = 'Installs';
 
-export class DashAnalyticsSummaryPlays extends DashAnalyticsSummary {
+export class DashAnalyticsSummaryInstalls extends DashAnalyticsSummary {
 
   attachedCallback() {
     document.addEventListener('WebComponentsReady', this.update.bind(this));
@@ -11,8 +11,8 @@ export class DashAnalyticsSummaryPlays extends DashAnalyticsSummary {
   update() {
 
     super.update({
-      title: TITLE,
       loading: true,
+      title: TITLE,
       labels: {
         start: moment().utc().subtract(1, 'month').format('d MMM YYYY'),
         end: 'Today',
@@ -27,26 +27,26 @@ export class DashAnalyticsSummaryPlays extends DashAnalyticsSummary {
     fetch(this.endpoint(start, end, client)).then((r) => r.json()).then((result) => {
 
       let max = result.buckets.reduce((prev, curr) => {
-        return (curr.doc_count > prev) ? curr.doc_count : prev;
+        return (curr.value > prev) ? curr.value : prev;
       }, 0);
 
-      let series = result.buckets.map((bucket) => bucket.doc_count / max);
+      let series = result.buckets.map((bucket) => bucket.value / max);
 
-      let first = result.buckets[0].doc_count;
-      let last = result.buckets[result.buckets.length - 1].doc_count;
+      let first = result.buckets[0].value;
+      let last = result.buckets[result.buckets.length - 1].value;
 
       let trend = 100 * (last - first) / first;
 
-        super.update({
-          loading: false,
-          sparkline: { data: series },
-          headline: last,
-          trend: {
-            direction: (trend > 0) ? 'up' : 'down',
-            meaning: (trend > 0) ? 'positive' : 'negative',
-            label: trend.toFixed(0) + '%'
-          }
-        });
+      super.update({
+        loading: false,
+        headline: last,
+        sparkline: { data: series },
+        trend: {
+          direction: (trend > 0) ? 'up' : 'down',
+          meaning: (trend > 0) ? 'positive' : 'negative',
+          label: trend.toFixed(0) + '%'
+        }
+      });
 
     });
 
@@ -54,12 +54,12 @@ export class DashAnalyticsSummaryPlays extends DashAnalyticsSummary {
 
   endpoint(start, end, client) {
 
-    return `https://analytics-api.dashaudio.co/plays/count` +
+    return `https://analytics-api.dashaudio.co/app-installs` +
       `?override=input.glob.body.query.filtered.filter.bool.must[1].range.startTime.gte=${start}` +
       `&override=input.glob.body.query.filtered.filter.bool.must[1].range.startTime.lte=${end}` +
       `&override=input.glob.body.query.filtered.filter.bool.must[2].term.object___publisher=http://dashaudio.co/Publisher/${client}` +
-      `&override=input.glob.body.aggs.plays.date_histogram.extended_bounds.min=${start}` +
-      `&override=input.glob.body.aggs.plays.date_histogram.extended_bounds.max=${end}`;
+      `&override=input.glob.body.aggs.date.date_histogram.extended_bounds.min=${start}` +
+      `&override=input.glob.body.aggs.date.date_histogram.extended_bounds.max=${end}`;
 
   }
 

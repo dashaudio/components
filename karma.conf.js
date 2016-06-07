@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'build/polyfills.js',
+      'build/libraries.js',
       'build/components.js',
       'components/**/*.spec.js'
     ],
