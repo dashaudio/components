@@ -1,6 +1,6 @@
 import { DashAnalyticsSummary } from '../summary';
 
-const TITLE = 'Installs';
+const TITLE = 'App Installs (Today & This Month)';
 
 export class DashAnalyticsSummaryInstalls extends DashAnalyticsSummary {
 
