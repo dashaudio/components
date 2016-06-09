@@ -55,3 +55,13 @@
 .dash-icon--bar-vertical {
   @extend .dash-icon-bar-vertical;
 }
+
+// Close
+
+.dash-icon--close-dark {
+  @extend .dash-icon-close-dark;
+}
+
+.dash-icon--close-light {
+  @extend .dash-icon-close-light;
+}

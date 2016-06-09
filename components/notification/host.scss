@@ -1,0 +1,6 @@
+@import "notification";
+
+:host { @extend .dash-notification; }
+
+:host([pinned]) { @extend .dash-notification--pinned; }
+:host([dismissed]) { @extend .dash-notification--dismissed; }

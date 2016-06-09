@@ -13,3 +13,6 @@
 :host([arrow-right]) { @extend .dash-icon--arrow-right; }
 :host([arrow-down]) { @extend .dash-icon--arrow-down; }
 :host([arrow-left]) { @extend .dash-icon--arrow-left; }
+
+:host([close-dark]) { @extend .dash-icon--close-dark; }
+:host([close-light]) { @extend .dash-icon--close-light; }
