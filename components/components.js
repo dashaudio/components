@@ -37,3 +37,9 @@ document.registerElement('dash-analytics-summary', { prototype: DashAnalyticsSum
 document.registerElement('dash-analytics-summary-plays', { prototype: DashAnalyticsSummaryPlays.prototype });
 document.registerElement('dash-analytics-summary-listeners', { prototype: DashAnalyticsSummaryListeners.prototype });
 document.registerElement('dash-analytics-summary-installs', { prototype: DashAnalyticsSummaryInstalls.prototype });
+
+import { DashAuth } from './auth/auth';
+import { DashLogin } from './login/login';
+
+document.registerElement('dash-auth', { prototype: DashAuth.prototype });
+document.registerElement('dash-login', { prototype: DashLogin.prototype });

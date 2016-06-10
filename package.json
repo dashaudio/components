@@ -6,13 +6,14 @@
   "dependencies": {
     "babel-preset-es2015": "^6.9.0",
     "babel-runtime": "^6.9.2",
-    "bower": "^1.7.7",
+    "bower": "^1.7.9",
     "chai": "^3.5.0",
     "electron-prebuilt": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-base64": "^0.1.3",
     "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
     "gulp-debug": "^2.1.2",
     "gulp-deps-order": "^0.2.0",
     "gulp-file-include": "^0.13.7",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "postinstall": "bower install",
     "start": "gulp serve",
     "test": "gulp build"
   },

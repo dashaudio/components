@@ -2,10 +2,11 @@
   "name": "dash-components",
   "description": "",
   "main": "index.js",
-  "authors": [],
+  "authors": [
+    "Dash Development Team"
+  ],
   "license": "ISC",
-  "moduleType": [],
-  "homepage": "",
+  "homepage": "https://github.com/dashaudio/components",
   "private": true,
   "ignore": [
     "**/.*",
@@ -15,10 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "^1.4.0",
-    "fetch": "^0.11.0",
-    "google-chart": "^1.0.4",
-    "geohash.js": "^1.0.1",
-    "moment": "^2.12.0"
+    "auth0-lock": "^9.2.1"
   }
 }
