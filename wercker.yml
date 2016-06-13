@@ -4,6 +4,9 @@ no-response-timeout: 15
 build:
   steps:
     - npm-install
+    - script:
+      name: npm-run-postinstall
+      code: npm run postinstall
     - npm-test
   after-steps:
     - slack-notifier:
