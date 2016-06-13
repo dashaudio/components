@@ -1,23 +1,24 @@
 import template from './auth.html';
-import * as config from '../config';
+import config from '../config.json';
+
+// TODO: Don't poll for login state, do something cleverer :)
 
 export class DashAuth extends HTMLElement {
 
-  // this needs some work, so that it can be used as a source of log in/log out events
+  state = 4;
+  static other = 54;
 
-  get token() {
-    return localStorage.getItem(config.DASH_AUTH_STORAGE_KEY_TOKEN);
-  }
-
-  get user() {
-    return localStorage.getItem(config.DASH_AUTH_STORAGE_KEY_USER);
-  }
+  get logged() { return localStorage.getItem(config.keys.storage.auth.logged); }
+  get token() { return localStorage.getItem(config.keys.storage.auth.token); }
+  get user() { return localStorage.getItem(config.keys.storage.auth.user); }
 
   get stateElement() {
     return this._stateElement || (this._stateElement = this.shadowRoot.querySelector('#state'));
   }
 
   createdCallback() {
+    let x = new DashAuthStorage();
+    x.foo();
     this.createShadowRoot().innerHTML = template;
   }
 
@@ -57,4 +58,10 @@ export class DashAuth extends HTMLElement {
     this.dispatchEvent(event);
   }
 
+}
+
+class DashAuthStorage {
+  foo() {
+    console.log('123');
+  }
 }

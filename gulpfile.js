@@ -1,14 +1,18 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
-var babel = require('gulp-babel');
+// var babel = require('gulp-babel');
+var babel = require('rollup-plugin-babel');
 var uglify = require('gulp-uglify');
 var karma = require('karma');
 var sourcemaps = require('gulp-sourcemaps');
-var rollup = require('gulp-rollup');
+var rollup = require('rollup-stream');
 var string = require('rollup-plugin-string');
 var sass = require('rollup-plugin-sass');
+var json = require('rollup-plugin-json');
 var inline = require('gulp-base64');
+var debug = require('gulp-debug');
+var source = require('vinyl-source-stream');
 
 const LIBRARIES = [
   './node_modules/webcomponents.js/webcomponents.js',
@@ -25,16 +29,28 @@ gulp.task('libraries', () => {
 });
 
 gulp.task('components', () => {
-  return gulp.src(['components/components.js'])
-    .pipe(rollup({
-      plugins: [
-        string({ extensions: ['.html'] }),
-        sass()
-      ],
-      sourceMap: true
-    }))
-    .pipe(inline({ baseDir: 'components' }))
-    .pipe(babel({ presets: ['es2015'] }))
+  // return gulp.src(['components/components.js'])
+  //   .pipe(rollup({
+  //     plugins: [
+  //       string({ extensions: ['.html'] }),
+  //       sass()
+  //     ],
+  //     sourceMap: true
+  //   }))
+  return rollup({
+    entry: 'components/components.js',
+    sourceMap: true,
+    plugins: [
+          string({ extensions: ['html'] }),
+          sass(),
+          json(),
+          babel({ presets: ['es2015-rollup', 'es2017'] })
+        ]
+    })
+    .pipe(source('components.js'))
+
+    // .pipe(inline({ baseDir: 'components' }))
+    // .pipe(babel({ presets: ['es2015'] }))
     // .pipe(uglify({ wrap: true }))
     .pipe(sourcemaps.write('.'))
     .pipe(connect.reload())

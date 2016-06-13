@@ -1,5 +1,5 @@
 import template from './login.html';
-import * as config from '../config';
+import config from '../config.json';
 
 export class DashLogin extends HTMLElement {
 
@@ -14,7 +14,7 @@ export class DashLogin extends HTMLElement {
   createdCallback() {
     this.createShadowRoot().innerHTML = template;
 
-    this.lock = new Auth0Lock(config.AUTH0_CLIENT, config.AUTH0_HOST);
+    this.lock = new Auth0Lock(config.auth0.client, config.auth0.host);
 
     this.loginButton.addEventListener('click', this.login.bind(this));
     this.logoutButton.addEventListener('click', this.logout.bind(this));
@@ -28,20 +28,26 @@ export class DashLogin extends HTMLElement {
     }, function onLogin(err, profile, id_token) {
       if (err) {
         console.error(err.message);
+        localStorage.removeItem(config.keys.storage.auth.logged);
         return;
       }
 
-      localStorage.setItem(config.DASH_AUTH_STORAGE_KEY_TOKEN, id_token);
-      localStorage.setItem(config.DASH_AUTH_STORAGE_KEY_USER, profile.email);
+      localStorage.setItem(config.keys.storage.auth.logged, true);
+      localStorage.setItem(config.keys.storage.auth.token, id_token);
+      localStorage.setItem(config.keys.storage.auth.user, profile.email);
 
     });
 
   }
 
   logout() {
-    localStorage.removeItem(config.DASH_AUTH_STORAGE_KEY_TOKEN);
-    localStorage.removeItem(config.DASH_AUTH_STORAGE_KEY_USER);
-    this.lock.logout({ responseType: 'token', returnTo: window.location.href, client_id: config.AUTH0_CLIENT });
+
+    localStorage.removeItem(config.keys.storage.auth.logged);
+    localStorage.removeItem(config.keys.storage.auth.token);
+    localStorage.removeItem(config.keys.storage.auth.user);
+
+    this.lock.logout({ responseType: 'token', returnTo: window.location.href, client_id: config.auth0.client });
+
   }
 
 }

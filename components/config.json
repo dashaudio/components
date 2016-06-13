@@ -1,0 +1,15 @@
+{
+  "auth0": {
+    "host": "dash.eu.auth0.com",
+    "client": "HzXlNs8cuC1NO6uPxpOkc6MpsjOQx7MD"
+  },
+  "keys": {
+    "storage": {
+      "auth": {
+        "logged": "dash-auth-logged",
+        "token": "dash-auth-token",
+        "user": "dash-auth-user"
+      }
+    }
+  }
+}
