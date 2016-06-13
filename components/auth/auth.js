@@ -1,9 +1,16 @@
 import template from './auth.html';
+import * as config from '../config';
 
 export class DashAuth extends HTMLElement {
 
+  // this needs some work, so that it can be used as a source of log in/log out events
+
   get token() {
-    return localStorage.getItem('dash-auth-token');
+    return localStorage.getItem(config.DASH_AUTH_STORAGE_KEY_TOKEN);
+  }
+
+  get user() {
+    return localStorage.getItem(config.DASH_AUTH_STORAGE_KEY_USER);
   }
 
   get stateElement() {
@@ -33,7 +40,7 @@ export class DashAuth extends HTMLElement {
     }
 
     if (this.token) {
-      this.stateElement.textContent = 'logged in';
+      this.stateElement.textContent = `logged in [${this.user}]`;
       this.stateElement.style.color = 'white';
       this.stateElement.style.backgroundColor = 'green';
     } else {

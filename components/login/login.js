@@ -31,25 +31,17 @@ export class DashLogin extends HTMLElement {
         return;
       }
 
-      localStorage.setItem(config.AUTH_LOCAL_STORAGE_KEY, id_token);
+      localStorage.setItem(config.DASH_AUTH_STORAGE_KEY_TOKEN, id_token);
+      localStorage.setItem(config.DASH_AUTH_STORAGE_KEY_USER, profile.email);
 
     });
 
   }
 
   logout() {
-    localStorage.removeItem('dash-auth-token');
+    localStorage.removeItem(config.DASH_AUTH_STORAGE_KEY_TOKEN);
+    localStorage.removeItem(config.DASH_AUTH_STORAGE_KEY_USER);
     this.lock.logout({ responseType: 'token', returnTo: window.location.href, client_id: config.AUTH0_CLIENT });
   }
-
-  // change(logged) {
-  //   if (logged) {
-  //     this.loginButton.style.display = 'none';
-  //     this.logoutButton.style.display = 'inline-block';
-  //   } else {
-  //     this.loginButton.style.display = 'inline-block';
-  //     this.logoutButton.style.display = 'none';
-  //   }
-  // }
 
 }

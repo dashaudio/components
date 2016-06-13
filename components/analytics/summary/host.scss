@@ -1,3 +1,4 @@
 @import "summary";
 
 :host { @extend .dash-analytics-summary; }
+:host([disabled]) { @extend .dash-analytics-summary--disabled; }

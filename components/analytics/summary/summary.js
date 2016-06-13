@@ -18,6 +18,10 @@ export class DashAnalyticsSummary extends HTMLElement {
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
   }
 
+  attributeChangedCallback() {
+    // this.update();
+  }
+
   update(state) {
 
     if (typeof state === 'string') {
