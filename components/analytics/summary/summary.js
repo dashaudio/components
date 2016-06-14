@@ -1,6 +1,7 @@
 import template from './summary.html';
 import styles from './host.scss';
 import polyfills from '../../common/polyfills';
+import { DashAuthListener } from '../../auth/listener/listener';
 
 export class DashAnalyticsSummary extends HTMLElement {
 
@@ -16,6 +17,7 @@ export class DashAnalyticsSummary extends HTMLElement {
   createdCallback() {
     let polyfilledStyles = polyfills.styles(styles, this.tagName);
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
+    this.listener = new DashAuthListener(this.authStateChanged.bind(this));
   }
 
   attributeChangedCallback() {
@@ -53,6 +55,14 @@ export class DashAnalyticsSummary extends HTMLElement {
       if (state.trend.meaning) this.trend.meaning = state.trend.meaning;
     }
 
+  }
+
+  authStateChanged(state) {
+    if (state) {
+      this.removeAttribute('disabled', '');
+    } else {
+      this.setAttribute('disabled', '');
+    }
   }
 
 }
