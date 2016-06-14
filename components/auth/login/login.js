@@ -31,7 +31,8 @@ export class DashAuthLogin extends HTMLElement {
   login() {
 
     this.lock.show({
-      responseType: 'token'
+      responseType: 'token',
+      sso: false
     }, function onLogin(err, profile, id_token) {
       if (err) {
         console.error(err.message);
@@ -53,7 +54,11 @@ export class DashAuthLogin extends HTMLElement {
     this.storage.token = null;
     this.storage.user = null;
 
-    this.lock.logout({ responseType: 'token', returnTo: window.location.href, client_id: config.auth0.client });
+    this.lock.logout({
+      responseType: 'token',
+      returnTo: window.location.href,
+      client_id: config.auth0.client
+    });
 
   }
 
