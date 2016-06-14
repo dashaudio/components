@@ -1,11 +1,7 @@
 describe('Dash Button', function() {
-  it('should be instantiated on a <dash-button> element', () => {
-
+  it('can be created', () => {
     var element = document.createElement('dash-button');
-    document.body.appendChild(element);
-
-    var button = document.querySelector('dash-button');
-    expect(button).not.to.be.null;
-
+    expect(element.outerHTML).to.equal('<dash-button></dash-button>');
+    expect(element).to.be.an.instanceof(DashButton);
   });
 });
