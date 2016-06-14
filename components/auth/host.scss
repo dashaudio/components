@@ -1,4 +1,0 @@
-@import "auth";
-
-:host { @extend .dash-auth; }
-:host([visible]) { @extend .dash-auth--visible; }

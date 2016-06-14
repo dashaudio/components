@@ -38,8 +38,8 @@ document.registerElement('dash-analytics-summary-plays', { prototype: DashAnalyt
 document.registerElement('dash-analytics-summary-listeners', { prototype: DashAnalyticsSummaryListeners.prototype });
 document.registerElement('dash-analytics-summary-installs', { prototype: DashAnalyticsSummaryInstalls.prototype });
 
-import { DashAuth } from './auth/auth';
-import { DashLogin } from './login/login';
+import { DashAuthLogin } from './auth/login/login';
+import { DashAuthState } from './auth/state/state';
 
-document.registerElement('dash-auth', { prototype: DashAuth.prototype });
-document.registerElement('dash-login', { prototype: DashLogin.prototype });
+document.registerElement('dash-auth-login', { prototype: DashAuthLogin.prototype });
+document.registerElement('dash-auth-state', { prototype: DashAuthState.prototype });
