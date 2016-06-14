@@ -5,6 +5,7 @@
 
 .dash-analytics-summary {
   display: inline-block;
+  transition: 1s opacity;
 }
 
 .dash-analytics-summary-box {
@@ -56,5 +57,5 @@
 }
 
 .dash-analytics-summary--disabled {
-  opacity: 0.25;
+  opacity: 0;
 }
