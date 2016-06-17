@@ -42,7 +42,7 @@ export class DashAuthLogin extends HTMLElement {
 
       this.storage.logged = true;
       this.storage.token = id_token;
-      this.storage.user = profile.email;
+      this.storage.user = profile.name || profile.email;
 
     }.bind(this));
 
