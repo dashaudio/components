@@ -22,7 +22,24 @@ export class DashAuthState extends HTMLElement {
   }
 
   messageForState(state) {
-    return state ? `logged in as ${this.storage.user}` : 'Not logged in';
+    let service = this.nameForService(this.storage.service);
+    return state ? `logged in as ${this.storage.user} via ${service}` : 'Not logged in';
+  }
+
+  nameForService(service) {
+    switch(service) {
+      case 'facebook':
+        return 'Facebook';
+        break;
+      case 'twitter':
+        return 'Twitter';
+        break;
+      case 'auth0':
+        return 'email';
+        break;
+      default:
+        return 'unknown service';
+    }
   }
 
 }

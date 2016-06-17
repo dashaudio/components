@@ -38,4 +38,16 @@ export class DashAuthStorage {
       }
     }
 
+    get service() {
+      return window.localStorage.getItem(config.keys.storage.auth.service);
+    }
+
+    set service(service) {
+      if (service) {
+        window.localStorage.setItem(config.keys.storage.auth.service, service);
+      } else {
+        window.localStorage.removeItem(config.keys.storage.auth.service);
+      }
+    }
+
 }
