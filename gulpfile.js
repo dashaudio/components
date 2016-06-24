@@ -1,15 +1,20 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
-var babel = require('gulp-babel');
+var babel = require('rollup-plugin-babel');
 var uglify = require('gulp-uglify');
 var karma = require('karma');
 var sourcemaps = require('gulp-sourcemaps');
-var rollup = require('gulp-rollup');
+var rollup = require('rollup-stream');
 var string = require('rollup-plugin-string');
 var sass = require('rollup-plugin-sass');
 var json = require('rollup-plugin-json');
+var npm = require('rollup-plugin-node-resolve');
+var cjs = require('rollup-plugin-commonjs');
 var inline = require('gulp-base64');
+var streamify = require('gulp-streamify');
+// var inline = require('gulp-css-base64');
+var source = require('vinyl-source-stream');
 
 const LIBRARIES = [
   './node_modules/webcomponents.js/webcomponents.js',
@@ -24,22 +29,25 @@ gulp.task('libraries', () => {
     // .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
-
+// Ok, now just got to work out how to get inline images working again...
 gulp.task('components', () => {
-  return gulp.src(['components/components.js'])
-    .pipe(rollup({
+  return rollup({
+      entry: 'components/components.js',
       plugins: [
         string({ extensions: ['html'] }),
         sass(),
-        json()
+        json(),
+        babel({ presets: ['es2015-rollup'], babelrc: false }),
+        npm({ jsnext: true })
       ],
       sourceMap: true
-    }))
-    .pipe(inline({ baseDir: 'components' }))
-    .pipe(babel({ presets: ['es2015'] }))
+    })
+    .pipe(source('components.js'))
+    .pipe(streamify(inline({ baseDir: './components' })))
+    // .pipe(babel({ presets: ['es2015'] }))
     // .pipe(uglify({ wrap: true }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(connect.reload())
+    // .pipe(sourcemaps.write('.'))
+    // .pipe(connect.reload())
     .pipe(gulp.dest('build/'));
 });
 

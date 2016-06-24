@@ -40,6 +40,10 @@ document.registerElement('dash-analytics-summary-installs', { prototype: DashAna
 
 import { DashAuthLogin } from './auth/login/login';
 import { DashAuthState } from './auth/state/state';
+import { DashAuthStateSoundCloud } from './auth/state/soundcloud/soundcloud';
+import { DashAuthStateGoogle } from './auth/state/google/google';
 
 document.registerElement('dash-auth-login', { prototype: DashAuthLogin.prototype });
 document.registerElement('dash-auth-state', { prototype: DashAuthState.prototype });
+document.registerElement('dash-auth-state-soundcloud', { prototype: DashAuthStateSoundCloud.prototype });
+document.registerElement('dash-auth-state-google', { prototype: DashAuthStateGoogle.prototype });

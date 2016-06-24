@@ -1,4 +1,7 @@
 import { DashAuthStorage } from '../storage/storage';
+import { PersonStore } from 'dash-sdk';
+
+// TODO In time, this should all be moved out to the SDK
 
 const TIMEOUT = 1000; // TODO: Don't poll for state; get some events going!
 
@@ -21,14 +24,22 @@ export class DashAuthListener {
 
     if (this.logged != this.wasLogged) {
       this.wasLogged = this.logged;
-      this.stateChanged(this.logged);
+
+      this.stateChanged(null);
+
+      if (this.storage.token) {
+        let store = new PersonStore({ token: this.storage.token });
+        store.fetchByToken().then(person => {
+          this.stateChanged(person);
+        });
+      }
     }
 
     window.setTimeout(this.checkState.bind(this), TIMEOUT);
   }
 
-  stateChanged(state) {
-    this.callback(state);
+  stateChanged(person) {
+    this.callback(person);
   }
 
 }

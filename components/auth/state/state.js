@@ -17,8 +17,8 @@ export class DashAuthState extends HTMLElement {
     this.listener = new DashAuthListener(this.stateChanged.bind(this));
   }
 
-  stateChanged(state) {
-    this.message.textContent = this.messageForState(state);
+  stateChanged(person) {
+    this.message.textContent = this.messageForState(this.storage.logged);
   }
 
   messageForState(state) {
