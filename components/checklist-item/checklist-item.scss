@@ -1,0 +1,33 @@
+@import "../common/colour";
+@import "../common/text/body";
+@import "../common/units";
+
+.dash-checklist-item {
+  @extend .dash-text-body;
+
+  display: inline-block;
+  border: 2px solid $dash-colour-medium-light;
+  display: inline-flex;
+  background: $dash-colour-white;
+}
+
+.dash-checklist-item-icon {
+  display: inline-block;
+  vertical-align: top;
+  padding: units(1);
+  // background: $dash-colour-white;
+  opacity: 0.2;
+}
+
+.dash-checklist-item-title {
+  display: inline-block;
+  vertical-align: top;
+  background: $dash-colour-light;
+  border-left: 2px solid $dash-colour-medium-light;
+  color: $dash-colour-dark;
+  height: units(5);
+  line-height: units(5);
+  padding: 0 units(2);
+  font-weight: bold;
+  font-size: units(1.3);
+}

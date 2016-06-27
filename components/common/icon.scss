@@ -5,6 +5,11 @@
   background-size: 50%;
 }
 
+.dash-icon-logo {
+  background-image: url(common/icon/logo.svg);
+  background-size: 50%;
+}
+
 .dash-icon-loading {
   @extend .dash-animation-rotate;
   background-image: url(common/icon/loading.svg);
@@ -24,6 +29,11 @@
 .dash-icon-help {
   background-image: url(common/icon/help.svg);
   background-size: 36%;
+}
+
+.dash-icon-tick {
+  background-image: url(common/icon/tick.svg);
+  background-size: 48%;
 }
 
 // Arrows

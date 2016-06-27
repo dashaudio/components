@@ -12,9 +12,11 @@ $dash-colour-red: #FF4444;
 
 // Default Colours
 
-$dash-colour-dark: #3B3C45 !default;
-$dash-colour-medium: #838383 !default;
-$dash-colour-light: #FAFAFA !default;
+$dash-colour-dark: #2A3756 !default;
+$dash-colour-medium-dark: #C3CAD2 !default;
+$dash-colour-medium: #DBE0E4 !default;
+$dash-colour-medium-light: #E4E8ED !default;
+$dash-colour-light: #F1F3F4 !default;
 
 $dash-colour-primary: $dash-colour-blue !default;
 $dash-colour-secondary: $dash-colour-navy !default;
@@ -22,6 +24,7 @@ $dash-colour-tertiary: $dash-colour-purple !default;
 $dash-colour-quaternary: $dash-colour-turquoise !default;
 
 $dash-colour-warning: $dash-colour-red !default;
+$dash-colour-success: $dash-colour-green !default;
 
 $dash-colour-list: (
   $dash-colour-primary,

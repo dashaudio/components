@@ -14,7 +14,6 @@ export class DashDashboard extends HTMLElement {
     this.render();
 
     this.lock = new Auth0Lock(config.auth0.client, config.auth0.host);
-    this.login();
   }
 
   //
@@ -55,7 +54,7 @@ export class DashDashboard extends HTMLElement {
 
   loginFailed(error) {
     this.message = 'Login failed!';
-    this.user = new Person();
+    this.user = null;
     this.render();
   }
 
@@ -150,17 +149,25 @@ export class DashDashboard extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = Handlebars.compile(template)(this);
 
-    let events = {
-      '#logout': 'logout',
-      '#connect-soundcloud': 'connectSoundCloud',
-      '#connect-google': 'connectGoogle'
-    };
+    let loginButton = this.shadowRoot.querySelector('#login');
+    let logoutButton = this.shadowRoot.querySelector('#logout');
+    let connectSoundCloudButton = this.shadowRoot.querySelector('#connect-soundcloud');
+    let connectGoogleButton = this.shadowRoot.querySelector('#connect-google');
 
-    for (let key in events) {
-      let el = this.shadowRoot.querySelector(key);
-      if (el) {
-        el.addEventListener('click', this[events[key]].bind(this));
-      }
+    if (loginButton) {
+      loginButton.addEventListener('click', this.login.bind(this));
+    }
+
+    if (logoutButton) {
+      logoutButton.addEventListener('click', this.logout.bind(this));
+    }
+
+    if (connectSoundCloudButton) {
+      connectSoundCloudButton.addEventListener('click', this.connectSoundCloud.bind(this));
+    }
+
+    if (connectGoogleButton) {
+      connectGoogleButton.addEventListener('click', this.connectGoogle.bind(this));
     }
   }
 }

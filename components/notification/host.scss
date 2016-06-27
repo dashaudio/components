@@ -4,3 +4,6 @@
 
 :host([pinned]) { @extend .dash-notification--pinned; }
 :host([dismissed]) { @extend .dash-notification--dismissed; }
+
+:host([success]) { @extend .dash-notification--success; }
+:host([error]) { @extend .dash-notification--error; }

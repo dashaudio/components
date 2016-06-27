@@ -12,56 +12,78 @@
   background-position: center;
 }
 
+.dash-icon--logo {
+  @extend .dash-icon;
+  @extend .dash-icon-logo;
+}
+
 .dash-icon--loading {
+  @extend .dash-icon;
   @extend .dash-icon-loading;
 }
 
 .dash-icon--error {
+  @extend .dash-icon;
   @extend .dash-icon-error;
 }
 
 .dash-icon--feed {
+  @extend .dash-icon;
   @extend .dash-icon-feed;
 }
 
 .dash-icon--help {
+  @extend .dash-icon;
   @extend .dash-icon-help;
+}
+
+.dash-icon--tick {
+  @extend .dash-icon;
+  @extend .dash-icon-tick;
 }
 
 // Arrows
 
 .dash-icon--arrow-up {
+  @extend .dash-icon;
   @extend .dash-icon-arrow-up;
 }
 
 .dash-icon--arrow-right {
+  @extend .dash-icon;
   @extend .dash-icon-arrow-right;
 }
 
 .dash-icon--arrow-down {
+  @extend .dash-icon;
   @extend .dash-icon-arrow-down;
 }
 
 .dash-icon--arrow-left {
+  @extend .dash-icon;
   @extend .dash-icon-arrow-left;
 }
 
 // Bars
 
 .dash-icon--bar-horizontal {
+  @extend .dash-icon;
   @extend .dash-icon-bar-horizontal;
 }
 
 .dash-icon--bar-vertical {
+  @extend .dash-icon;
   @extend .dash-icon-bar-vertical;
 }
 
 // Close
 
 .dash-icon--close-dark {
+  @extend .dash-icon;
   @extend .dash-icon-close-dark;
 }
 
 .dash-icon--close-light {
+  @extend .dash-icon;
   @extend .dash-icon-close-light;
 }

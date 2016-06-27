@@ -53,3 +53,6 @@ document.registerElement('dash-auth-state-google', { prototype: DashAuthStateGoo
 // Temporary!
 import { DashDashboard } from './dashboard/dashboard';
 document.registerElement('dash-dashboard', { prototype: DashDashboard.prototype });
+
+import { DashChecklistItem } from './checklist-item/checklist-item';
+document.registerElement('dash-checklist-item', { prototype: DashChecklistItem.prototype });
