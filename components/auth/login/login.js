@@ -65,13 +65,13 @@ export class DashAuthLogin extends HTMLElement {
   }
 
   stateChanged(state) {
-    if (state) {
-      this.loginButton.style.display = 'none';
-      this.logoutButton.style.display = 'inline-block';
-    } else {
-      this.loginButton.style.display = 'inline-block';
-      this.logoutButton.style.display = 'none';
-    }
+    // if (state) {
+    //   this.loginButton.style.display = 'none';
+    //   this.logoutButton.style.display = 'inline-block';
+    // } else {
+    //   this.loginButton.style.display = 'inline-block';
+    //   this.logoutButton.style.display = 'none';
+    // }
   }
 
 }

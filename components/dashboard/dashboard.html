@@ -1,0 +1,47 @@
+{{#if message}}
+<dash-notification primary timeout="5" title="{{message}}"></dash-notification>
+{{/if}}
+
+<dash-toolbar>
+  <dash-button>Dash</dash-button>
+  <dash-spacer></dash-spacer>
+  <!-- {{#if user}} -->
+    <dash-label>{{user.email}}</dash-label>
+    <dash-button id="logout">Log Out</dash-button>
+  <!-- {{/if}} -->
+</dash-toolbar>
+
+{{#if shouldShowSoundCloudConnectInstruction}}
+<dash-box padded>
+  <p>Hi Damon Dash, welcome to Dash.</p>
+  <p>It's great to have you with us. We're working hard to provide you with an unrivalled
+    dashboard filled with actionable, responsible data that is most useful to you and your
+    audience.</p>
+  <p>First, sign into SoundCloud</p>
+  <p>Start getting real data from your podcasts into Dash by connecting with SoundCloud and
+    Google Analytics.</p>
+  <dash-button primary id="connect-soundcloud">Connect SoundCloud</dash-button>
+</dash-box>
+{{/if}}
+
+{{#if shouldShowGoogleConnectInstruction}}
+<dash-box padded>
+  <p>Great! You're connected with SoundCloud.</p>
+  <p>√ Connected with SoundCloud.</p>
+  <p>Sign into Goole Analytics</p>
+  <p>Get your SoundCloud data into Google Analytics and get a better understanding of your
+    audience.</p>
+  <dash-button primary id="connect-google">Connect Google Analytics</dash-button>
+</dash-box>
+{{/if}}
+
+{{#if shouldShowFlowCompleteInstruction}}
+<dash-box padded>
+  <p>Great!</p>
+  <p>You have successfully connected with SoundCloud and Google Analytics</p>
+  <p>√ Connected with SoundCloud.</p>
+  <p>√ Connected with Google Analytics.</p>
+  <p>Now sit back and relax whilst we put on the kettle and crank the engine...</p>
+  <p>We'll let you know when you can find your fist set of data in Google Analytics.</p>
+</dash-box>
+{{/if}}

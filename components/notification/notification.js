@@ -28,6 +28,18 @@ export class DashNotification extends HTMLElement {
     }
   }
 
+  get timeout() {
+    return this.getAttribute('timeout');
+  }
+
+  set timeout(timeout) {
+    if (timeout) {
+      this.setAttribute('timeout', Number(timeout));
+    } else {
+      this.removeAttribute('timeout');
+    }
+  }
+
   get titleElement() { return this._title || (this._title = this.shadowRoot.querySelector('#title')); }
   get dismissElement() { return this._dismiss || (this._dismiss = this.shadowRoot.querySelector('#dismiss')); }
 
@@ -39,6 +51,9 @@ export class DashNotification extends HTMLElement {
   attachedCallback() {
     this.update(this.getAttribute('title'));
     this.dismissElement.addEventListener('click', this.dismiss.bind(this));
+
+    let timeout = this.getAttribute('timeout');
+    if (timeout) window.setTimeout(this.dismiss.bind(this), timeout * 1000);
   }
 
   attributeChangedCallback(attribute, oldValue, newValue) {
