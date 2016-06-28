@@ -1,3 +1,22 @@
-@import "button/button";
+// Standalone version of the style library
 
-// Compile this file to get a standalone version of the style library.
+@import "box/box";
+@import "button/button";
+@import "button/group/group";
+@import "button/group/group";
+@import "checklist-item/checklist-item";
+@import "divider/divider";
+@import "icon/icon";
+@import "label/label";
+@import "note/note";
+@import "notification/notification";
+@import "pager/pager";
+@import "spacer/spacer";
+@import "sparkline/sparkline";
+@import "toolbar/toolbar";
+@import "trend/trend";
+@import "wrapper/wrapper";
+
+@import "common/text/body";
+@import "common/text/caption";
+@import "common/text/heading";

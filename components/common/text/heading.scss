@@ -1,0 +1,16 @@
+@import "../colour";
+@import "../units";
+
+.dash-text-heading {
+  @extend .dash-text-body;
+  color: $dash-colour-dark;
+  font-weight: bold;
+  font-size: units(2.4);
+}
+
+.dash-text-subheading {
+  @extend .dash-text-body;
+  color: $dash-colour-dark;
+  font-weight: bold;
+  font-size: units(2.0);
+}
