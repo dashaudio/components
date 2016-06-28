@@ -19,17 +19,17 @@ var streamify = require('gulp-streamify');
 var source = require('vinyl-source-stream');
 
 const LIBRARIES = [
-  './node_modules/webcomponents.js/webcomponents.js',
+  './node_modules/webcomponents.js/webcomponents.min.js',
   './node_modules/whatwg-fetch/fetch.js',
-  './node_modules/moment/moment.js',
-  './bower_components/auth0-lock/build/auth0-lock.js', // Note, this is 4MB !!!
+  './node_modules/moment/min/moment.min.js',
+  './bower_components/auth0-lock/build/auth0-lock.min.js', // Note, this is 4MB !!!
   './node_modules/handlebars/dist/handlebars.min.js'
 ];
 
 gulp.task('libraries', () => {
   gulp.src(LIBRARIES)
     .pipe(concat('libraries.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
 // Ok, now just got to work out how to get inline images working again...
