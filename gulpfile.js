@@ -22,7 +22,7 @@ const LIBRARIES = [
   './node_modules/webcomponents.js/webcomponents.js',
   './node_modules/whatwg-fetch/fetch.js',
   './node_modules/moment/moment.js',
-  './bower_components/auth0-lock/build/auth0-lock.js',
+  './bower_components/auth0-lock/build/auth0-lock.js', // Note, this is 4MB !!!
   './node_modules/handlebars/dist/handlebars.min.js'
 ];
 
