@@ -47,10 +47,7 @@ gulp.task('components', () => {
     })
     .pipe(source('components.js'))
     .pipe(streamify(inline({ baseDir: './components' })))
-    // .pipe(babel({ presets: ['es2015'] }))
-    // .pipe(uglify({ wrap: true }))
-    // .pipe(sourcemaps.write('.'))
-    // .pipe(connect.reload())
+    .pipe(streamify(uglify({ wrap: true })))
     .pipe(gulp.dest('build/'));
 });
 
