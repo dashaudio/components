@@ -22,7 +22,6 @@ const LIBRARIES = [
   './node_modules/webcomponents.js/webcomponents.min.js',
   './node_modules/whatwg-fetch/fetch.js',
   './node_modules/moment/min/moment.min.js',
-  './bower_components/auth0-lock/build/auth0-lock.min.js', // Note, this is 4MB !!!
   './node_modules/handlebars/dist/handlebars.min.js'
 ];
 
@@ -32,7 +31,7 @@ gulp.task('libraries', () => {
     .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
-// Ok, now just got to work out how to get inline images working again...
+
 gulp.task('components', () => {
   return rollup({
       entry: 'components/components.js',

@@ -60,7 +60,6 @@
     "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
-    "postinstall": "bower install --allow-root",
     "start": "gulp serve",
     "test": "gulp build"
   },
