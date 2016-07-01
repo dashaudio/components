@@ -62,6 +62,7 @@ export class DashNotification extends HTMLElement {
 
   update(title) {
     this.titleElement.textContent = title;
+    this.dismissed = false;
   }
 
   dismiss() {
