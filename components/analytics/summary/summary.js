@@ -1,7 +1,7 @@
 import template from './summary.html';
 import styles from './host.scss';
 import polyfills from '../../common/polyfills';
-import { DashAuthListener } from '../../auth/listener/listener';
+// import { DashAuthListener } from '../../auth/listener/listener';
 
 export class DashAnalyticsSummary extends HTMLElement {
 
@@ -17,7 +17,7 @@ export class DashAnalyticsSummary extends HTMLElement {
   createdCallback() {
     let polyfilledStyles = polyfills.styles(styles, this.tagName);
     this.createShadowRoot().innerHTML = `<style>${polyfilledStyles}</style>${template}`;
-    this.listener = new DashAuthListener(this.authStateChanged.bind(this));
+    // this.listener = new DashAuthListener(this.authStateChanged.bind(this));
   }
 
   attributeChangedCallback() {

@@ -3,41 +3,41 @@ var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var babel = require('rollup-plugin-babel');
 var uglify = require('gulp-uglify');
+var uglifyCSS = require('gulp-uglifycss');
 var karma = require('karma');
 var sourcemaps = require('gulp-sourcemaps');
 var rollup = require('rollup-stream');
 var string = require('rollup-plugin-string');
-var sass = require('rollup-plugin-sass');
+var sassPlugin = require('rollup-plugin-sass');
+var sass = require('gulp-sass');
 var json = require('rollup-plugin-json');
 var npm = require('rollup-plugin-node-resolve');
 var handlebars = require('rollup-plugin-handlebars');
 var cjs = require('rollup-plugin-commonjs');
 var inline = require('gulp-base64');
 var streamify = require('gulp-streamify');
-// var inline = require('gulp-css-base64');
 var source = require('vinyl-source-stream');
 
 const LIBRARIES = [
-  './node_modules/webcomponents.js/webcomponents.js',
+  './node_modules/webcomponents.js/webcomponents.min.js',
   './node_modules/whatwg-fetch/fetch.js',
-  './node_modules/moment/moment.js',
-  './bower_components/auth0-lock/build/auth0-lock.js',
+  './node_modules/moment/min/moment.min.js',
   './node_modules/handlebars/dist/handlebars.min.js'
 ];
 
 gulp.task('libraries', () => {
   gulp.src(LIBRARIES)
     .pipe(concat('libraries.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('build/'));
 });
-// Ok, now just got to work out how to get inline images working again...
+
 gulp.task('components', () => {
   return rollup({
       entry: 'components/components.js',
       plugins: [
         string({ extensions: ['html'] }),
-        sass(),
+        sassPlugin(),
         json(),
         babel({ presets: ['es2015-rollup'], babelrc: false }),
         npm({ jsnext: true })
@@ -46,10 +46,16 @@ gulp.task('components', () => {
     })
     .pipe(source('components.js'))
     .pipe(streamify(inline({ baseDir: './components' })))
-    // .pipe(babel({ presets: ['es2015'] }))
-    // .pipe(uglify({ wrap: true }))
-    // .pipe(sourcemaps.write('.'))
-    // .pipe(connect.reload())
+    .pipe(streamify(uglify({ wrap: true })))
+    .pipe(gulp.dest('build/'));
+});
+
+gulp.task('styles', () => {
+  gulp.src('components/components.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(uglifyCSS())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'));
 });
 
@@ -77,6 +83,6 @@ gulp.task('test', (done) => {
     }, done).start();
 });
 
-gulp.task('build', ['libraries', 'components', 'guide']);
+gulp.task('build', ['libraries', 'components', 'guide', 'styles']);
 gulp.task('serve', ['build', 'test', 'connect', 'watch']);
 gulp.task('default', ['build']);
