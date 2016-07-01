@@ -20,7 +20,6 @@
   background-color: $dash-colour-white;
   display: inline-flex;
   vertical-align: middle;
-  text-decoration: none;
 }
 
 .dash-button-icon {
@@ -36,7 +35,7 @@
 }
 
 .dash-button-content {
-  // padding: 0 units(2);
+  text-decoration: none;
 }
 
 // Styles
