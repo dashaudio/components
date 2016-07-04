@@ -10,3 +10,5 @@ export class DashButtonGroup extends HTMLButtonElement {
   }
 
 }
+
+document.registerElement('dash-button-group', { prototype: DashButtonGroup.prototype })

@@ -1,11 +1,11 @@
-import { DashAnalyticsSummary } from '../summary';
+import { DashAnalyticsSummary } from '../summary'
 
-const TITLE = 'Unique Listeners (Today & This Month)';
+const TITLE = 'Unique Listeners (Today & This Month)'
 
 export class DashAnalyticsSummaryListeners extends DashAnalyticsSummary {
 
   attachedCallback() {
-    document.addEventListener('WebComponentsReady', this.update.bind(this));
+    document.addEventListener('WebComponentsReady', this.update.bind(this))
   }
 
   update() {
@@ -18,24 +18,24 @@ export class DashAnalyticsSummaryListeners extends DashAnalyticsSummary {
         end: 'Today',
         trend: 'This Month'
       }
-    });
+    })
 
-    let start = moment().utc().subtract(1, 'month').toDate().getTime();
-    let end = moment().utc().endOf('day').toDate().getTime();
-    let client = 'politiken';
+    let start = moment().utc().subtract(1, 'month').toDate().getTime()
+    let end = moment().utc().endOf('day').toDate().getTime()
+    let client = 'politiken'
 
     fetch(this.endpoint(start, end, client)).then((r) => r.json()).then((result) => {
 
       let max = result.buckets.reduce((prev, curr) => {
-        return (curr.value > prev) ? curr.value : prev;
-      }, 0);
+        return (curr.value > prev) ? curr.value : prev
+      }, 0)
 
-      let series = result.buckets.map((bucket) => bucket.value / max);
+      let series = result.buckets.map((bucket) => bucket.value / max)
 
-      let first = result.buckets[0].value;
-      let last = result.buckets[result.buckets.length - 1].value;
+      let first = result.buckets[0].value
+      let last = result.buckets[result.buckets.length - 1].value
 
-      let trend = 100 * (last - first) / first;
+      let trend = 100 * (last - first) / first
 
       super.update({
         loading: false,
@@ -46,9 +46,9 @@ export class DashAnalyticsSummaryListeners extends DashAnalyticsSummary {
           meaning: (trend > 0) ? 'positive' : 'negative',
           label: trend.toFixed(0) + '%'
         }
-      });
+      })
 
-    });
+    })
 
   }
 
@@ -59,8 +59,10 @@ export class DashAnalyticsSummaryListeners extends DashAnalyticsSummary {
       `&override=input.glob.body.query.filtered.filter.bool.must[1].range.startTime.lte=${end}` +
       `&override=input.glob.body.query.filtered.filter.bool.must[2].term.object___publisher=http://dashaudio.co/Publisher/${client}` +
       `&override=input.glob.body.aggs.listener.date_histogram.extended_bounds.min=${start}` +
-      `&override=input.glob.body.aggs.listener.date_histogram.extended_bounds.max=${end}`;
+      `&override=input.glob.body.aggs.listener.date_histogram.extended_bounds.max=${end}`
 
   }
 
 }
+
+document.registerElement('dash-analytics-summary-listeners', { prototype: DashAnalyticsSummaryListeners.prototype })

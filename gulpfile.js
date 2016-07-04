@@ -12,25 +12,23 @@ var sassPlugin = require('rollup-plugin-sass');
 var sass = require('gulp-sass');
 var json = require('rollup-plugin-json');
 var npm = require('rollup-plugin-node-resolve');
-var handlebars = require('rollup-plugin-handlebars');
 var cjs = require('rollup-plugin-commonjs');
 var inline = require('gulp-base64');
 var streamify = require('gulp-streamify');
 var source = require('vinyl-source-stream');
 
-const LIBRARIES = [
-  './node_modules/webcomponents.js/webcomponents.min.js',
-  './node_modules/whatwg-fetch/fetch.js',
-  './node_modules/moment/min/moment.min.js',
-  './node_modules/handlebars/dist/handlebars.min.js'
-];
-
-gulp.task('libraries', () => {
-  gulp.src(LIBRARIES)
-    .pipe(concat('libraries.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('build/'));
-});
+// const LIBRARIES = [
+//   './node_modules/webcomponents.js/webcomponents.min.js',
+//   './node_modules/whatwg-fetch/fetch.js',
+//   './node_modules/moment/min/moment.min.js'
+// ];
+//
+// gulp.task('libraries', () => {
+//   gulp.src(LIBRARIES)
+//     .pipe(concat('libraries.js'))
+//     .pipe(uglify())
+//     .pipe(gulp.dest('build/'));
+// });
 
 gulp.task('components', () => {
   return rollup({
@@ -83,6 +81,6 @@ gulp.task('test', (done) => {
     }, done).start();
 });
 
-gulp.task('build', ['libraries', 'components', 'guide', 'styles']);
+gulp.task('build', ['components', 'guide', 'styles']);
 gulp.task('serve', ['build', 'test', 'connect', 'watch']);
 gulp.task('default', ['build']);
