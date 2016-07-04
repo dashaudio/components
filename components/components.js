@@ -1,6 +1,6 @@
-import * from 'whatwg-fetch'
-import * from 'moment'
-import * from 'webcomponents.js'
+import 'whatwg-fetch'
+import 'moment'
+import 'webcomponents.js'
 
 export { DashButton } from './button/button'
 export { DashButtonGroup } from './button/group/group'
