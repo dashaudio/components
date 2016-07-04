@@ -66,10 +66,11 @@
   },
   "scripts": {
     "start": "gulp serve",
-    "test": "exit 0",
+    "test": "test -e build/components.next.js && test -e build/components.node.js || exit",
     "build:browser": "rollup -c rollup.browser.js",
     "build:node": "rollup -c rollup.node.js",
-    "build:next": "rollup -c rollup.next.js"
+    "build:next": "rollup -c rollup.next.js",
+    "build": "npm run build:browser && npm run build:node && npm run build:next"
   },
   "author": "Dash Product Team",
   "license": "ISC"
