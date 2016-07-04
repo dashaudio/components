@@ -2,16 +2,18 @@
   "name": "dash-components",
   "version": "0.0.4",
   "description": "",
-  "main": "components/components.js",
+  "main": "build/components.node.js",
+  "jsnext:main": "build/components.next.js",
+  "browser": "build/components.browser.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dashaudio/components.git"
+  },
   "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2015-rollup": "^1.1.1",
-    "babel-preset-es2017": "^1.4.0",
-    "babel-runtime": "^6.9.2",
-    "bower": "^1.7.9",
+    "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
-    "dash-sdk": "0.0.7",
+    "dash-sdk": "0.0.8",
     "electron-prebuilt": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -47,21 +49,28 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^3.0.2",
     "rollup-plugin-json": "^2.0.0",
+    "rollup-plugin-node-builtins": "^1.0.4",
+    "rollup-plugin-node-globals": "^1.0.5",
     "rollup-plugin-node-resolve": "^1.7.1",
+    "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-sass": "^0.1.0",
     "rollup-plugin-string": "^1.0.1",
+    "rollup-plugin-uglify": "^1.0.1",
     "rollup-stream": "^1.7.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "moment": "^2.13.0",
     "webcomponents.js": "^0.7.22",
-    "whatwg-fetch": "^1.0.0",
-    "moment": "^2.13.0"
+    "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
     "start": "gulp serve",
-    "test": "exit 0"
+    "test": "exit 0",
+    "build:browser": "rollup -c rollup.browser.js",
+    "build:node": "rollup -c rollup.node.js",
+    "build:next": "rollup -c rollup.next.js"
   },
-  "author": "",
+  "author": "Dash Product Team",
   "license": "ISC"
 }
