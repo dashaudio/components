@@ -12,7 +12,7 @@ const options = {
   dest: 'build/components.next.js',
   entry: 'components/components.js',
   format: 'es6',
-  external: ['moment', 'whatwg-fetch', 'webcomponents.js'],
+  external: ['webcomponents.js'],
   plugins: [
     string({ extensions: ['html'] }),
     sass(),

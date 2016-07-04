@@ -1,5 +1,3 @@
-import 'whatwg-fetch'
-import 'moment'
 import 'webcomponents.js'
 
 export { DashButton } from './button/button'

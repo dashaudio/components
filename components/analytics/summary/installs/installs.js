@@ -1,4 +1,5 @@
 import { DashAnalyticsSummary } from '../summary'
+import moment from 'moment'
 
 const TITLE = 'App Installs (Today & This Month)'
 
