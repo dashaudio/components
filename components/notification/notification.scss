@@ -4,6 +4,7 @@
 
 .dash-notification {
   @extend .dash-text-body;
+  font-weight: 500;
   display: block;
   background-color: $dash-colour-dark;
   color: $dash-colour-light;

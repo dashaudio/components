@@ -17,19 +17,6 @@ var inline = require('gulp-base64');
 var streamify = require('gulp-streamify');
 var source = require('vinyl-source-stream');
 
-// const LIBRARIES = [
-//   './node_modules/webcomponents.js/webcomponents.min.js',
-//   './node_modules/whatwg-fetch/fetch.js',
-//   './node_modules/moment/min/moment.min.js'
-// ];
-//
-// gulp.task('libraries', () => {
-//   gulp.src(LIBRARIES)
-//     .pipe(concat('libraries.js'))
-//     .pipe(uglify())
-//     .pipe(gulp.dest('build/'));
-// });
-
 gulp.task('components', () => {
   return rollup({
       entry: 'components/components.js',

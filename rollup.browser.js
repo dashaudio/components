@@ -7,7 +7,17 @@ import string from 'rollup-plugin-string'
 import builtins from 'rollup-plugin-node-builtins'
 import json from 'rollup-plugin-json'
 import sass from 'rollup-plugin-sass'
+import postcss from 'postcss'
+import cssInline from 'postcss-url'
+import cssNano from 'cssnano'
 import uglify from 'rollup-plugin-uglify'
+
+const processPostCSS = (css, file) => {
+  return postcss([
+    cssInline({ url: 'inline', maxSize: 1000, basePath: './components' }),
+    cssNano()
+  ]).process(css).then(result => result.css)
+}
 
 const options = {
   dest: 'build/components.browser.js',
@@ -15,8 +25,12 @@ const options = {
   format: 'iife',
   moduleName: 'Dash',
   plugins: [
-    string({ extensions: ['html'] }),
-    sass(),
+    string({
+      extensions: ['html']
+    }),
+    sass({
+      output: processPostCSS
+    }),
     json(),
     babel({
       babelrc: false,
@@ -26,14 +40,11 @@ const options = {
     builtins(),
     resolve({ main: true }),
     commonjs({
-      exclude: [
-        'node_modules/rollup-plugin-node-globals/**'
-      ]
+      exclude: 'node_modules/rollup-plugin-node-globals/**'
     }),
     globals(),
     uglify({ wrap: true })
-  ],
-  sourceMap: true
+  ]
 }
 
 export default options

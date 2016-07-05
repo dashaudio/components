@@ -1,9 +1,10 @@
 @import "../layout/width";
 @import "../colour";
 @import "../units";
+@import "../fonts";
 
 .dash-text-body {
-  font-family: sans-serif;
+  font-family: proxima-nova, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: units(1.8);
   text-transform: unset;

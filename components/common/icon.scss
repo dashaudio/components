@@ -1,83 +1,83 @@
 @import "../common/animation/rotate";
 
 .dash-icon-default {
-  background-image: url(common/icon/default.svg);
+  background-image: url(common/images/icons/default.svg);
   background-size: 50%;
 }
 
 .dash-icon-logo {
-  background-image: url(common/icon/logo.svg);
+  background-image: url(common/images/icons/logo.svg);
   background-size: 50%;
 }
 
 .dash-icon-loading {
   @extend .dash-animation-rotate;
-  background-image: url(common/icon/loading.svg);
+  background-image: url(common/images/icons/loading.svg);
   background-size: 50%;
 }
 
 .dash-icon-error {
-  background-image: url(common/icon/error.svg);
+  background-image: url(common/images/icons/error.svg);
   background-size: 48%;
 }
 
 .dash-icon-feed {
-  background-image: url(common/icon/feed.svg);
+  background-image: url(common/images/icons/feed.svg);
   background-size: 40%;
 }
 
 .dash-icon-help {
-  background-image: url(common/icon/help.svg);
+  background-image: url(common/images/icons/help.svg);
   background-size: 36%;
 }
 
 .dash-icon-tick {
-  background-image: url(common/icon/tick.svg);
+  background-image: url(common/images/icons/tick.svg);
   background-size: 48%;
 }
 
 // Arrows
 
 .dash-icon-arrow-up {
-  background-image: url(common/icon/arrow-up.svg);
+  background-image: url(common/images/icons/arrow-up.svg);
   background-size: 35%;
 }
 
 .dash-icon-arrow-right {
-  background-image: url(common/icon/arrow-right.svg);
+  background-image: url(common/images/icons/arrow-right.svg);
   background-size: 35%;
 }
 
 .dash-icon-arrow-down {
-  background-image: url(common/icon/arrow-down.svg);
+  background-image: url(common/images/icons/arrow-down.svg);
   background-size: 35%;
 }
 
 .dash-icon-arrow-left {
-  background-image: url(common/icon/arrow-left.svg);
+  background-image: url(common/images/icons/arrow-left.svg);
   background-size: 35%;
 }
 
 // Bars
 
 .dash-icon-bar-horizontal {
-  background-image: url(common/icon/bar-horizontal.svg);
+  background-image: url(common/images/icons/bar-horizontal.svg);
   background-size: 50%;
 }
 
 .dash-icon-bar-vertical {
-  background-image: url(common/icon/bar-vertical.svg);
+  background-image: url(common/images/icons/bar-vertical.svg);
   background-size: 50%;
 }
 
 // Close
 
 .dash-icon-close-dark {
-  background-image: url(common/icon/close-dark.svg);
+  background-image: url(common/images/icons/close-dark.svg);
   background-size: 50%;
 }
 
 .dash-icon-close-light {
-  background-image: url(common/icon/close-light.svg);
+  background-image: url(common/images/icons/close-light.svg);
   background-size: 50%;
 }

@@ -1,0 +1,89 @@
+// Weights: 100, 300, 400, 500, 600, 700, 800, 900
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 100; // Thin
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_14_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_14_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_14_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_14_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_14_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 300; // Light
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_10_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_10_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_10_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_10_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_10_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 400; // Regular
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_12_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_12_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_12_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_12_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_12_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 500; // Medium
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_11_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_11_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_11_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_11_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_11_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 600; // Semibold
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_13_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_13_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_13_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_13_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_13_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 700; // Bold
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_F_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_F_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_F_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_F_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_F_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 800; // Extra Bold
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_17_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_17_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_17_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_17_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_17_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  font-style: normal;
+  font-weight: 900; // Black
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_E_0.eot');
+  src: url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_E_0.eot?#iefix') format('embedded-opentype'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_E_0.woff2') format('woff2'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_E_0.woff') format('woff'),
+       url('https://s3-eu-west-1.amazonaws.com/assets.dashaudio.co/v1.0.0/fonts/proxima-nova/2F9388_E_0.ttf') format('truetype');
+}
