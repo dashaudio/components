@@ -1,6 +1,6 @@
 {
   "name": "dash-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "build/components.node.js",
   "jsnext:main": "build/components.next.js",
