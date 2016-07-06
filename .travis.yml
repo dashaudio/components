@@ -31,4 +31,5 @@ notifications:
 
 env:
   global:
+    - NODE_ENV=development
     - DASH_ASSETS_BASE="https://components.dashaudio.co/$(git describe --tags --always --dirty)"

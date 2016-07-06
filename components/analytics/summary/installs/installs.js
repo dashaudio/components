@@ -1,5 +1,7 @@
 import { DashAnalyticsSummary } from '../summary'
-import moment from 'moment'
+// import moment from 'moment'
+
+// TODO: Refactor this without moment dependency
 
 const TITLE = 'App Installs (Today & This Month)'
 
@@ -15,14 +17,14 @@ export class DashAnalyticsSummaryInstalls extends DashAnalyticsSummary {
       loading: true,
       title: TITLE,
       labels: {
-        start: moment().utc().subtract(1, 'month').format('d MMM YYYY'),
+        start: '', // moment().utc().subtract(1, 'month').format('d MMM YYYY'),
         end: 'Today',
         trend: 'This Month'
       }
     })
 
-    let start = moment().utc().subtract(1, 'month').toDate().getTime()
-    let end = moment().utc().endOf('day').toDate().getTime()
+    let start = '' // moment().utc().subtract(1, 'month').toDate().getTime()
+    let end = '' // moment().utc().endOf('day').toDate().getTime()
     let client = 'politiken'
 
     fetch(this.endpoint(start, end, client)).then((r) => r.json()).then((result) => {

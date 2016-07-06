@@ -14,30 +14,32 @@ const processPostCSS = (css, file) => {
   return postcss([nano()]).process(css).then(result => result.css)
 }
 
+const plugins = [
+  string({
+    extensions: ['html']
+  }),
+  sass({
+    output: processPostCSS
+  }),
+  json(),
+  babel({
+    babelrc: false,
+    exclude: 'node_modules/**',
+    presets: [ 'es2015-rollup', 'stage-1' ]
+  }),
+  builtins(),
+  resolve({ main: true }),
+  commonjs({
+    exclude: 'node_modules/rollup-plugin-node-globals/**'
+  }),
+  globals()
+]
+
+if (process.env.NODE_ENV) { plugins.push(uglify()) }
+
 export default {
   entry: 'components/components.js',
   format: 'iife',
   moduleName: 'Dash',
-  sourceMap: true,
-  plugins: [
-    string({
-      extensions: ['html']
-    }),
-    sass({
-      output: processPostCSS
-    }),
-    json(),
-    babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: [ 'es2015-rollup', 'stage-1' ]
-    }),
-    builtins(),
-    resolve({ main: true }),
-    commonjs({
-      exclude: 'node_modules/rollup-plugin-node-globals/**'
-    }),
-    globals(),
-    uglify({ wrap: true })
-  ]
+  plugins
 }

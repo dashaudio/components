@@ -18,19 +18,15 @@ gulp.task('components', () => {
     .pipe(source('components.js'))
     .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
     .pipe(buffer())
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'))
     .pipe(connect.reload())
 })
 
 gulp.task('styles', () => {
   gulp.src('components/components.scss')
-    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
     .pipe(nano())
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'))
     .pipe(connect.reload())
 })
@@ -52,8 +48,6 @@ gulp.task('guide', () => {
     .pipe(gulp.dest('build/guide/'))
     .pipe(connect.reload())
 })
-
-//
 
 gulp.task('watch', () => {
   gulp.watch(['./components/**'], ['components'])
