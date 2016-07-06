@@ -2,21 +2,16 @@ import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import globals from 'rollup-plugin-node-globals'
 import resolve from 'rollup-plugin-node-resolve'
-import replace from 'rollup-plugin-replace'
 import string from 'rollup-plugin-string'
 import builtins from 'rollup-plugin-node-builtins'
 import json from 'rollup-plugin-json'
 import sass from 'rollup-plugin-sass'
 import postcss from 'postcss'
-import cssInline from 'postcss-url'
-import cssNano from 'cssnano'
+import nano from 'cssnano'
 import uglify from 'rollup-plugin-uglify'
 
 const processPostCSS = (css, file) => {
-  return postcss([
-    // cssInline({ url: 'inline', maxSize: 1000, basePath: './components' }),
-    cssNano()
-  ]).process(css).then(result => result.css)
+  return postcss([nano()]).process(css).then(result => result.css)
 }
 
 export default {

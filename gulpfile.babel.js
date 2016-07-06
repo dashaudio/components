@@ -67,11 +67,11 @@ gulp.task('connect', () => {
   connect.server({ root: 'build/', liveReload: true })
 });
 
-// gulp.task('test', (done) => {
-//     return new karma.Server({
-//       configFile: __dirname + '/karma.conf.js'
-//     }, done).start();
-// });
+gulp.task('test', (done) => {
+  // return new karma.Server({
+  //   configFile: __dirname + '/karma.conf.js'
+  // }, done).start();
+});
 
 gulp.task('build', ['components', 'styles', 'fonts', 'images', 'guide']);
 gulp.task('serve', ['build', 'connect', 'watch']);
