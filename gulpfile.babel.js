@@ -16,7 +16,7 @@ const DASH_ASSETS_BASE = process.env.DASH_ASSETS_BASE || ''
 gulp.task('components', () => {
   return rollup('rollup.config.js')
     .pipe(source('components.js'))
-    .pipe(replace({ global: { domain: DOMAIN } }))
+    .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(sourcemaps.write('.'))
