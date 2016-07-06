@@ -7,8 +7,9 @@
   justify-content: flex-start;
   align-items: center;
   background: $dash-colour-medium-light;
-  border-bottom: units(0.5) solid $dash-colour-medium-dark;
+  border-bottom: units(0.4) solid $dash-colour-medium-dark;
   padding: units(0.5);
+  min-height: units(2);
   // border-radius: $dash-border-radius;
 }
 

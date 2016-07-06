@@ -2,17 +2,17 @@
   "name": "dash-components",
   "version": "0.1.1",
   "description": "",
-  "main": "build/components.node.js",
-  "jsnext:main": "build/components.next.js",
-  "browser": "build/components.browser.js",
+  "main": "components/components.js",
+  "browser": "build/components.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dashaudio/components.git"
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-preset-es2015-rollup": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
+    "cssnano": "^3.7.1",
     "dash-sdk": "0.0.8",
     "electron-prebuilt": "^1.1.0",
     "gulp": "^3.9.1",
@@ -21,6 +21,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.0.0",
     "gulp-css-base64": "^1.3.4",
+    "gulp-cssnano": "^2.1.2",
     "gulp-debug": "^2.1.2",
     "gulp-deps-order": "^0.2.0",
     "gulp-file-include": "^0.13.7",
@@ -34,6 +35,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-streamify": "^1.0.2",
     "gulp-template-compile": "^1.1.0",
+    "gulp-token-replace": "^1.0.3",
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
     "http-server": "^0.9.0",
@@ -45,6 +47,9 @@
     "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.3",
     "mocha": "^2.4.5",
+    "moment": "^2.14.1",
+    "postcss": "^5.0.21",
+    "postcss-url": "^5.1.2",
     "rollup": "^0.26.7",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^3.0.2",
@@ -56,24 +61,16 @@
     "rollup-plugin-sass": "^0.1.0",
     "rollup-plugin-string": "^1.0.1",
     "rollup-plugin-uglify": "^1.0.1",
-    "rollup-stream": "^1.7.1",
-    "vinyl-source-stream": "^1.1.0"
-  },
-  "dependencies": {
-    "cssnano": "^3.7.1",
-    "moment": "^2.14.1",
-    "postcss": "^5.0.21",
-    "postcss-url": "^5.1.2",
+    "rollup-stream": "^1.10.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
     "webcomponents.js": "^0.7.22",
     "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
     "start": "gulp serve",
-    "test": "test -e build/components.next.js && test -e build/components.node.js || exit",
-    "build:browser": "rollup -c rollup.browser.js",
-    "build:node": "rollup -c rollup.node.js",
-    "build:next": "rollup -c rollup.next.js",
-    "build": "npm run build:browser && npm run build:node && npm run build:next"
+    "build": "gulp build",
+    "test": "exit 0"
   },
   "author": "Dash Product Team",
   "license": "ISC"

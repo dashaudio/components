@@ -5,6 +5,7 @@
 }
 
 :host([logo]) { @extend .dash-icon--logo; }
+:host([logo-text]) { @extend .dash-icon--logo-text; }
 
 :host([loading]) { @extend .dash-icon--loading; }
 :host([error]) { @extend .dash-icon--error; }

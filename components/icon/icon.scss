@@ -5,9 +5,9 @@
   @extend .dash-icon-default;
   display: inline-flex;
   vertical-align: top;
-  width: units(3);
-  height: units(3);
-  background-size: 50%;
+  width: units(2.6);
+  height: units(2.6);
+  background-size: auto units(1.3);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -15,6 +15,12 @@
 .dash-icon--logo {
   @extend .dash-icon;
   @extend .dash-icon-logo;
+}
+
+.dash-icon--logo-text {
+  @extend .dash-icon;
+  @extend .dash-icon-logo-text;
+  width: units(7);
 }
 
 .dash-icon--loading {

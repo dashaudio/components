@@ -3,7 +3,9 @@
 @import "../units";
 
 .dash-text-caption {
-  font-family: sans-serif;
+  font-family: proxima-nova, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
   font-size: units(1.2);
   text-transform: uppercase;
   letter-spacing: 0.25em;

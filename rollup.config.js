@@ -14,16 +14,16 @@ import uglify from 'rollup-plugin-uglify'
 
 const processPostCSS = (css, file) => {
   return postcss([
-    cssInline({ url: 'inline', maxSize: 1000, basePath: './components' }),
+    // cssInline({ url: 'inline', maxSize: 1000, basePath: './components' }),
     cssNano()
   ]).process(css).then(result => result.css)
 }
 
-const options = {
-  dest: 'build/components.browser.js',
+export default {
   entry: 'components/components.js',
   format: 'iife',
   moduleName: 'Dash',
+  sourceMap: true,
   plugins: [
     string({
       extensions: ['html']
@@ -46,5 +46,3 @@ const options = {
     uglify({ wrap: true })
   ]
 }
-
-export default options

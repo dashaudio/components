@@ -12,11 +12,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
     <meta name="description" content="Dash web component guide." />
-
-    <link rel="stylesheet" href="./guide.css" />
   </head>
 
   <body>
+    <dash-toolbar>
+      <a href="/guide/"><dash-icon logo-text></dash-icon></a>
+      <dash-spacer></dash-spacer>
+      <dash-label>Dan Halliday</dash-label>
+      <dash-icon feed></dash-icon>
+    </dash-toolbar>
+
+    <dash-notification success title="Great! You have successfully connected your SoundCloud with your Google Analytics Account"></dash-notification>
+
     <dash-wrapper>
       <dash-note>Box</dash-note>
 
@@ -388,7 +395,6 @@
       <dash-notification title="Here's a success notification!"></dash-notification><br/>
       <dash-notification title="Here's a success notification!" success></dash-notification><br/>
       <dash-notification title="Here's an error notification!" error></dash-notification><br/>
-      <dash-notification title="Here's a pinned notification" pinned></dash-notification>
     </dash-wraper>
 
     <dash-wraper>
@@ -425,6 +431,8 @@
        });
     </script>
 
-    <script src="../components.browser.js"></script>
+    <link rel="stylesheet" href="guide.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../components.js"></script>
   </body>
 </html>
