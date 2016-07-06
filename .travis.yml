@@ -31,4 +31,4 @@ notifications:
 
 env:
   global:
-    - DASH_ASSETS_BASE=https://components.dashaudio.co/$(git describe --tags --always --dirty)
+    - DASH_ASSETS_BASE="https://components.dashaudio.co/$(git describe --tags --always --dirty)"
