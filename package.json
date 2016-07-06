@@ -2,8 +2,12 @@
   "name": "dash-components",
   "version": "0.1.1",
   "description": "",
-  "main": "components/components.js",
+  "main": "build/components.js",
   "browser": "build/components.js",
+  "files": [
+    "build/components.js",
+    "build/components.css"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dashaudio/components.git"
