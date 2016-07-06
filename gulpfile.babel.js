@@ -11,7 +11,7 @@ import buffer from 'vinyl-buffer'
 
 import { version } from './package.json'
 
-const DOMAIN = process.env.DOMAIN || ''
+const DASH_ASSETS_BASE = process.env.DASH_ASSETS_BASE || ''
 
 gulp.task('components', () => {
   return rollup('rollup.config.js')
@@ -28,7 +28,7 @@ gulp.task('styles', () => {
   gulp.src('components/components.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(replace({ global: { domain: DOMAIN } }))
+    .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
     .pipe(nano())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'))

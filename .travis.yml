@@ -6,6 +6,17 @@ script:
   - npm test
 
 deploy:
+  - provider: s3
+    bucket: components.dashaudio.co
+    region: eu-west-1
+    acl: public_read
+    local_dir: build/
+    upload_dir: $(git describe --tags --always --dirty)
+    skip_cleanup: true
+    access_key_id:
+      secure: I+r1jIHpA+mIm2mu0tXZ6O8md1ocCsU0ZV25L1lM8FycSd2jKrhCCFR+OIyKriEEEA3P3NmQpJfor3/0g/5TtCRPLmj++AuMivz46/MTVdEbsy8Wezc4sorXScfXadAUDUhYfGN4f2KpIk9Itb01uSsLZ9duP0Rlx4Rf6Flnb8SszPkhh9HAzZNDekMEy7yr6rDCG4Ritb5259oj1xUZp/EI1bc5kUndj0E+jk2E7frbFaXC506MOp5zdbwVWObgyEn4HTKFvC8ahRE+moWZLHULP1rnrzfI+IA9ysTkEvgu3Dcx9KwFhBLfLZ1wmVPrZMRsOsQV5QtkZSolGJq7Y1GahC8TJt4cDSXpVnkgh1zOI6I+bZzyxVbwjkOMDAHRRRuvZyuBTFMM3pWUXnt47T3OqqLGXusgxFk1q/kuk1firEOhHQpG2pMbf4QANocdIl08m7kiHIpxLsnVAseVq19H+pZRUeLrpQtu2B75qyC+v2mbFtSrQJ44yRBzXIYKyGhEq9Tk24UZm9WcD9W64j3ImNBOzw6FDJwQZmH+hKI3qgsd+PbDkPOu5KaeXlWn8JFgmqlHT3kiq6azpsRmviTNsGD0HwbP3/aajN3fVBIzQbqUfAPajZ99xqTua3iwJT27ubyo513wOWJG4Se+H5cwbxmBCo4mVj4S5NULc64=
+    secret_access_key:
+      secure: ZhKNOUxVLpVDgZWYr64P2jrtb32Du4a2F5549FzUruw1MvyQ+rjtxCsLZtKTgxqbT+jtzCPxZbKIPUOSKAhfCVKGb+M0NBp+ulIGz0m8UIY7LKz7MzT5+biJCgXA/WbpNWSIzKmfHwpciJGix0q/gn0PAJChf0p0verLrq7ipRAtq19u3NLMIFXruAp/RpEs2curRyktV4Jy0uBbv7NbnZTSKuFTMsISIXELgpMCYSBNs3AnFpkBXPrK3zrj3Gx/fGuc9yR04HnrhKFMPERBoMPBzGH2cQYEymw0uW5nU7oEbFaYxOek/NzClIl3FGOpgOA2Qa0Mpq5C7fMvK120EEAnIbZkEVNldK7EqB8AnQ9uPCcF99QWTQ09oo0+AGFFZ3XT2g3LACfLZ6dVS4cYuhHdxGLwjz4KN6WB2MYZZ8afHN7t/jPlGLOu699E6BnQr06pOK9vU6JnQ/dbyu4qF4eMT6Md/AkIWR68Ly7qrlCJxFOalb+OzOIZpnva4BG22z4rAKqjldAGtDIu3KnvXc+Ts2BSZZO/3QT27P4+p/FrmfPMyp5opSJpYouR+9N3vmsfj6jorZvznMFfNp3jgKRjMn7AvIrBh8WOAuQjH/J0IYxY1PLVbr3Y/q9A+yX8yIJ2bdilfPUELz/taFCWBxo9cCaHH9AOtCRn8GfeHsg=
   - provider: npm
     skip_cleanup: true
     email:
@@ -17,3 +28,7 @@ deploy:
 
 notifications:
   email: false
+
+env:
+  global:
+    - DASH_ASSETS_BASE=https://components.dashaudio.co/$(git describe --tags --always --dirty)
