@@ -2,7 +2,21 @@
 {% set title = "Notification" %}
 
 {% block main %}
-<dash-notification success title="Great! You have successfully connected your SoundCloud with your Google Analytics Account"></dash-notification>
-<dash-notification error title="Great! You have successfully connected your SoundCloud with your Google Analytics Account"></dash-notification>
-<dash-notification title="Great! You have successfully connected your SoundCloud with your Google Analytics Account"></dash-notification>
+
+<dash-notification success title="This is a notification."></dash-notification>
+<br /><br />
+
+<dash-wrapper>
+  <pre>&lt;dash-notification success title=&quot;This is a success notification.&quot;&gt;&lt;/dash-notification&gt;</pre>
+  <dash-notification success title="This is a success notification."></dash-notification>
+  <br /><br />
+
+  <pre>&lt;dash-notification error title=&quot;This is an error notification.&quot;&gt;&lt;/dash-notification&gt;</pre>
+  <dash-notification error title="This is an error notification."></dash-notification>
+  <br /><br />
+
+  <pre>&lt;dash-notification title=&quot;This is a notification.&quot;&gt;&lt;/dash-notification&gt;</pre>
+  <dash-notification title="This is a notification."></dash-notification>
+</dash-wrapper>
+
 {% endblock %}

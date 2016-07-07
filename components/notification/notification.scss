@@ -2,17 +2,26 @@
 @import "../common/units";
 @import "../common/text";
 
+$duration: 0.5s;
+
+@keyframes dash-notification-slide-down {
+    from { height: 0; padding: 0 units(1.2); }
+    to { height: units(2.6); padding: units(1.2); }
+}
+
 .dash-notification {
   @extend .dash-text-body;
+  animation: dash-notification-slide-down $duration;
+  animation-fill-mode: both;
   font-weight: 500;
   display: block;
   font-size: units(1.4);
   background-color: $dash-colour-dark;
   color: $dash-colour-light;
-  padding: units(1);
-  height: units(3);
-  line-height: units(3);
-  transition: height 0.2s, padding-top 0.2s, padding-bottom 0.2s;
+  padding: units(1.2);
+  line-height: units(2.6);
+  height: units(2.6);
+  transition: height $duration, padding-top $duration, padding-bottom $duration;
   overflow: hidden;
 }
 
@@ -35,6 +44,7 @@
   height: 0;
   padding-top: 0;
   padding-bottom: 0;
+  animation: none;
 
   .dash-notification-icon-close {
     transform: scale(0);

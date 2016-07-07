@@ -29,7 +29,7 @@ gulp.task('styles', () => {
   gulp.src('components/components.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
-    .pipe(nano())
+    .pipe(nano({ safe: true }))
     .pipe(gulp.dest('build/'))
     .pipe(connect.reload())
 })

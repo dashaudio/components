@@ -11,7 +11,7 @@ import nano from 'cssnano'
 import uglify from 'rollup-plugin-uglify'
 
 const processPostCSS = (css, file) => {
-  return postcss([nano()]).process(css).then(result => result.css)
+  return postcss([nano({ safe: true })]).process(css).then(result => result.css)
 }
 
 const plugins = [
