@@ -1,7 +1,7 @@
 {
   "name": "dash-components",
   "version": "0.3.0",
-  "description": "",
+  "description": "A web component user interface library for Dash products.",
   "main": "build/components.js",
   "browser": "build/components.js",
   "files": [
