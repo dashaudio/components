@@ -1,6 +1,9 @@
 import gulp from 'gulp'
 import connect from 'gulp-connect'
 import sass from 'gulp-sass'
+import render from 'gulp-nunjucks-render'
+import rename from 'gulp-rename'
+import add from 'gulp-add-src'
 import sourcemaps from 'gulp-sourcemaps'
 import nano from 'gulp-cssnano'
 import replace from 'gulp-token-replace'
@@ -44,9 +47,17 @@ gulp.task('images', () => {
 })
 
 gulp.task('guide', () => {
-  return gulp.src('guide/**/*.{html,css}')
+  return gulp.src('guide/**/*.html')
+    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE } }))
+    .pipe(add('guide/**/*.css'))
     .pipe(gulp.dest('build/guide/'))
-    .pipe(connect.reload())
+})
+
+gulp.task('home', () => {
+  return gulp.src('guide/home.html')
+    .pipe(rename('index.html'))
+    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version } }))
+    .pipe(gulp.dest('build/'))
 })
 
 gulp.task('watch', () => {
@@ -54,7 +65,7 @@ gulp.task('watch', () => {
   gulp.watch(['./components/**/*.scss'], ['styles'])
   gulp.watch(['./fonts/**'], ['fonts'])
   gulp.watch(['./images/**'], ['images'])
-  gulp.watch(['./guide/**'], ['guide'])
+  gulp.watch(['./guide/**'], ['guide', 'home'])
 });
 
 gulp.task('connect', () => {
@@ -67,6 +78,6 @@ gulp.task('test', (done) => {
   // }, done).start();
 });
 
-gulp.task('build', ['components', 'styles', 'fonts', 'images', 'guide']);
+gulp.task('build', ['components', 'styles', 'fonts', 'images', 'guide', 'home']);
 gulp.task('serve', ['build', 'connect', 'watch']);
 gulp.task('default', ['build']);

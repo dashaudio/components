@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dash Component Guide - {{title}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <meta name="description" content="Dash web component guide." />
+    <base href="{{domain}}/">
+  </head>
+  <body class="dash-text-body">
+    <dash-toolbar>
+      <a href="."><dash-icon logo-text></dash-icon></a>
+      <dash-spacer></dash-spacer>
+      <dash-icon feed></dash-icon>
+    </dash-toolbar>
+    {% block main %}{% endblock %}
+    <link rel="stylesheet" href="guide/guide.css" />
+    <link rel="stylesheet" href="components.css" />
+    <script src="components.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% set title = "Home" %}
+
+{% block main %}
+
+<dash-wrapper>
+  <h1 class="dash-text-heading">Dash Components v{{version}}</h1>
+  <h2 class="dash-text-subheading">Quick Start</h2>
+  <p>Include the following script to use Dash Components:</p>
+  <pre>&lt;script src=&quot;{{domain}}/components.js&quot;&gt;&lt;/script&gt;</pre>
+  <p>Optionally, include the following stylesheet to use Dash styles elsewhere:</p>
+  <pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{domain}}/components.css&quot;&gt;</pre>
+  <p>Please view the <a href="guide/">components guide</a> for full documentation.</p>
+</dash-wrapper>
+
+{% endblock %}

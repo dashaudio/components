@@ -1,0 +1,82 @@
+@import "layout/width";
+@import "colour";
+@import "units";
+@import "fonts";
+
+.dash-text-body {
+  @extend .dash-text-base;
+
+  a { @extend .dash-text-link; }
+  p { @extend .dash-text-paragraph; }
+  code { @extend .dash-text-code; }
+}
+
+.dash-text-base {
+  font-family: proxima-nova, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: units(1.6);
+  font-weight: 400;
+  text-transform: unset;
+  letter-spacing: unset;
+  color: desaturate($dash-colour-dark, 100%);
+}
+
+.dash-text-link {
+  @extend .dash-text-base;
+  font-weight: 600;
+  color: $dash-colour-dark;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.dash-text-paragraph {
+  @extend .dash-text-base;
+  margin-bottom: 1em;
+}
+
+.dash-text-heading {
+  @extend .dash-text-base;
+  color: $dash-colour-dark;
+  font-weight: 800;
+  font-size: units(2.4);
+}
+
+.dash-text-subheading {
+  @extend .dash-text-base;
+  color: $dash-colour-dark;
+  font-weight: bold;
+  font-size: units(2.0);
+}
+
+.dash-text-code {
+  @extend .dash-text-base;
+  font-family: monospace;
+  border: 1px solid $dash-colour-medium;
+  padding: units(0.3) units(0.6);
+  border-radius: units(0.6);
+}
+
+.dash-text-caption {
+  font-family: proxima-nova, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  font-size: units(1.2);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $dash-colour-dark;
+
+  @include dash-width(medium) {
+    font-size: units(1.4);
+  }
+}
+
+.dash-text-caption-small {
+  @extend .dash-text-caption;
+  font-size: units(1.1);
+  letter-spacing: units(0.1);
+
+  @include dash-width(medium) {
+    font-size: units(1);
+  }
+}

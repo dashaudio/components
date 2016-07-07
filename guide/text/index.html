@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set title = "Text Styles" %}
+
+{% block main %}
+
+<dash-wrapper>
+  <pre>&lt;div class=&quot;dash-text-heading&quot;&gt;A Heading&lt;/div&gt;</pre>
+  <div class="dash-text-heading">A Heading</div>
+
+  <pre>&lt;div class=&quot;dash-text-subheading&quot;&gt;A Subheading&lt;/div&gt;</pre>
+  <div class="dash-text-subheading">A Subheading</div>
+
+  <pre>&lt;div class=&quot;dash-text-body&quot;&gt;Body text.&lt;/div&gt;</pre>
+  <div class="dash-text-body">
+    Body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+
+  <pre>&lt;div class=&quot;dash-text-subheading&quot;&gt;A Link&lt;/div&gt;</pre>
+  <div class="dash-text-link">A Link</div>
+
+  <pre>
+    &lt;div class=&quot;dash-text-body&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;A Link&lt;/a&gt;
+      &lt;p&gt;A paragraph. Basic styles are available on default HTML elements inside an element with
+        the &lt;code&gt;dash-text-body&lt;/code&gt; class.&lt;/p&gt;
+    &lt;/div&gt;
+  </pre>
+  <div class="dash-text-body">
+    <a href="#">A Link</a>
+    <p>A paragraph. Basic styles are available on default HTML elements inside an element with
+      the <code>dash-text-body</code> class.</p>
+  </div>
+</dash-wrapper>
+
+{% endblock %}
