@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% set title = "Toolbar" %}
+
+{% block main %}
+
+<dash-wrapper>
+  <pre>&lt;dash-toolbar&gt;&lt;/dash-toolbar&gt;</pre>
+  <dash-toolbar></dash-toolbar>
+
+  <br /><br />
+
+  <dash-toolbar>
+    <dash-icon logo-text></dash-icon>
+    <dash-spacer></dash-spacer>
+    <dash-label>Toolbar Label</dash-label>
+    <dash-button>Button</dash-button>
+    <dash-icon feed></dash-icon>
+  </dash-toolbar>
+</dash-wrapper>
+
+{% endblock %}

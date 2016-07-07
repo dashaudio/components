@@ -16,7 +16,7 @@ The web components can be used by including a single script tag on your page:
 
 The library also exports a style sheet which can be used independently of the components:
 
-    <link rel="stylesheet" href="https://components.dashaudio.co/vX.Y.Z/components.js" />
+    <link rel="stylesheet" href="https://components.dashaudio.co/vX.Y.Z/components.css" />
     <span class="dash-text-heading">My Heading</span>
 
 You may also include the library directly via NPM. The NPM distribution contains the script and

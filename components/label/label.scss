@@ -4,10 +4,11 @@
 .dash-label {
   @extend .dash-text-caption-small;
   display: inline-block;
+  vertical-align: middle;
   user-select: none;
-  height: units(3);
-  line-height: units(3);
-  padding: units(0) units(1);
+  height: units(2.6);
+  line-height: units(2.6);
+  padding: units(0) units(0.9);
 }
 
 .dash-label--large {

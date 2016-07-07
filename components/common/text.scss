@@ -40,6 +40,7 @@
   color: $dash-colour-dark;
   font-weight: 800;
   font-size: units(2.4);
+  margin-bottom: 0.5em;
 }
 
 .dash-text-subheading {
@@ -47,6 +48,7 @@
   color: $dash-colour-dark;
   font-weight: bold;
   font-size: units(2.0);
+  margin-bottom: 0.5em;
 }
 
 .dash-text-code {
@@ -63,7 +65,7 @@
   font-weight: 600;
   font-size: units(1.2);
   text-transform: uppercase;
-  letter-spacing: 0.25em;
+  // letter-spacing: 0.4em;
   color: $dash-colour-dark;
 
   @include dash-width(medium) {
@@ -74,7 +76,7 @@
 .dash-text-caption-small {
   @extend .dash-text-caption;
   font-size: units(1.1);
-  letter-spacing: units(0.1);
+  letter-spacing: units(0.14);
 
   @include dash-width(medium) {
     font-size: units(1);

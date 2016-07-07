@@ -8,9 +8,9 @@
 .dash-button {
   @extend .dash-text-caption-small;
   @extend .dash-button--border;
-  height: units(3);
-  line-height: units(3);
-  padding: 0 units(1.5);
+  height: units(2.6);
+  line-height: units(2.6);
+  padding: 0 units(1.3);
   white-space: nowrap;
   cursor: pointer;
   border-radius: $dash-border-radius;

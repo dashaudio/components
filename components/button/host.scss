@@ -1,6 +1,7 @@
 @import "./button";
 
 :host { @extend .dash-button; }
+:content { @extend .dash-button-content; }
 
 // States
 
