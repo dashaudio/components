@@ -48,7 +48,7 @@ gulp.task('images', () => {
 
 gulp.task('guide', () => {
   return gulp.src('guide/**/*.html')
-    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE } }))
+    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version } }))
     .pipe(add('guide/**/*.css'))
     .pipe(gulp.dest('build/guide/'))
 })
