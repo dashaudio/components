@@ -32,7 +32,8 @@
 
 .dash-text-paragraph {
   @extend .dash-text-base;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  line-height: 1.4;
 }
 
 .dash-text-heading {
@@ -65,7 +66,7 @@
   font-weight: 600;
   font-size: units(1.2);
   text-transform: uppercase;
-  // letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
   color: $dash-colour-dark;
 
   @include dash-width(medium) {
