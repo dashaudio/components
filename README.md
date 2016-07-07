@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/dashaudio/components.svg?branch=master)](https://travis-ci.org/dashaudio/components)
 
-Dash's web component user interface library.
-
 ## Documentation
 
 For complete documentation, please view the component guide at
