@@ -4,12 +4,17 @@
 .dash-icon {
   @extend .dash-icon-default;
   display: inline-flex;
-  vertical-align: top;
+  vertical-align: middle;
   width: units(2.6);
   height: units(2.6);
-  background-size: auto units(1.3);
+  background-size: auto 50%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.dash-icon--large {
+  width: units(5);
+  height: units(5);
 }
 
 .dash-icon--logo {
@@ -21,6 +26,10 @@
   @extend .dash-icon;
   @extend .dash-icon-logo-text;
   width: units(7);
+
+  &.dash-icon--large {
+    width: units(14);
+  }
 }
 
 .dash-icon--loading {

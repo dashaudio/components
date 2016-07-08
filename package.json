@@ -13,26 +13,30 @@
     "url": "git+https://github.com/dashaudio/components.git"
   },
   "devDependencies": {
+    "babel-core": "^6.10.4",
     "babel-preset-es2015-rollup": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
     "cssnano": "^3.7.1",
     "dash-sdk": "0.0.8",
-    "electron-prebuilt": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
     "gulp-connect": "^4.0.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-token-replace": "^1.0.3",
-    "gulp": "^3.9.1",
+    "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-electron": "^3.2.1",
-    "karma-mocha-reporter": "^2.0.3",
     "karma-mocha": "^1.0.1",
-    "karma": "^0.13.22",
+    "karma-mocha-reporter": "^2.0.3",
     "mocha": "^2.4.5",
     "postcss": "^5.0.21",
+    "rollup": "^0.26.7",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^3.0.2",
     "rollup-plugin-json": "^2.0.0",
@@ -43,7 +47,6 @@
     "rollup-plugin-string": "^1.0.1",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-stream": "^1.10.1",
-    "rollup": "^0.26.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "webcomponents.js": "^0.7.22"
@@ -54,10 +57,5 @@
     "test": "gulp test"
   },
   "author": "Dash Product Team",
-  "license": "ISC",
-  "dependencies": {
-    "gulp-add-src": "^0.2.0",
-    "gulp-nunjucks-render": "^2.0.0",
-    "gulp-rename": "^1.2.2"
-  }
+  "license": "ISC"
 }

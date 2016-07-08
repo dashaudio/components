@@ -19,3 +19,12 @@
 
 @import "common/body";
 @import "common/text";
+@import "common/padding";
+
+.dash-unresolved {
+  opacity: 0;
+}
+
+.dash-resolved {
+  opacity: 1;
+}

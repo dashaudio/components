@@ -1,8 +1,7 @@
 @import "icon";
 
-:host {
-  @extend .dash-icon;
-}
+:host { @extend .dash-icon; }
+:host([large]) { @extend .dash-icon--large; }
 
 :host([logo]) { @extend .dash-icon--logo; }
 :host([logo-text]) { @extend .dash-icon--logo-text; }

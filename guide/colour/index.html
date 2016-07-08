@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% set title = "Colours" %}
+
+{% block main %}
+
+<dash-wrapper>
+  <h1 class="dash-text-heading">Colours</h1>
+
+  <p class="dash-background-colour-white dash-pad">
+    White <code>$dash-colour-white</code>
+  </p>
+  <p class="dash-background-colour-light dash-pad">
+    Light <code>$dash-colour-light</code>
+  </p>
+  <p class="dash-background-colour-medium dash-pad">
+    Medium <code>$dash-colour-medium</code>
+  </p>
+  <p class="dash-background-colour-dark dash-colour-white dash-pad">
+    Dark <code class="dash-colour-white">$dash-colour-dark</code>
+  </p>
+  <p class="dash-background-colour-black dash-colour-white dash-pad">
+    Black <code class="dash-colour-white">$dash-colour-black</code>
+  </p>
+</dash-wrapper>
+
+{% endblock %}

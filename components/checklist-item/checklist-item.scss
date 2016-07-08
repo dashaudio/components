@@ -5,9 +5,9 @@
 .dash-checklist-item {
   @extend .dash-text-body;
   display: inline-block;
-  border: 1px solid $dash-colour-medium-dark;
   display: inline-flex;
-  background: $dash-colour-white;
+  border: 1px solid darken($dash-colour-medium, 10%);
+  background-color: $dash-colour-white;
 }
 
 .dash-checklist-item-icon {
@@ -21,7 +21,7 @@
   display: inline-block;
   vertical-align: top;
   background: $dash-colour-light;
-  border-left: 1px solid $dash-colour-medium-dark;
+  border-left: 1px solid $dash-colour-medium;
   color: desaturate($dash-colour-dark, 100%);
   font-weight: 600;
   height: units(4.6);

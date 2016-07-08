@@ -6,11 +6,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: $dash-colour-medium-light;
-  border-bottom: units(0.4) solid $dash-colour-medium-dark;
+  background: $dash-colour-medium;
+  border-bottom: units(0.4) solid darken($dash-colour-medium, 15%);
   padding: units(0.5);
   min-height: units(2);
-  // border-radius: $dash-border-radius;
 }
 
 .dash-toolbar--nested {

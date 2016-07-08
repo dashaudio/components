@@ -2,87 +2,71 @@
 
 .dash-icon-default {
   background-image: url({{domain}}/images/icons/default.svg);
-  background-size: 50%;
 }
 
 .dash-icon-logo {
   background-image: url({{domain}}/images/icons/logo.svg);
-  background-size: 50%;
 }
 
 .dash-icon-logo-text {
   background-image: url({{domain}}/images/icons/logo-text.svg);
-  background-size: 50%;
 }
 
 .dash-icon-loading {
   @extend .dash-animation-rotate;
   background-image: url({{domain}}/images/icons/loading.svg);
-  background-size: 50%;
 }
 
 .dash-icon-error {
   background-image: url({{domain}}/images/icons/error.svg);
-  background-size: 48%;
 }
 
 .dash-icon-feed {
   background-image: url({{domain}}/images/icons/feed.svg);
-  background-size: 40%;
 }
 
 .dash-icon-help {
   background-image: url({{domain}}/images/icons/help.svg);
-  background-size: 36%;
 }
 
 .dash-icon-tick {
   background-image: url({{domain}}/images/icons/tick.svg);
-  background-size: 48%;
 }
 
 // Arrows
 
 .dash-icon-arrow-up {
   background-image: url({{domain}}/images/icons/arrow-up.svg);
-  background-size: 35%;
 }
 
 .dash-icon-arrow-right {
   background-image: url({{domain}}/images/icons/arrow-right.svg);
-  background-size: 35%;
 }
 
 .dash-icon-arrow-down {
   background-image: url({{domain}}/images/icons/arrow-down.svg);
-  background-size: 35%;
 }
 
 .dash-icon-arrow-left {
   background-image: url({{domain}}/images/icons/arrow-left.svg);
-  background-size: 35%;
 }
 
 // Bars
 
 .dash-icon-bar-horizontal {
   background-image: url({{domain}}/images/icons/bar-horizontal.svg);
-  background-size: 50%;
 }
 
 .dash-icon-bar-vertical {
   background-image: url({{domain}}/images/icons/bar-vertical.svg);
-  background-size: 50%;
 }
 
 // Close
 
 .dash-icon-close-dark {
   background-image: url({{domain}}/images/icons/close-dark.svg);
-  background-size: 50%;
 }
 
 .dash-icon-close-light {
   background-image: url({{domain}}/images/icons/close-light.svg);
-  background-size: 50%;
 }

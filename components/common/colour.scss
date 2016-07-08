@@ -1,3 +1,25 @@
+// Default Colours
+
+$dash-colour-black: #222222 !default;
+$dash-colour-dark: #2c3958 !default;
+$dash-colour-medium: #e3e7ec !default;
+$dash-colour-light: #f1f3f4 !default;
+$dash-colour-white: #ffffff !default;
+
+$dash-colour-text: desaturate($dash-colour-dark, 100%) !default;
+
+.dash-colour-black, .dash-text-base.dash-colour-black { color: $dash-colour-black; }
+.dash-colour-dark, .dash-text-base.dash-colour-dark { color: $dash-colour-dark; }
+.dash-colour-medium, .dash-text-base.dash-colour-medium { color: $dash-colour-medium; }
+.dash-colour-light, .dash-text-base.dash-colour-light { color: $dash-colour-light; }
+.dash-colour-white, .dash-text-base.dash-colour-white { color: $dash-colour-white; }
+
+.dash-background-colour-black { background: $dash-colour-black; }
+.dash-background-colour-dark { background: $dash-colour-dark; }
+.dash-background-colour-medium { background: $dash-colour-medium; }
+.dash-background-colour-light { background: $dash-colour-light; }
+.dash-background-colour-white { background: $dash-colour-white; }
+
 // Named Colours
 
 $dash-colour-blue: #00BEF6;
@@ -10,13 +32,7 @@ $dash-colour-green: #ACEC4B;
 $dash-colour-turquoise: #3CC8D1;
 $dash-colour-red: #FF4444;
 
-// Default Colours
-
-$dash-colour-dark: #2A3756 !default;
-$dash-colour-medium-dark: #C8CFD6 !default;
-$dash-colour-medium: #DBE0E4 !default;
-$dash-colour-medium-light: #E4E8ED !default;
-$dash-colour-light: #F0F2F3 !default;
+//
 
 $dash-colour-primary: $dash-colour-blue !default;
 $dash-colour-secondary: $dash-colour-navy !default;
