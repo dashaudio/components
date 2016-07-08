@@ -6,7 +6,7 @@
   @extend .dash-text-body;
   display: inline-block;
   display: inline-flex;
-  border: 1px solid darken($dash-colour-medium, 10%);
+  border: 1px solid $dash-colour-outline;
   background-color: $dash-colour-white;
 }
 
@@ -21,8 +21,8 @@
   display: inline-block;
   vertical-align: top;
   background: $dash-colour-light;
-  border-left: 1px solid $dash-colour-medium;
-  color: desaturate($dash-colour-dark, 100%);
+  border-left: 1px solid $dash-colour-outline;
+  color: $dash-colour-text;
   font-weight: 600;
   height: units(4.6);
   line-height: units(4.6);

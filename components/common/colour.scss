@@ -7,18 +7,23 @@ $dash-colour-light: #f1f3f4 !default;
 $dash-colour-white: #ffffff !default;
 
 $dash-colour-text: desaturate($dash-colour-dark, 100%) !default;
+$dash-colour-outline: darken($dash-colour-medium, 12%);
 
 .dash-colour-black, .dash-text-base.dash-colour-black { color: $dash-colour-black; }
 .dash-colour-dark, .dash-text-base.dash-colour-dark { color: $dash-colour-dark; }
 .dash-colour-medium, .dash-text-base.dash-colour-medium { color: $dash-colour-medium; }
 .dash-colour-light, .dash-text-base.dash-colour-light { color: $dash-colour-light; }
 .dash-colour-white, .dash-text-base.dash-colour-white { color: $dash-colour-white; }
+.dash-colour-text, .dash-text-base.dash-colour-text { color: $dash-colour-text; }
+.dash-colour-outline, .dash-text-base.dash-colour-outline { color: $dash-colour-outline; }
 
 .dash-background-colour-black { background: $dash-colour-black; }
 .dash-background-colour-dark { background: $dash-colour-dark; }
 .dash-background-colour-medium { background: $dash-colour-medium; }
 .dash-background-colour-light { background: $dash-colour-light; }
 .dash-background-colour-white { background: $dash-colour-white; }
+.dash-background-colour-text { background: $dash-colour-text; }
+.dash-background-colour-outline { background: $dash-colour-outline; }
 
 // Named Colours
 
@@ -64,10 +69,6 @@ $dash-colour-chart-list: (
   $dash-colour-green,
   $dash-colour-turquoise
 );
-
-// Derived Colours
-
-$dash-colour-outline: darken($dash-colour-light, 8%);
 
 // Special Colours
 
