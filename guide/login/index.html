@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% set title = "Login" %}
+
+{% block main %}
+
+<dash-wrapper>
+  <h1 class="dash-text-heading">Login</h1>
+</dash-wrapper>
+
+<script src="https://cdn.auth0.com/js/lock-9.2.1.min.js"></script>
+
+<script>
+  var lock = new Auth0Lock('{{config.auth0.client}}', '{{config.auth0.host}}')
+  var options = { closable: true, icon: '{{config.auth0.icon}}' }
+  lock.show(options, function(error, profile, token) {})
+</script>
+
+{% endblock %}

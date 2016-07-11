@@ -68,10 +68,10 @@
 .dash-text-caption {
   font-family: proxima-nova, sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600;
+  font-weight: 800;
   font-size: units(1.2);
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.05em;
 
   @include dash-width(medium) {
     font-size: units(1.4);

@@ -13,13 +13,14 @@ import buffer from 'vinyl-buffer'
 // var karma = require('karma');
 
 import { version } from './package.json'
+import config from './components/config.json'
 
 const DASH_ASSETS_BASE = process.env.DASH_ASSETS_BASE || ''
 
 gulp.task('components', () => {
   return rollup('rollup.config.js')
     .pipe(source('components.js'))
-    .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
+    .pipe(replace({ global: { domain: DASH_ASSETS_BASE, config } }))
     .pipe(buffer())
     .pipe(gulp.dest('build/'))
     .pipe(connect.reload())
@@ -28,7 +29,7 @@ gulp.task('components', () => {
 gulp.task('styles', () => {
   gulp.src('components/components.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(replace({ global: { domain: DASH_ASSETS_BASE } }))
+    .pipe(replace({ global: { domain: DASH_ASSETS_BASE, config } }))
     .pipe(nano({ safe: true }))
     .pipe(gulp.dest('build/'))
     .pipe(connect.reload())
@@ -48,7 +49,7 @@ gulp.task('images', () => {
 
 gulp.task('guide', () => {
   return gulp.src('guide/**/*.html')
-    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version } }))
+    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version, config } }))
     .pipe(add('guide/**/*.css'))
     .pipe(gulp.dest('build/guide/'))
 })
@@ -56,7 +57,7 @@ gulp.task('guide', () => {
 gulp.task('home', () => {
   return gulp.src('guide/home.html')
     .pipe(rename('index.html'))
-    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version } }))
+    .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version, config } }))
     .pipe(gulp.dest('build/'))
 })
 
