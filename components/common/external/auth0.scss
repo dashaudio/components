@@ -54,18 +54,22 @@
             }
           }
 
-          .a0-buttons-actions {
-            .a0-sign-up {
-              border: none;
-            }
+          .a0-db-actions, .a0-options {
+            margin: units(-3) units(-3) units(3);
 
-            span {
-              padding: units(4) 0;
-              width: 50%;
-              background-color: $dash-colour-medium;
+            .a0-switch {
+              border: unset;
+              border-radius: unset;
 
-              &.a0-active {
-                background-color: $dash-colour-dark;
+              span {
+                @extend .dash-text-caption;
+                padding: units(3) 0;
+                width: 50%;
+                background-color: $dash-colour-medium;
+
+                &.a0-active {
+                  background-color: $dash-colour-dark;
+                }
               }
             }
           }
@@ -79,6 +83,16 @@
             font-size: units(1.2);
             text-decoration: none;
             font-weight: 400;
+          }
+
+          .a0-input-box {
+            border: 1px solid $dash-colour-outline;
+            background: unset;
+            border-radius: unset;
+
+            input {
+              border-left: 1px solid $dash-colour-outline;
+            }
           }
         }
 
