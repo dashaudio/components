@@ -81,6 +81,7 @@
 .dash-text-caption-small {
   @extend .dash-text-caption;
   font-size: units(1.1);
+  font-weight: 700;
   letter-spacing: units(0.14);
 
   @include dash-width(medium) {
