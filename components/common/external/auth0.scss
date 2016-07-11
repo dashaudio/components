@@ -118,6 +118,7 @@
             line-height: units(1.2);
             text-indent: unset;
             border: 2px solid $dash-colour-dark;
+            border-radius: unset;
             &:after { content: none; }
           }
         }
