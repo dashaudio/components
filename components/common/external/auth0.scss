@@ -65,7 +65,7 @@
                 @extend .dash-text-caption;
                 padding: units(3) 0;
                 width: 50%;
-                background-color: $dash-colour-medium;
+                background-color: darken($dash-colour-medium, 10%);
 
                 &.a0-active {
                   background-color: $dash-colour-dark;
