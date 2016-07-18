@@ -13,6 +13,7 @@ deploy:
     local_dir: build/
     upload_dir: $(git describe --tags --always --dirty)
     skip_cleanup: true
+    cache_control: public, max-age=315360000
     access_key_id:
       secure: I+r1jIHpA+mIm2mu0tXZ6O8md1ocCsU0ZV25L1lM8FycSd2jKrhCCFR+OIyKriEEEA3P3NmQpJfor3/0g/5TtCRPLmj++AuMivz46/MTVdEbsy8Wezc4sorXScfXadAUDUhYfGN4f2KpIk9Itb01uSsLZ9duP0Rlx4Rf6Flnb8SszPkhh9HAzZNDekMEy7yr6rDCG4Ritb5259oj1xUZp/EI1bc5kUndj0E+jk2E7frbFaXC506MOp5zdbwVWObgyEn4HTKFvC8ahRE+moWZLHULP1rnrzfI+IA9ysTkEvgu3Dcx9KwFhBLfLZ1wmVPrZMRsOsQV5QtkZSolGJq7Y1GahC8TJt4cDSXpVnkgh1zOI6I+bZzyxVbwjkOMDAHRRRuvZyuBTFMM3pWUXnt47T3OqqLGXusgxFk1q/kuk1firEOhHQpG2pMbf4QANocdIl08m7kiHIpxLsnVAseVq19H+pZRUeLrpQtu2B75qyC+v2mbFtSrQJ44yRBzXIYKyGhEq9Tk24UZm9WcD9W64j3ImNBOzw6FDJwQZmH+hKI3qgsd+PbDkPOu5KaeXlWn8JFgmqlHT3kiq6azpsRmviTNsGD0HwbP3/aajN3fVBIzQbqUfAPajZ99xqTua3iwJT27ubyo513wOWJG4Se+H5cwbxmBCo4mVj4S5NULc64=
     secret_access_key:
