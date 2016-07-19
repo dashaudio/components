@@ -22,7 +22,7 @@ deploy:
     on: { tags: true }
   - <<: *deploy-s3
     upload_dir: production
-    cache_control: public, max-age=3600 # TODO: Set multiple values
+    cache_control: public, max-age=60 # TODO: Set multiple values
     on: { branch: production }
   - provider: npm
     skip_cleanup: true
