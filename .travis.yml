@@ -1,36 +1,40 @@
 language: node_js
-node_js: 6.2.2
+node_js: 6.3.0
 
 script:
   - npm run build
   - npm test
 
+-: &deploy-s3
+  provider: s3
+  bucket: dash-components
+  region: eu-west-1
+  acl: public_read
+  local_dir: build/
+  skip_cleanup: true
+  cache_control: public, max-age=315360000 # TODO: Set multiple values
+  access_key_id: $AWS_KEY
+  secret_access_key: $AWS_KEY_SECRET
+
 deploy:
-  - provider: s3
-    bucket: components.dashaudio.co
-    region: eu-west-1
-    acl: public_read
-    local_dir: build/
-    upload_dir: $(git describe --tags --always --dirty)
-    skip_cleanup: true
-    cache_control: public, max-age=315360000
-    access_key_id:
-      secure: I+r1jIHpA+mIm2mu0tXZ6O8md1ocCsU0ZV25L1lM8FycSd2jKrhCCFR+OIyKriEEEA3P3NmQpJfor3/0g/5TtCRPLmj++AuMivz46/MTVdEbsy8Wezc4sorXScfXadAUDUhYfGN4f2KpIk9Itb01uSsLZ9duP0Rlx4Rf6Flnb8SszPkhh9HAzZNDekMEy7yr6rDCG4Ritb5259oj1xUZp/EI1bc5kUndj0E+jk2E7frbFaXC506MOp5zdbwVWObgyEn4HTKFvC8ahRE+moWZLHULP1rnrzfI+IA9ysTkEvgu3Dcx9KwFhBLfLZ1wmVPrZMRsOsQV5QtkZSolGJq7Y1GahC8TJt4cDSXpVnkgh1zOI6I+bZzyxVbwjkOMDAHRRRuvZyuBTFMM3pWUXnt47T3OqqLGXusgxFk1q/kuk1firEOhHQpG2pMbf4QANocdIl08m7kiHIpxLsnVAseVq19H+pZRUeLrpQtu2B75qyC+v2mbFtSrQJ44yRBzXIYKyGhEq9Tk24UZm9WcD9W64j3ImNBOzw6FDJwQZmH+hKI3qgsd+PbDkPOu5KaeXlWn8JFgmqlHT3kiq6azpsRmviTNsGD0HwbP3/aajN3fVBIzQbqUfAPajZ99xqTua3iwJT27ubyo513wOWJG4Se+H5cwbxmBCo4mVj4S5NULc64=
-    secret_access_key:
-      secure: ZhKNOUxVLpVDgZWYr64P2jrtb32Du4a2F5549FzUruw1MvyQ+rjtxCsLZtKTgxqbT+jtzCPxZbKIPUOSKAhfCVKGb+M0NBp+ulIGz0m8UIY7LKz7MzT5+biJCgXA/WbpNWSIzKmfHwpciJGix0q/gn0PAJChf0p0verLrq7ipRAtq19u3NLMIFXruAp/RpEs2curRyktV4Jy0uBbv7NbnZTSKuFTMsISIXELgpMCYSBNs3AnFpkBXPrK3zrj3Gx/fGuc9yR04HnrhKFMPERBoMPBzGH2cQYEymw0uW5nU7oEbFaYxOek/NzClIl3FGOpgOA2Qa0Mpq5C7fMvK120EEAnIbZkEVNldK7EqB8AnQ9uPCcF99QWTQ09oo0+AGFFZ3XT2g3LACfLZ6dVS4cYuhHdxGLwjz4KN6WB2MYZZ8afHN7t/jPlGLOu699E6BnQr06pOK9vU6JnQ/dbyu4qF4eMT6Md/AkIWR68Ly7qrlCJxFOalb+OzOIZpnva4BG22z4rAKqjldAGtDIu3KnvXc+Ts2BSZZO/3QT27P4+p/FrmfPMyp5opSJpYouR+9N3vmsfj6jorZvznMFfNp3jgKRjMn7AvIrBh8WOAuQjH/J0IYxY1PLVbr3Y/q9A+yX8yIJ2bdilfPUELz/taFCWBxo9cCaHH9AOtCRn8GfeHsg=
+  - <<: *deploy-s3
+    upload_dir: versions/$(git describe --tags --always --dirty)
+    on: { all_branches: true, tags: true }
+  - <<: *deploy-s3
+    upload_dir: production/
+    on: { branch: production }
+    cache_control: public, max-age=3600
   - provider: npm
     skip_cleanup: true
-    email:
-      secure: JtLvNIqPgahXXX4PfQlBtw0Ne9xBnzh+bhhfwsdj0E3QGWNq8LTkfM1Gg8ocZsAsGnsKe8vhk9VyyRpReNffFmfdQLPHjX1bIm3xuXl2jtv1D+dfzXP8lNZ4C1tnpaREdzFK3XimFNAWIZXQVClD8KmaMUw5JwhswLYJqigyQoxMizmJ5CTUXKkio32bzcDKZLMA2E0t3DLFFy8swbvgdBbAy8SC6x0vwHyR2knNhuQ87gbRxhzyZJSdPiie72VBCvbAOmuurMGY1DNSeNFQo7VANln6/vsANvgXAxAk1SKACFuWokLozqfMJVQfgwV4CqgQ3oJOTN/NM1tA00wwzIA1VZrjR8CrMd2MIlCkj/hVuKhOsacngDgm+7/t4kb7/NoHXLthH01vKOJwkCZ2b+9Qik0DW1yBgUvt3ZK9fhPZKzAWwXK30FCvU68Hy9vTnEQtT9rnK1UI/LXSK/LOcoIjo4Mb0ZH2JJAmKvdlakq/NINZ8UiZ/B3ZJ3WXoHL5ZoFdcHdcOS24+N1lwzuGP5tvILjd+5GQveYyxIH4cXD3BS3AzfZfIiVkIvbrO/ZotyZlMUShHAqIaZymrwB8SwYrRNQ9SbUQK+SBCXqIu0wzvsRT/2AhbH5vVN8h+fr0pdHnVMc59PODg4ZfRxqqEuevx55rjltX34u1BAjNej4=
-    api_key:
-      secure: MBr61iMnyaTLD/9W9EXy95YAs56YDzsn8D9g68I93eHZMTrD7JF6q+gxMcFQP9HXp+aJTwZilQEUfStt0EY1EHvSWpHoFXuDvdJatESyRim1RJjStTq4eJUTQ7JIrmpyGfMGzG4Ukwqz0hBNpIcHfmpQZ2XMo1TBy7lxWrcZM+ttQqKxtBLub7Wyg4itDIhSiEXmh0nHDbNkpNGhZVjLVh3BSiE/ZVw+6vsZPxx5YHGi9L3K3oYUwYw7/U1weSkA8eY8pINvYzXfiEGJZSdIJZy6J6eXNG+tuwxMvxlJqMh8lONSnp5uF/0zMfP8yxmbel/vBS2I1Fj2OWxlUJaE56YdxfOshUQ0kQOKWVLcqo7rJmHc6To5rC+7YD0EttaH1RaZ6yxvsiDE/vcx4ghq5KzHl4qJj4PECDFEsyai390sIduZr39tq9QceKopxatb8NjGSe5CQmcloMOmDCiG2JZp/GohPD5cWb/jwd4c+azTc9BAcUsM/ISw9BFnA/+Fqu6QgklNV+H02sXmBYA43IW0e7mhSoyezk33fhx5C4f3ywyMeyhk4O8A0KCpzsHnNQJ/qcYSSlIbsHu6I4c5Hhqz1zLnjnIH8Wl8v4oBSAGwnEzSi2UdXY16Q21f91rvKg+5pFppdLCmwu1hyfNIzeEECZKSYFYkYIJqgbRKILk=
-    on:
-      tags: true
+    api_key: $NPM_KEY
+    email: $NPM_EMAIL
+    on: { tags: true }
 
 notifications:
   email: false
+  slack: $SLACK_KEY
 
 env:
   global:
     - NODE_ENV=development
-    - DASH_ASSETS_BASE="https://components.dashaudio.co/$(git describe --tags --always --dirty)"
+    - DASH_ASSETS_BASE="https://components.dashaudio.co/versions/$(git describe --tags --always --dirty)"
