@@ -1,2 +1,1 @@
-var version = require('./package.json').version
-console.log(version)
+console.log(require('./package.json').version)
