@@ -1,6 +1,6 @@
 {
   "name": "dash-components",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "A web component user interface library for Dash products.",
   "main": "build/components.js",
   "browser": "build/components.js",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dashaudio/components.git"
+    "url": "git+https://github.com/dashaudio/dash-components.git"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
