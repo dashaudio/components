@@ -17,9 +17,9 @@ script:
 
 deploy:
   - <<: *deploy-s3
-    upload_dir: versions/$(git describe --tags --always --dirty)
+    upload_dir: versions/$(npm info dash-components version)
     cache_control: public, max-age=315360000 # TODO: Set multiple values
-    on: { all_branches: true }
+    on: { tags: true }
   - <<: *deploy-s3
     upload_dir: production
     cache_control: public, max-age=3600 # TODO: Set multiple values
@@ -37,4 +37,4 @@ notifications:
 env:
   global:
     - NODE_ENV=development
-    - DASH_ASSETS_BASE="https://components.dashaudio.co/versions/$(git describe --tags --always --dirty)"
+    - DASH_ASSETS_BASE="https://components.dashaudio.co/versions/$(npm info dash-components version)"

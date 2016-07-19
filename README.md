@@ -4,7 +4,7 @@
 
 ## Documentation
 
-For complete documentation, please view the component guide at `https://components.dashaudio.co/`.
+For complete documentation, please view the component guide at [components.dashaudio.co/](https://components.dashaudio.co/)
 
 ## Quick Start
 
