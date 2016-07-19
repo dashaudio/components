@@ -19,7 +19,7 @@ script:
 deploy:
   - <<: *deploy-s3
     upload_dir: versions/$(git describe --tags --always --dirty)
-    on: { all_branches: true, tags: true }
+    on: { all_branches: true }
   - <<: *deploy-s3
     upload_dir: production/
     on: { branch: production }
