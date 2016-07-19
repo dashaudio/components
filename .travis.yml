@@ -12,18 +12,18 @@ script:
   acl: public_read
   local_dir: build/
   skip_cleanup: true
-  cache_control: public, max-age=315360000 # TODO: Set multiple values
   access_key_id: $AWS_KEY
   secret_access_key: $AWS_KEY_SECRET
 
 deploy:
   - <<: *deploy-s3
     upload_dir: versions/$(git describe --tags --always --dirty)
+    cache_control: public, max-age=315360000 # TODO: Set multiple values
     on: { all_branches: true }
   - <<: *deploy-s3
-    upload_dir: production/
+    upload_dir: production
+    cache_control: public, max-age=3600 # TODO: Set multiple values
     on: { branch: production }
-    cache_control: public, max-age=3600
   - provider: npm
     skip_cleanup: true
     api_key: $NPM_KEY
