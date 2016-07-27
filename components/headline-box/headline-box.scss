@@ -1,0 +1,32 @@
+@import "../common/text";
+@import "../common/units";
+
+.dash-headline-box {
+  background-color: rgba($dash-colour-dark, 0.35);
+  color: $dash-colour-black;
+  font-size: units(2.6);
+  font-family: proxima-nova;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: units(0.2);
+  padding: units(5);
+
+  @each $key, $colour in $dash-colours {
+    &.#{$key} {
+      // background-color: rgba($colour, 0.5);
+      background-color: scale-color(mix($colour, white, 75%), lightness, 10%);
+    }
+  }
+}
+
+.dash-headline-box-content {
+  display: inline;
+  background-color: rgba($dash-colour-dark, 0.45);
+  padding: units(2);
+
+  @each $key, $colour in $dash-colours {
+    &.#{$key}, .#{$key} & {
+      background-color: $colour;
+    }
+  }
+}

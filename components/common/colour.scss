@@ -85,3 +85,17 @@ $dash-gradient-primary: (#23B3EF, #19B7E8, #24C9D1) !default;
 $dash-gradient-secondary: (#FC2B6F, #FF4F74, #FA6767) !default;
 $dash-gradient-tertiary: (#F95534, #FF7644, #FA8701) !default;
 $dash-gradient-quaternary: (#878CF2, #42A4EF, #03B7F2) !default;
+
+// All colours
+
+$dash-colours: (
+  dash-colour-blue: $dash-colour-blue,
+  dash-colour-navy: $dash-colour-navy,
+  dash-colour-purple: $dash-colour-purple,
+  dash-colour-orange: $dash-colour-orange,
+  dash-colour-sorbet: $dash-colour-sorbet,
+  dash-colour-yellow: #FFBB17,
+  dash-colour-green: $dash-colour-green,
+  dash-colour-turquoise: $dash-colour-turquoise,
+  dash-colour-red: #FF6634
+);
