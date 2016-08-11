@@ -6,7 +6,7 @@
 @import "../common/functions";
 
 .dash-button {
-  @extend .dash-text-caption-small;
+  @extend .dash-text-caption-small !optional;
   @extend .dash-button--border;
   height: units(2.6);
   line-height: units(2.6);

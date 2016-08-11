@@ -2,7 +2,7 @@
 @import "../common/text";
 
 .dash-label {
-  @extend .dash-text-caption-small;
+  @extend .dash-text-caption-small !optional;
   display: inline-block;
   vertical-align: middle;
   user-select: none;
@@ -12,6 +12,6 @@
 }
 
 .dash-label--large {
-  @extend .dash-text-body;
-
+  @extend .dash-text-body !optional;
+  text-align: initial;
 }

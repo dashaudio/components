@@ -24,5 +24,7 @@
 
 @import "common/external/auth0";
 
+@import "common/transition/colour";
+
 .dash-unresolved { opacity: 0; }
 .dash-resolved { opacity: 1; }

@@ -6,7 +6,7 @@
 }
 
 .dash-pager-link {
-  @extend .dash-text-caption-small;
+  @extend .dash-text-caption-small !optional;
   height: units(3);
   line-height: units(3);
   padding: 0 units(0.8);

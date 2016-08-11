@@ -7,7 +7,7 @@
 
 .dash-body #a0-lock.a0-theme-default {
   .a0-overlay.a0-active {
-    @extend .dash-text-body;
+    @extend .dash-text-body !optional;
     background: rgba($dash-colour-light, 0.9);
 
     .a0-panel {
@@ -63,7 +63,7 @@
               border-radius: unset;
 
               span {
-                @extend .dash-text-caption;
+                @extend .dash-text-caption !optional;
                 padding: units(3) 0;
                 width: 50%;
                 background-color: darken($dash-colour-medium, 10%);
@@ -106,7 +106,7 @@
           // justify-content: center;
 
           .a0-primary {
-            @extend .dash-text-caption;
+            @extend .dash-text-caption !optional;
             display: inline-block;
             position: unset;
             left: unset;
