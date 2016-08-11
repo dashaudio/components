@@ -1,1 +1,7 @@
+@import "colour";
+
 $dash-border-radius: 3px;
+
+.dash-outline {
+  border: 1px solid $dash-colour-outline;
+}

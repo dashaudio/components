@@ -105,7 +105,7 @@ $dash-text-headings: (
 
 // Other styles
 
-.dash-text-footnote {
+.dash-text-footnote, .dash-text .dash-text-footnote {
   @extend .dash-text-base;
   @extend .dash-text-size-alpha;
   @extend .dash-text-weight-gamma;
