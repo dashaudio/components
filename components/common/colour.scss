@@ -36,17 +36,21 @@ $dash-colours: (
   outline: $dash-colour-outline
 );
 
-@mixin dash-colour-all {
+@mixin dash-colour-all($parent: &) {
   @each $name, $colour in $dash-colours {
-    $selector: '.dash-colour-#{$name}';
-    &#{$selector} { color: $colour; }
+    $parent: &; $selector: 'dash-colour-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      color: $colour;
+    }
   }
 }
 
 @mixin dash-colour-background-all {
   @each $name, $colour in $dash-colours {
-    $selector: '.dash-colour-background-#{$name}';
-    &#{$selector} { background-color: $colour; }
+    $parent: &; $selector: 'dash-colour-background-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      background-color: $colour;
+    }
   }
 }
 

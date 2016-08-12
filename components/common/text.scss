@@ -17,8 +17,10 @@ $dash-text-sizes: (
 
 @mixin dash-text-size-all {
   @each $name, $size in $dash-text-sizes {
-    $selector: '.dash-text-size-#{$name}';
-    &#{$selector}, .dash-text &#{$selector} { font-size: $size; }
+    $parent: &; $selector: 'dash-text-size-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      font-size: $size;
+    }
   }
 }
 
@@ -39,8 +41,10 @@ $dash-text-weights: (
 
 @mixin dash-text-weight-all {
   @each $name, $weight in $dash-text-weights {
-    $selector: '.dash-text-weight-#{$name}';
-    &#{$selector}, .dash-text &#{$selector} { font-weight: $weight; }
+    $parent: &; $selector: 'dash-text-weight-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      font-weight: $weight;
+    }
   }
 }
 
@@ -62,6 +66,7 @@ $dash-text-weights: (
   @extend .dash-text-weight-gamma;
   @include dash-text-size-all;
   @include dash-text-weight-all;
+  @include dash-colour-all;
   color: $dash-colour-text;
   letter-spacing: .01em;
   margin: 1em 0;
@@ -94,18 +99,23 @@ $dash-text-headings: (
     @extend .dash-text-base;
     @extend .dash-text-size-#{map-get($options, 'size')};
     @extend .dash-text-weight-eta;
+    @include dash-colour-all;
     color: $dash-colour-black;
     margin: 1em 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 }
 
-.dash-text-heading, .dash-text .dash-text-heading {
+.dash-text-heading {
   @extend .dash-text-heading-beta;
 }
 
 // Other styles
 
-.dash-text-footnote, .dash-text .dash-text-footnote {
+.dash-text-footnote {
   @extend .dash-text-base;
   @extend .dash-text-size-alpha;
   @extend .dash-text-weight-gamma;
@@ -123,23 +133,6 @@ $dash-text-headings: (
   @extend .dash-text-base;
   @extend .dash-text-size-beta;
   font-family: monospace;
-}
-
-// Container for default element styles
-
-.dash-text {
-  @extend .dash-text-base;
-
-  h1 { @extend .dash-text-heading-alpha; }
-  h2 { @extend .dash-text-heading-beta; }
-  h3 { @extend .dash-text-heading-gamma; }
-  h4 { @extend .dash-text-heading-delta; }
-
-  p { @extend .dash-text-body; }
-  a { @extend .dash-text-link; }
-  caption { @extend .dash-text-footnote; }
-  pre { @extend .dash-text-code; }
-  code { @extend .dash-text-code; }
 }
 
 // .dash-text-default {
