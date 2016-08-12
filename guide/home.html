@@ -4,23 +4,23 @@
 {% block main %}
 
 <dash-wrapper>
-  <h1 class="dash-text-heading">Dash Components v{{version}}</h1>
+  <h1>Dash Components v{{version}}</h1>
   <p>Dash's web component user interface library.</p>
 
-  <h2 class="dash-text-subheading">Documentation</h2>
+  <h2>Documentation</h2>
   <p>For complete documentation, please view the <a href="guide/">component guide</a>.</p>
 
-  <h2 class="dash-text-subheading">Quick Start</h2>
+  <h2>Quick Start</h2>
   <p>The web components can be used by including a single script tag on your page:</p>
 
   <pre>
-    &lt;script src=&quot;https://components.dashaudio.co/vX.Y.Z/components.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://components.dashaudio.co/v{{version}}/components.js&quot;&gt;&lt;/script&gt;
     &lt;dash-button primary&gt;My Button&lt;/dash-button&gt;</pre>
 
   <p>The library also exports a style sheet which can be used independently of the components:</p>
 
   <pre>
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://components.dashaudio.co/vX.Y.Z/components.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://components.dashaudio.co/v{{version}}/components.css&quot; /&gt;
     &lt;span class=&quot;dash-text-heading&quot;&gt;My Heading&lt;/span&gt;</pre>
 
   <p>You may also include the library directly via NPM. The NPM distribution contains the script and

@@ -1,31 +1,86 @@
-// Default Colours
+// Basic
 
-$dash-colour-black: #222222 !default;
+$dash-colour-black: #222222;
+$dash-colour-medium: #cccccc;
+$dash-colour-white: #ffffff;
+
+// Palette
+
+$dash-colour-azure: #5284FF;
+$dash-colour-peach-red: #FF836B;
+$dash-colour-blossom-pink: #F7CBDF;
+$dash-colour-yellow-gold: #FFD46B;
+$dash-colour-sand: #C7B487;
+$dash-colour-tropical-green: #6AE2A6;
+
+// Special
+
+$dash-colour-text: #626262;
+$dash-colour-outline: #eeeeee;
+
+// Generated colour classes
+
+$dash-colours: (
+  black: $dash-colour-black,
+  medium: $dash-colour-medium,
+  white: $dash-colour-white,
+
+  azure: $dash-colour-azure,
+  peach-red: $dash-colour-peach-red,
+  blossom-pink: $dash-colour-blossom-pink,
+  yellow-gold: $dash-colour-yellow-gold,
+  sand: $dash-colour-sand,
+  tropical-green: $dash-colour-tropical-green,
+
+  text: $dash-colour-text,
+  outline: $dash-colour-outline
+);
+
+@mixin dash-colour-all($parent: &) {
+  @each $name, $colour in $dash-colours {
+    $parent: &; $selector: 'dash-colour-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      color: $colour;
+    }
+  }
+}
+
+@mixin dash-colour-background-all {
+  @each $name, $colour in $dash-colours {
+    $parent: &; $selector: 'dash-colour-background-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      background-color: $colour;
+    }
+  }
+}
+
+@include dash-colour-all;
+@include dash-colour-background-all;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Legacy Colours
+// TODO: Remove all of these
+
 $dash-colour-dark: #2c3958 !default;
-$dash-colour-medium: #e3e7ec !default;
 $dash-colour-light: #f1f3f4 !default;
-$dash-colour-white: #ffffff !default;
-
-$dash-colour-text: desaturate($dash-colour-dark, 100%) !default;
-$dash-colour-outline: darken($dash-colour-medium, 12%);
-
-.dash-colour-black, .dash-text-base.dash-colour-black { color: $dash-colour-black; }
-.dash-colour-dark, .dash-text-base.dash-colour-dark { color: $dash-colour-dark; }
-.dash-colour-medium, .dash-text-base.dash-colour-medium { color: $dash-colour-medium; }
-.dash-colour-light, .dash-text-base.dash-colour-light { color: $dash-colour-light; }
-.dash-colour-white, .dash-text-base.dash-colour-white { color: $dash-colour-white; }
-.dash-colour-text, .dash-text-base.dash-colour-text { color: $dash-colour-text; }
-.dash-colour-outline, .dash-text-base.dash-colour-outline { color: $dash-colour-outline; }
-
-.dash-background-colour-black { background: $dash-colour-black; }
-.dash-background-colour-dark { background: $dash-colour-dark; }
-.dash-background-colour-medium { background: $dash-colour-medium; }
-.dash-background-colour-light { background: $dash-colour-light; }
-.dash-background-colour-white { background: $dash-colour-white; }
-.dash-background-colour-text { background: $dash-colour-text; }
-.dash-background-colour-outline { background: $dash-colour-outline; }
-
-// Named Colours
 
 $dash-colour-blue: #00BEF6;
 $dash-colour-navy: #645DE8;
@@ -36,8 +91,6 @@ $dash-colour-yellow: #FADE09;
 $dash-colour-green: #ACEC4B;
 $dash-colour-turquoise: #3CC8D1;
 $dash-colour-red: #FF4444;
-
-//
 
 $dash-colour-primary: $dash-colour-blue !default;
 $dash-colour-secondary: $dash-colour-navy !default;
@@ -57,8 +110,6 @@ $dash-colour-list: (
 $dash-colour-white: #FFFFFF;
 $dash-colour-black: #000000;
 
-// Chart Colours
-
 $dash-colour-chart-list: (
   $dash-colour-blue,
   $dash-colour-navy,
@@ -70,12 +121,8 @@ $dash-colour-chart-list: (
   $dash-colour-turquoise
 );
 
-// Special Colours
-
 $dash-colour-valid: green;
 $dash-colour-invalid: red;
-
-// Derived Gradients
 
 $dash-gradient-dark: (#303047, #303047) !default;
 $dash-gradient-medium: (#fafafa, #f9f9f9) !default;

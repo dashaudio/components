@@ -2,89 +2,229 @@
 @import "colour";
 @import "units";
 @import "fonts";
+@import "transition/colour";
+
+// Sizes
+
+$dash-text-sizes: (
+  alpha: 12px,
+  beta: 16px,
+  gamma: 18px,
+  delta: 22px,
+  epsilon: 32px,
+  zeta: 44px
+);
+
+@mixin dash-text-size-all {
+  @each $name, $size in $dash-text-sizes {
+    $parent: &; $selector: 'dash-text-size-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      font-size: $size;
+    }
+  }
+}
+
+@include dash-text-size-all;
+
+// Weights
+
+$dash-text-weights: (
+  alpha: 100,
+  beta: 300,
+  gamma: 400,
+  delta: 500,
+  epsilon: 600,
+  zeta: 700,
+  eta: 800,
+  theta: 900
+);
+
+@mixin dash-text-weight-all {
+  @each $name, $weight in $dash-text-weights {
+    $parent: &; $selector: 'dash-text-weight-#{$name}';
+    @at-root #{$parent}.#{$selector}, .#{$selector} #{$parent} {
+      font-weight: $weight;
+    }
+  }
+}
+
+@include dash-text-weight-all;
+
+// Basic styles
+
+.dash-text-base {
+  font-family: proxima-nova, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: $dash-colour-text;
+}
 
 .dash-text-body {
   @extend .dash-text-base;
-
-  a { @extend .dash-text-link; }
-  p { @extend .dash-text-paragraph; }
-  code { @extend .dash-text-code; }
-}
-
-.dash-text-base {
-  font-family: proxima-nova, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: units(1.6);
-  font-weight: 400;
-  text-transform: unset;
-  letter-spacing: unset;
+  @extend .dash-text-size-beta;
+  @extend .dash-text-weight-gamma;
+  @include dash-text-size-all;
+  @include dash-text-weight-all;
+  @include dash-colour-all;
   color: $dash-colour-text;
+  letter-spacing: .01em;
+  margin: 1em 0;
 }
 
 .dash-text-link {
   @extend .dash-text-base;
-  font-weight: 600;
-  text-decoration: underline;
+  @extend .dash-transition-colour;
+  color: $dash-colour-black;
+  text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    @extend .dash-transition-colour;
+    color: $dash-colour-azure;
+  }
 }
 
-.dash-text-paragraph {
-  @extend .dash-text-base;
-  margin-bottom: 1.5em;
-  line-height: 1.4;
+// Headings
+
+$dash-text-headings: (
+  alpha: (size: 'zeta'),
+  beta: (size: 'epsilon'),
+  gamma: (size: 'delta'),
+  delta: (size: 'gamma')
+);
+
+@each $name, $options in $dash-text-headings {
+  .dash-text-heading-#{$name} {
+    @extend .dash-text-base;
+    @extend .dash-text-size-#{map-get($options, 'size')};
+    @extend .dash-text-weight-eta;
+    @include dash-colour-all;
+    color: $dash-colour-black;
+    margin: 1em 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
 }
 
 .dash-text-heading {
-  @extend .dash-text-base;
-  font-weight: 800;
-  font-size: units(2.4);
-  margin-bottom: 0.5em;
+  @extend .dash-text-heading-beta;
 }
 
-.dash-text-subheading {
+// Other styles
+
+.dash-text-footnote {
   @extend .dash-text-base;
-  font-weight: bold;
-  font-size: units(2.0);
-  margin-bottom: 0.5em;
+  @extend .dash-text-size-alpha;
+  @extend .dash-text-weight-gamma;
+  color: $dash-colour-text;
+  letter-spacing: .03em;
+  line-height: 1.75;
+}
+
+.dash-text-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .dash-text-code {
   @extend .dash-text-base;
+  @extend .dash-text-size-beta;
   font-family: monospace;
-  padding: units(0.3) units(0.8);
-  position: relative;
-
-  &:before {
-    content: '';
-    border: 1px solid currentColor;
-    opacity: 0.1;
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    border-radius: units(0.6);
-  }
 }
 
-.dash-text-caption {
-  font-family: proxima-nova, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 800;
-  font-size: units(1.2);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+// .dash-text-default {
+//   h1 {
+//     @extend .dash-text;
+//     @extend .dash-text-size-large;
+//     @extend .dash-text-weight-extrabold;
+//   }
+// }
 
-  @include dash-width(medium) {
-    font-size: units(1.4);
-  }
-}
-
-.dash-text-caption-small {
-  @extend .dash-text-caption;
-  font-size: units(1.1);
-  font-weight: 700;
-  letter-spacing: units(0.14);
-
-  @include dash-width(medium) {
-    font-size: units(1);
-  }
-}
+// .dash-text-body {
+//   @extend .dash-text-base;
+//
+//   a { @extend .dash-text-link; }
+//   p { @extend .dash-text-paragraph; }
+//   code { @extend .dash-text-code; }
+// }
+//
+// .dash-text-base {
+//   font-family: proxima-nova, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   font-size: units(1.6);
+//   font-weight: 400;
+//   text-transform: unset;
+//   letter-spacing: unset;
+//   color: $dash-colour-text;
+// }
+//
+// .dash-text-link {
+//   @extend .dash-text-base;
+//   font-weight: 600;
+//   text-decoration: underline;
+//   cursor: pointer;
+// }
+//
+// .dash-text-paragraph {
+//   @extend .dash-text-base;
+//   margin-bottom: 1.5em;
+//   line-height: 1.4;
+// }
+//
+// .dash-text-heading {
+//   @extend .dash-text-base;
+//   font-weight: 800;
+//   font-size: units(2.4);
+//   margin-bottom: 0.5em;
+// }
+//
+// .dash-text-subheading {
+//   @extend .dash-text-base;
+//   font-weight: bold;
+//   font-size: units(2.0);
+//   margin-bottom: 0.5em;
+// }
+//
+// .dash-text-code {
+//   @extend .dash-text-base;
+//   font-family: monospace;
+//   padding: units(0.3) units(0.8);
+//   position: relative;
+//
+//   &:before {
+//     content: '';
+//     border: 1px solid currentColor;
+//     opacity: 0.1;
+//     position: absolute;
+//     top: 0; right: 0; bottom: 0; left: 0;
+//     border-radius: units(0.6);
+//   }
+// }
+//
+// .dash-text-caption {
+//   font-family: proxima-nova, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   font-weight: 800;
+//   font-size: units(1.2);
+//   text-transform: uppercase;
+//   letter-spacing: 0.05em;
+//
+//   @include dash-width(medium) {
+//     font-size: units(1.4);
+//   }
+// }
+//
+// .dash-text-caption-small {
+//   @extend .dash-text-caption;
+//   font-size: units(1.1);
+//   font-weight: 700;
+//   letter-spacing: units(0.14);
+//
+//   @include dash-width(medium) {
+//     font-size: units(1);
+//   }
+// }

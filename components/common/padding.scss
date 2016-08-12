@@ -1,5 +1,23 @@
 @import "units";
 
+$padding: units(8);
+
+// TODO: multiple madding sizes!
+
 .dash-pad {
+  padding: $padding;
+}
+
+.dash-pad-vertical {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+.dash-pad-horizontal {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+.dash-pad-small {
   padding: units(3);
 }

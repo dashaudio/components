@@ -8,7 +8,7 @@
   display: block;
 
   $small-padding: units(2);
-  $large-padding: units(6);
+  $large-padding: units(8);
 
   margin-left: auto;
   margin-right: auto;
@@ -21,13 +21,11 @@
   }
 
   @include dash-width(large) {
-    // max-width: $dash-width-large;
+    max-width: $dash-width-large;
   }
 
   @include dash-width(huge) {
-    // max-width: $dash-width-huge;
-    padding-left: 15%;
-    padding-right: 15%;
+    max-width: $dash-width-huge;
   }
 }
 

@@ -15,7 +15,7 @@ $duration: 0.25s;
 }
 
 .dash-notification {
-  @extend .dash-text-body;
+  @extend .dash-text-body !optional;
   animation: dash-notification-slide-down $duration ease-out;
   animation-fill-mode: both;
   font-weight: 500;

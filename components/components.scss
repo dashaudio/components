@@ -6,6 +6,8 @@
 @import "button/group/group";
 @import "checklist-item/checklist-item";
 @import "divider/divider";
+@import "headline-box/headline-box";
+@import "hero/hero";
 @import "icon/icon";
 @import "label/label";
 @import "note/note";
@@ -20,8 +22,11 @@
 @import "common/body";
 @import "common/text";
 @import "common/padding";
+@import "common/flex";
 
 @import "common/external/auth0";
+@import "common/transition/colour";
+@import "common/defaults";
 
 .dash-unresolved { opacity: 0; }
 .dash-resolved { opacity: 1; }

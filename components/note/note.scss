@@ -4,7 +4,7 @@
 @import "../common/text";
 
 .dash-note {
-  @extend .dash-text-body;
+  @extend .dash-text-body !optional;
   color: $dash-colour-medium;
   display: block;
   padding: units(1) units(1.5);
