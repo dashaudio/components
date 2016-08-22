@@ -14,12 +14,15 @@
 .dash-navigation-item {
   @extend .dash-text-caps;
   @extend .dash-text-size-beta;
+  @extend .dash-text-leading-label;
+
   display: inline-flex;
   padding: $dash-size-gamma;
   flex-grow: 0;
   color: $dash-colour-white;
 
   a {
+    @extend .dash-text-leading-label;
     color: $dash-colour-white;
 
     &:hover {

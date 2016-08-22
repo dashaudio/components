@@ -50,13 +50,23 @@ $dash-text-weights: (
 
 @include dash-text-weight-all;
 
+// Leading
+
+.dash-text-leading-body {
+  line-height: 1.5;
+}
+
+.dash-text-leading-label {
+  line-height: 1.0;
+}
+
 // Basic styles
 
 .dash-text-base {
+  @extend .dash-text-leading-body;
   font-family: proxima-nova, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
   color: $dash-colour-text;
 }
 
