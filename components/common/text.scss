@@ -50,13 +50,23 @@ $dash-text-weights: (
 
 @include dash-text-weight-all;
 
+// Leading
+
+.dash-text-leading-body {
+  line-height: 1.5;
+}
+
+.dash-text-leading-label {
+  line-height: 1.0;
+}
+
 // Basic styles
 
 .dash-text-base {
+  @extend .dash-text-leading-body;
   font-family: proxima-nova, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
   color: $dash-colour-text;
 }
 
@@ -104,7 +114,7 @@ $dash-text-headings: (
     margin: 1em 0;
 
     &:first-of-type {
-      margin-top: 0;
+      // margin-top: 0;
     }
   }
 }
@@ -119,6 +129,7 @@ $dash-text-headings: (
   @extend .dash-text-base;
   @extend .dash-text-size-alpha;
   @extend .dash-text-weight-gamma;
+  @include dash-colour-all;
   color: $dash-colour-text;
   letter-spacing: .03em;
   line-height: 1.75;
@@ -133,98 +144,7 @@ $dash-text-headings: (
   @extend .dash-text-base;
   @extend .dash-text-size-beta;
   font-family: monospace;
+  max-width: 100%;
+  overflow: auto;
+  margin: 1em 0;
 }
-
-// .dash-text-default {
-//   h1 {
-//     @extend .dash-text;
-//     @extend .dash-text-size-large;
-//     @extend .dash-text-weight-extrabold;
-//   }
-// }
-
-// .dash-text-body {
-//   @extend .dash-text-base;
-//
-//   a { @extend .dash-text-link; }
-//   p { @extend .dash-text-paragraph; }
-//   code { @extend .dash-text-code; }
-// }
-//
-// .dash-text-base {
-//   font-family: proxima-nova, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   font-size: units(1.6);
-//   font-weight: 400;
-//   text-transform: unset;
-//   letter-spacing: unset;
-//   color: $dash-colour-text;
-// }
-//
-// .dash-text-link {
-//   @extend .dash-text-base;
-//   font-weight: 600;
-//   text-decoration: underline;
-//   cursor: pointer;
-// }
-//
-// .dash-text-paragraph {
-//   @extend .dash-text-base;
-//   margin-bottom: 1.5em;
-//   line-height: 1.4;
-// }
-//
-// .dash-text-heading {
-//   @extend .dash-text-base;
-//   font-weight: 800;
-//   font-size: units(2.4);
-//   margin-bottom: 0.5em;
-// }
-//
-// .dash-text-subheading {
-//   @extend .dash-text-base;
-//   font-weight: bold;
-//   font-size: units(2.0);
-//   margin-bottom: 0.5em;
-// }
-//
-// .dash-text-code {
-//   @extend .dash-text-base;
-//   font-family: monospace;
-//   padding: units(0.3) units(0.8);
-//   position: relative;
-//
-//   &:before {
-//     content: '';
-//     border: 1px solid currentColor;
-//     opacity: 0.1;
-//     position: absolute;
-//     top: 0; right: 0; bottom: 0; left: 0;
-//     border-radius: units(0.6);
-//   }
-// }
-//
-// .dash-text-caption {
-//   font-family: proxima-nova, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   font-weight: 800;
-//   font-size: units(1.2);
-//   text-transform: uppercase;
-//   letter-spacing: 0.05em;
-//
-//   @include dash-width(medium) {
-//     font-size: units(1.4);
-//   }
-// }
-//
-// .dash-text-caption-small {
-//   @extend .dash-text-caption;
-//   font-size: units(1.1);
-//   font-weight: 700;
-//   letter-spacing: units(0.14);
-//
-//   @include dash-width(medium) {
-//     font-size: units(1);
-//   }
-// }

@@ -7,14 +7,20 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
     <meta name="description" content="Dash web component guide." />
     <base href="{{domain}}/">
-    <link rel="stylesheet" href="guide/guide.css" />
+    <link rel="stylesheet" href="guide.css" />
     <link rel="stylesheet" href="components.css" />
   </head>
-  <body class="dash-body dash-unresolved">
-    <dash-wrapper>
-      <!-- <p>Dash Components</p> -->
-    </dash-wrapper>
+
+  <body class="dash-body">
+    <ul class="dash-navigation">
+      <li class="dash-navigation-item"><a href="">Home</a></li>
+      <li class="dash-navigation-item"><a href="reference/">Reference</a></li>
+      <span class="dash-navigation-spacer"></span>
+      <li class="dash-navigation-item"><a href="">Contact Us</a></li>
+    </ul>
+
     {% block main %}{% endblock %}
+
     <script src="components.js"></script>
   </body>
 </html>
