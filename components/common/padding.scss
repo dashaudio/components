@@ -1,23 +1,38 @@
-@import "units";
+@import "size";
 
-$padding: units(8);
+$sides: (
+  'top', 'right', 'bottom', 'left'
+);
 
-// TODO: multiple madding sizes!
+@mixin dash-pad-all {
+  $parent: &;
+  $selector: 'dash-pad';
 
-.dash-pad {
-  padding: $padding;
+  @at-root #{$parent}.#{$selector} {
+    padding: map-get($dash-sizes, 'delta');
+  }
+
+  @each $side in $sides {
+    $selector: 'dash-pad-#{$side}';
+    @at-root #{$parent}.#{$selector} {
+      padding-#{$side}: map-get($dash-sizes, 'delta');;
+    }
+  }
+
+  @each $name, $size in $dash-sizes {
+    $selector: 'dash-pad-#{$name}';
+
+    @at-root #{$parent}.#{$selector} {
+      padding: $size;
+    }
+
+    @each $side in $sides {
+      $selector: 'dash-pad-#{$side}-#{$name}';
+      @at-root #{$parent}.#{$selector} {
+        padding-#{$side}: $size;
+      }
+    }
+  }
 }
 
-.dash-pad-vertical {
-  padding-top: $padding;
-  padding-bottom: $padding;
-}
-
-.dash-pad-horizontal {
-  padding-left: $padding;
-  padding-right: $padding;
-}
-
-.dash-pad-small {
-  padding: units(3);
-}
+@include dash-pad-all;

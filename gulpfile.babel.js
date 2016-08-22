@@ -23,35 +23,35 @@ gulp.task('components', () => {
     .pipe(replace({ global: { domain: DASH_ASSETS_BASE, config } }))
     .pipe(buffer())
     .pipe(gulp.dest('build/'))
-    .pipe(connect.reload())
+    // .pipe(connect.reload())
 })
 
 gulp.task('styles', () => {
-  gulp.src('components/components.scss')
+  return gulp.src('components/components.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(replace({ global: { domain: DASH_ASSETS_BASE, config } }))
     .pipe(nano({ safe: true }))
     .pipe(gulp.dest('build/'))
-    .pipe(connect.reload())
+    // .pipe(connect.reload())
 })
 
 gulp.task('fonts', () => {
-  gulp.src('fonts/**')
+  return gulp.src('fonts/**')
     .pipe(gulp.dest('build/fonts/'))
-    .pipe(connect.reload())
+    // .pipe(connect.reload())
 })
 
 gulp.task('images', () => {
-  gulp.src('images/**')
+  return gulp.src('images/**')
     .pipe(gulp.dest('build/images/'))
-    .pipe(connect.reload())
+    // .pipe(connect.reload())
 })
 
 gulp.task('guide', () => {
   return gulp.src('guide/**/*.html')
     .pipe(render({ path: 'guide/', data: { domain: DASH_ASSETS_BASE, version, config } }))
     .pipe(add('guide/**/*.css'))
-    .pipe(gulp.dest('build/guide/'))
+    .pipe(gulp.dest('build/'))
 })
 
 gulp.task('home', () => {
@@ -79,6 +79,6 @@ gulp.task('test', (done) => {
   // }, done).start();
 });
 
-gulp.task('build', ['components', 'styles', 'fonts', 'images', 'guide', 'home']);
+gulp.task('build', ['components', 'styles', 'fonts', 'images', 'guide']);
 gulp.task('serve', ['build', 'connect', 'watch']);
 gulp.task('default', ['build']);
