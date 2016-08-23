@@ -1,43 +1,27 @@
 @import "../common/layout/width";
 @import "../common/clearfix";
-@import "../common/units";
+@import "../common/size";
 
 .dash-wrapper {
-  @extend .dash-clearfix;
-
-  display: block;
-
-  $small-padding: units(2);
-  $large-padding: units(8);
-
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: $small-padding;
-  padding-right: $small-padding;
+  $padding: $dash-size-gamma;
+  padding-left: $padding;
+  padding-right: $padding;
 
   @include dash-width(medium) {
-    padding-left: $large-padding;
-    padding-right: $large-padding;
+    $padding: $dash-size-delta;
+    padding-left: $padding;
+    padding-right: $padding;
   }
 
   @include dash-width(large) {
-    max-width: $dash-width-large;
+    $padding: calc(#{$dash-size-delta} + (100vw - #{$dash-width-large}) / 2);
+    padding-left: $padding;
+    padding-right: $padding;
   }
 
   @include dash-width(huge) {
-    max-width: $dash-width-huge;
-  }
-}
-
-.dash-wrapper-vertical {
-  $small-padding: units(2);
-  $large-padding: units(6);
-
-  padding-top: $small-padding;
-  padding-bottom: $small-padding;
-
-  @include dash-width(medium) {
-    padding-top: $large-padding;
-    padding-bottom: $large-padding;
+    $padding: calc(#{$dash-size-theta} + (100vw - #{$dash-width-huge}) / 2);
+    padding-left: $padding;
+    padding-right: $padding;
   }
 }

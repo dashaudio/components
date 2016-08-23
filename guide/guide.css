@@ -5,10 +5,16 @@
 }
 
 .guide-column {
-  box-sizing: border-box;
   width: 33.333%;
   float: left;
   padding: 0 30px;
+}
+
+.guide-tile {
+  width: 33.333%;
+  float: left;
+  padding: 150px 0;
+  text-align: center;
 }
 
 .guide-column:first-of-type {

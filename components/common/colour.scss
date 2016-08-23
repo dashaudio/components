@@ -57,7 +57,11 @@ $dash-colours: (
 @include dash-colour-all;
 @include dash-colour-background-all;
 
+// Miscellaneous
 
+.dash-disabled {
+  opacity: 0.35;
+}
 
 
 

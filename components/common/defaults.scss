@@ -9,6 +9,7 @@ h3 { @extend .dash-text-heading-gamma; }
 h4 { @extend .dash-text-heading-delta; }
 
 body { @extend .dash-text-body; }
+p { @extend .dash-text-body; }
 a { @extend .dash-text-link; }
 caption { @extend .dash-text-footnote; }
 pre { @extend .dash-text-code; }
